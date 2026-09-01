@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06152b">
+<meta name="description" content="Science10 - Detailed CBSE Class 10 Science Learning Website">
+<title>Science10 | CBSE Class 10 Science</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#040b17;
+    --bg2:#07172c;
+    --card:#0a203b;
+    --card2:#0d2949;
+    --blue:#1683ff;
+    --cyan:#20d9ff;
+    --text:#f0f7ff;
+    --muted:#a9bfd7;
+    --border:rgba(65,165,255,.22);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+    radial-gradient(circle at 10% 10%,rgba(22,131,255,.15),transparent 30%),
+    radial-gradient(circle at 90% 30%,rgba(32,217,255,.08),transparent 25%),
+    var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+button,input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#030914;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#126ed4;
+    border-radius:10px;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(4,11,23,.9);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+    max-width:1250px;
+    height:72px;
+    margin:auto;
+    padding:0 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:21px;
+    font-weight:800;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+    background:linear-gradient(135deg,var(--blue),var(--cyan));
+    box-shadow:0 0 25px rgba(22,131,255,.35);
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,#50baff,#20d9ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:27px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:27px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:700px;
+    padding:145px 22px 90px;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid var(--border);
+    border-radius:30px;
+    color:#65bfff;
+    background:rgba(22,131,255,.08);
+    font-size:13px;
+    margin-bottom:20px;
+    animation:up .7s ease;
+}
+
+.hero h1{
+    max-width:900px;
+    font-size:clamp(45px,7vw,82px);
+    line-height:1;
+    letter-spacing:-3px;
+    animation:up .8s ease;
+}
+
+.hero p{
+    max-width:750px;
+    margin:25px 0;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.8;
+    animation:up 1s ease;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 21px;
+    border-radius:12px;
+    border:0;
+    font-weight:700;
+    transition:.25s;
+}
+
+.primary{
+    background:linear-gradient(135deg,var(--blue),var(--cyan));
+    color:white;
+}
+
+.secondary{
+    background:#0a1f3a;
+    border:1px solid var(--border);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* STATS */
+
+.stats{
+    max-width:1100px;
+    margin:-20px auto 60px;
+    padding:0 22px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:rgba(10,32,59,.9);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+    text-align:center;
+}
+
+.stat-number{
+    font-size:30px;
+    color:#54baff;
+    font-weight:800;
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* SECTIONS */
+
+section{
+    max-width:1250px;
+    margin:auto;
+    padding:80px 22px;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.heading span{
+    color:#4eb5ff;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-weight:bold;
+}
+
+.heading h2{
+    font-size:42px;
+    margin:8px 0;
+}
+
+.heading p{
+    color:var(--muted);
+    max-width:700px;
+    margin:auto;
+}
+
+/* SEARCH */
+
+.search{
+    max-width:800px;
+    margin:0 auto 30px;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    padding:18px 20px 18px 50px;
+    background:#081c35;
+    color:white;
+    border:1px solid var(--border);
+    border-radius:15px;
+    outline:none;
+}
+
+.search input:focus{
+    border-color:#1683ff;
+}
+
+.search-icon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:19px;
+}
+
+/* FILTER */
+
+.filters{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.filter{
+    background:#081c35;
+    color:var(--muted);
+    border:1px solid var(--border);
+    padding:10px 17px;
+    border-radius:30px;
+}
+
+.filter.active,
+.filter:hover{
+    color:white;
+    background:#126ed4;
+}
+
+/* CARDS */
+
+.chapter-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.chapter{
+    background:linear-gradient(145deg,#0a2442,#07182e);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    min-height:270px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.chapter:hover{
+    transform:translateY(-7px);
+    border-color:rgba(65,165,255,.65);
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.number{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:rgba(22,131,255,.14);
+    color:#5bbcff;
+    font-weight:800;
+    margin-bottom:16px;
+}
+
+.subject{
+    color:#4eb7ff;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-weight:bold;
+}
+
+.chapter h3{
+    font-size:20px;
+    margin:7px 0;
+}
+
+.chapter p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.open{
+    display:inline-block;
+    margin-top:16px;
+    color:#53baff;
+    font-weight:bold;
+    font-size:14px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:#091f3a;
+    border:1px solid var(--border);
+    padding:28px;
+    border-radius:20px;
+}
+
+.feature-icon{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.feature p{
+    color:var(--muted);
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(8px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(950px,100%);
+    max-height:90vh;
+    overflow-y:auto;
+    background:#071a31;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:32px;
+    box-shadow:0 30px 90px rgba(0,0,0,.6);
+    animation:scale .25s ease;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:flex-start;
+    margin-bottom:25px;
+}
+
+.modal-head h2{
+    font-size:32px;
+    line-height:1.2;
+}
+
+.close{
+    min-width:40px;
+    height:40px;
+    background:#0c2949;
+    color:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    font-size:21px;
+}
+
+.content-block{
+    margin:27px 0;
+}
+
+.content-block h3{
+    color:#52baff;
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.content-block p{
+    color:#c2d3e5;
+    margin-bottom:10px;
+}
+
+.content-block ul,
+.content-block ol{
+    padding-left:22px;
+    color:#c2d3e5;
+}
+
+.content-block li{
+    margin:8px 0;
+}
+
+.definition{
+    background:#091f39;
+    border-left:4px solid #1683ff;
+    padding:13px 15px;
+    margin:10px 0;
+    border-radius:8px;
+}
+
+.formula{
+    font-family:monospace;
+    background:#041020;
+    border-left:4px solid #20d9ff;
+    padding:14px;
+    border-radius:9px;
+    margin:10px 0;
+    overflow-x:auto;
+}
+
+.example{
+    background:#0a2948;
+    border:1px solid var(--border);
+    padding:15px;
+    border-radius:10px;
+    margin:10px 0;
+}
+
+/* REVISION */
+
+.revision{
+    background:linear-gradient(135deg,rgba(22,131,255,.14),rgba(32,217,255,.04));
+    border:1px solid var(--border);
+    border-radius:25px;
+    text-align:center;
+    padding:45px 25px;
+}
+
+.revision h2{
+    font-size:35px;
+}
+
+.revision p{
+    max-width:700px;
+    margin:12px auto 25px;
+    color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+    background:#030913;
+    border-top:1px solid var(--border);
+    text-align:center;
+    padding:35px 20px;
+}
+
+footer strong{
+    color:#50baff;
+}
+
+footer p{
+    color:#718aa5;
+    font-size:14px;
+}
+
+/* NO RESULTS */
+
+.no-results{
+    display:none;
+    text-align:center;
+    color:var(--muted);
+    padding:40px;
+}
+
+.no-results.show{
+    display:block;
+}
+
+/* ANIMATION */
+
+@keyframes up{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes scale{
+    from{
+        opacity:0;
+        transform:scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .chapter-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        width:100%;
+        padding:20px;
+        background:#06162b;
+        flex-direction:column;
+        border-bottom:1px solid var(--border);
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        min-height:650px;
+        padding-top:130px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .chapter-grid,
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .heading h2{
+        font-size:32px;
+    }
+
+    .modal-box{
+        padding:21px;
+    }
+
+    .modal-head h2{
+        font-size:25px;
+    }
+}
+
+@media(max-width:400px){
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav class="navbar">
+<div class="nav-inner">
+
+<a href="#home" class="logo">
+<span class="logo-icon">⚗</span>
+Science<span class="gradient">10</span>
+</a>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home" onclick="closeMenu()">Home</a></li>
+<li><a href="#chapters" onclick="closeMenu()">Chapters</a></li>
+<li><a href="#features" onclick="closeMenu()">Features</a></li>
+<li><a href="#revision" onclick="closeMenu()">Revision</a></li>
+</ul>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">🔬 CBSE CLASS 10 • SCIENCE LEARNING HUB</div>
+
+<h1>
+Learn Science.<br>
+<span class="gradient">Understand It.</span>
+</h1>
+
+<p>
+Welcome to Science10 — an interactive learning website designed
+for Class 10 students. Explore Chemistry, Biology and Physics
+with detailed explanations, definitions, formulas, examples,
+revision points and important questions.
+</p>
+
+<div class="hero-buttons">
+
+<a class="btn primary" href="#chapters">
+📚 Explore Chapters
+</a>
+
+<a class="btn secondary" href="#revision">
+⚡ Quick Revision
+</a>
+
+</div>
+
+</div>
+</header>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stats-grid">
+
+<div class="stat">
+<div class="stat-number">3</div>
+<div class="stat-label">Science Branches</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">13</div>
+<div class="stat-label">Core Chapters</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">100+</div>
+<div class="stat-label">Study Points</div>
+</div>
+
+<div class="stat">
+<div class="stat-number">∞</div>
+<div class="stat-label">Learning</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- CHAPTER SECTION -->
+
+<section id="chapters">
+
+<div class="heading">
+
+<span>Study Hub</span>
+
+<h2>Class 10 Science Chapters</h2>
+
+<p>
+Select a subject or search for a chapter. Click a chapter
+to open its detailed learning material.
+</p>
+
+</div>
+
+<div class="search">
+
+<span class="search-icon">🔎</span>
+
+<input
+type="search"
+id="search"
+placeholder="Search chapter, topic or subject..."
+oninput="render()"
+>
+
+</div>
+
+<div class="filters">
+
+<button class="filter active" onclick="setFilter('all',this)">
+All
+</button>
+
+<button class="filter" onclick="setFilter('chemistry',this)">
+⚗ Chemistry
+</button>
+
+<button class="filter" onclick="setFilter('biology',this)">
+🧬 Biology
+</button>
+
+<button class="filter" onclick="setFilter('physics',this)">
+⚡ Physics
+</button>
+
+</div>
+
+<div class="chapter-grid" id="chapterGrid"></div>
+
+<div class="no-results" id="noResults">
+<h3>🔍 No results found</h3>
+<p>Try another chapter or keyword.</p>
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section id="features">
+
+<div class="heading">
+
+<span>Why Science10?</span>
+
+<h2>Built for Better Learning</h2>
+
+<p>
+The website combines study material with interactive
+technology to make revision easier.
+</p>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+<div class="feature-icon">📖</div>
+<h3>Detailed Notes</h3>
+<p>
+Every chapter contains explanations, definitions,
+concepts and important scientific ideas.
+</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">📐</div>
+<h3>Formula Bank</h3>
+<p>
+Important Physics formulas and mathematical relationships
+are collected inside the chapter content.
+</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🧪</div>
+<h3>Examples</h3>
+<p>
+Chemical equations and real-world examples help connect
+theory with practical applications.
+</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🧠</div>
+<h3>Concept Learning</h3>
+<p>
+Complex scientific ideas are divided into smaller,
+easier sections.
+</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">⭐</div>
+<h3>Revision Points</h3>
+<p>
+Important points are highlighted so students can revise
+chapters quickly.
+</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">📱</div>
+<h3>Responsive</h3>
+<p>
+The website adapts to computers, tablets and mobile phones.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- REVISION -->
+
+<section id="revision">
+
+<div class="revision">
+
+<h2>⚡ Ready for Revision?</h2>
+
+<p>
+Use the chapter search above to find a topic quickly.
+Open a chapter to study its concepts, definitions,
+formulas, examples, revision points and questions.
+</p>
+
+<a href="#chapters" class="btn primary">
+Start Revising →
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<strong>🔬 Science10</strong>
+
+<p>CBSE Class 10 Science Learning Website</p>
+
+<p>Chemistry • Biology • Physics</p>
+
+</footer>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<div class="modal-head">
+
+<div>
+
+<div class="subject" id="modalSubject"></div>
+
+<h2 id="modalTitle"></h2>
+
+</div>
+
+<button class="close" onclick="closeModal()">×</button>
+
+</div>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   CHAPTER DATABASE
+========================================================= */
+
+const chapters = [
+
+/* ================= CHEMISTRY ================= */
+
+{
+id:1,
+subject:"chemistry",
+number:"01",
+title:"Chemical Reactions and Equations",
+description:"Understand chemical reactions, equations, balancing, reaction types, oxidation, corrosion and rancidity.",
+
+intro:
+"Chemical reactions are processes in which substances undergo chemical changes and form new substances. During a reaction, atoms are rearranged and the products generally have properties different from those of the reactants.",
+
+definitions:[
+["Chemical Reaction","A process in which one or more substances change into new substances with different properties."],
+["Reactant","A substance that takes part in a chemical reaction."],
+["Product","A new substance formed as a result of a chemical reaction."],
+["Chemical Equation","A symbolic representation of a chemical reaction using chemical formulae and symbols."],
+["Oxidation","A process involving addition of oxygen, removal of hydrogen or loss of electrons."],
+["Reduction","A process involving removal of oxygen, addition of hydrogen or gain of electrons."]
+],
+
+concepts:[
+"Chemical reactions may be recognised by changes in colour, temperature, state, formation of a precipitate or evolution of a gas.",
+"Chemical equations should be balanced so that the number of atoms of each element remains the same on both sides.",
+"A combination reaction produces a single product from two or more reactants.",
+"A decomposition reaction breaks a compound into simpler substances.",
+"A displacement reaction occurs when a more reactive element displaces a less reactive element.",
+"Double displacement reactions involve exchange of ions between two compounds.",
+"Oxidation and reduction often occur together and such reactions are called redox reactions.",
+"Corrosion is the gradual deterioration of metals due to environmental reactions.",
+"Rancidity is the oxidation of fats and oils, which can produce unpleasant taste and smell."
+],
+
+formulas:[
+"Reactants → Products",
+"Combination: A + B → AB",
+"Decomposition: AB → A + B",
+"Displacement: A + BC → AC + B",
+"Double displacement: AB + CD → AD + CB"
+],
+
+examples:[
+"2Mg + O₂ → 2MgO — combination reaction.",
+"CaCO₃ → CaO + CO₂ — decomposition reaction.",
+"Zn + CuSO₄ → ZnSO₄ + Cu — displacement reaction.",
+"AgNO₃ + NaCl → AgCl + NaNO₃ — double displacement reaction."
+],
+
+applications:[
+"Chemical reactions are used in cooking, digestion, respiration, combustion and industrial manufacturing.",
+"Corrosion prevention is important for bridges, vehicles, buildings and machines.",
+"Refrigeration and antioxidants can help slow rancidity in food."
+],
+
+revision:[
+"Learn the five major types of chemical reactions.",
+"Practise balancing chemical equations.",
+"Understand oxidation and reduction.",
+"Remember the meaning of corrosion and rancidity."
+],
+
+questions:[
+"What is a chemical reaction?",
+"Why should chemical equations be balanced?",
+"Explain combination and decomposition reactions with examples.",
+"What is a displacement reaction?",
+"What is a redox reaction?",
+"Explain corrosion and methods of preventing it.",
+"What is rancidity?"
+]
+},
+
+{
+id:2,
+subject:"chemistry",
+number:"02",
+title:"Acids, Bases and Salts",
+description:"Learn acids, bases, indicators, pH, neutralisation and important salts.",
+
+intro:
+"Acids and bases are important groups of compounds found in laboratories, industries, food and everyday household substances. Their properties can be studied using indicators and the pH scale.",
+
+definitions:[
+["Acid","A substance that produces hydrogen ions in aqueous solution."],
+["Base","A substance that produces hydroxide ions in aqueous solution."],
+["Indicator","A substance that changes colour depending on whether a solution is acidic or basic."],
+["Neutralisation","The reaction between an acid and a base to form salt and water."],
+["pH","A scale used to express the acidic or basic nature of a solution."]
+],
+
+concepts:[
+"Acids show acidic properties in aqueous solution because they produce ions.",
+"Bases react with acids and can neutralise them.",
+"Litmus, methyl orange and phenolphthalein are common indicators.",
+"The pH scale generally ranges from 0 to 14.",
+"Strongly acidic solutions have low pH values, while strongly basic solutions have high pH values.",
+"Neutralisation reactions are useful in agriculture, medicine and industry.",
+"Important salts studied in this chapter include baking soda, washing soda, bleaching powder and plaster of Paris."
+],
+
+formulas:[
+"Acid + Base → Salt + Water",
+"pH < 7 → Acidic",
+"pH = 7 → Neutral",
+"pH > 7 → Basic"
+],
+
+examples:[
+"HCl + NaOH → NaCl + H₂O",
+"NaHCO₃ + HCl → NaCl + H₂O + CO₂",
+"Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O"
+],
+
+applications:[
+"Baking soda is used in baking and some antacid preparations.",
+"Washing soda is used in cleaning and in some industrial processes.",
+"Bleaching powder is used for disinfection and bleaching.",
+"Plaster of Paris is used for making casts and moulds."
+],
+
+revision:[
+"Learn indicator colour changes.",
+"Understand the pH scale.",
+"Remember important salt names and uses.",
+"Practise neutralisation reactions."
+],
+
+questions:[
+"What is an acid?",
+"What is a base?",
+"What is pH?",
+"Explain neutralisation with an equation.",
+"Write uses of baking soda.",
+"What is washing soda?",
+"What is bleaching powder?"
+]
+},
+
+{
+id:3,
+subject:"chemistry",
+number:"03",
+title:"Metals and Non-metals",
+description:"Study properties, reactivity series, ionic compounds, extraction, corrosion and alloys.",
+
+intro:
+"Metals and non-metals have different physical and chemical properties. Their behaviour depends on their atomic structure and the way their atoms form bonds.",
+
+definitions:[
+["Mineral","A naturally occurring substance containing a metal or its compound."],
+["Ore","A mineral from which a metal can be extracted economically."],
+["Alloy","A homogeneous mixture of two or more metals, or a metal and a non-metal."],
+["Ionic Compound","A compound formed through electrostatic attraction between oppositely charged ions."]
+],
+
+concepts:[
+"Metals are generally lustrous, malleable, ductile and good conductors.",
+"Non-metals generally do not show the typical metallic properties.",
+"The reactivity series arranges metals according to their relative reactivity.",
+"Metals higher in the reactivity series can displace metals lower in the series from their compounds.",
+"Ionic compounds are generally hard and have high melting points.",
+"Extraction of metals depends on their position in the reactivity series.",
+"Corrosion can be prevented by methods such as painting, oiling, galvanising and alloying."
+],
+
+formulas:[
+"Metal + Oxygen → Metal Oxide",
+"Metal + Acid → Salt + Hydrogen",
+"Metal + Water → Metal Hydroxide/Oxide + Hydrogen"
+],
+
+examples:[
+"2Na + 2H₂O → 2NaOH + H₂",
+"Zn + 2HCl → ZnCl₂ + H₂",
+"Fe + CuSO₄ → FeSO₄ + Cu"
+],
+
+applications:[
+"Alloys are used to obtain materials with improved properties.",
+"Iron and steel are widely used in construction.",
+"Copper and aluminium are commonly used in electrical applications because of their conductivity."
+],
+
+revision:[
+"Learn the reactivity series.",
+"Understand ionic bond formation.",
+"Revise properties of metals and non-metals.",
+"Learn methods of preventing corrosion."
+],
+
+questions:[
+"What are the physical properties of metals?",
+"What is the reactivity series?",
+"What is an ionic compound?",
+"Why are ionic compounds generally hard?",
+"Why is sodium stored in kerosene?",
+"What is an alloy?",
+"How can corrosion be prevented?"
+]
+},
+
+{
+id:4,
+subject:"chemistry",
+number:"04",
+title:"Carbon and Its Compounds",
+description:"Understand carbon bonding, catenation, hydrocarbons, functional groups, reactions, soaps and detergents.",
+
+intro:
+"Carbon is one of the most important elements in chemistry because it forms an enormous variety of compounds. Its ability to form strong bonds with itself and other elements makes organic chemistry possible.",
+
+definitions:[
+["Covalent Bond","A bond formed by sharing electrons between atoms."],
+["Catenation","The ability of carbon atoms to form bonds with other carbon atoms and create chains or rings."],
+["Tetravalency","The ability of carbon to form four covalent bonds."],
+["Hydrocarbon","A compound containing only carbon and hydrogen."],
+["Functional Group","An atom or group of atoms that determines characteristic chemical properties of an organic compound."],
+["Homologous Series","A family of organic compounds having the same functional group and similar chemical properties."]
+],
+
+concepts:[
+"Carbon has four valence electrons and therefore forms four covalent bonds.",
+"Carbon shows catenation and can form straight chains, branched chains and rings.",
+"Saturated compounds contain only single bonds between carbon atoms.",
+"Unsaturated compounds contain double or triple bonds.",
+"Functional groups influence the chemical properties of organic compounds.",
+"Members of a homologous series have the same functional group and differ successively by a –CH₂– unit.",
+"Important reactions include combustion, oxidation, addition and substitution.",
+"Soaps and detergents help remove oily dirt by forming structures that interact with both water and grease."
+],
+
+formulas:[
+"Alkanes: CₙH₂ₙ₊₂",
+"Alkenes: CₙH₂ₙ",
+"Alkynes: CₙH₂ₙ₋₂"
+],
+
+examples:[
+"CH₄ — Methane",
+"C₂H₆ — Ethane",
+"C₂H₅OH — Ethanol",
+"CH₃COOH — Ethanoic acid"
+],
+
+applications:[
+"Ethanol is used as a solvent and in various industrial applications.",
+"Ethanoic acid is present in vinegar.",
+"Carbon compounds are used in fuels, medicines, plastics, fibres and many other materials."
+],
+
+revision:[
+"Remember tetravalency and catenation.",
+"Learn saturated and unsaturated compounds.",
+"Revise functional groups.",
+"Understand homologous series.",
+"Learn important reactions of carbon compounds."
+],
+
+questions:[
+"Why does carbon form so many compounds?",
+"What is catenation?",
+"What is tetravalency?",
+"Differentiate saturated and unsaturated compounds.",
+"What is a homologous series?",
+"What are functional groups?",
+"Explain the cleansing action of soap."
+]
+},
+
+/* ================= BIOLOGY ================= */
+
+{
+id:5,
+subject:"biology",
+number:"05",
+title:"Life Processes",
+description:"Study nutrition, respiration, transportation and excretion in plants and animals.",
+
+intro:
+"Life processes are the basic activities necessary for organisms to maintain and continue life. The major life processes studied here are nutrition, respiration, transportation and excretion.",
+
+definitions:[
+["Nutrition","The process by which organisms obtain and utilise nutrients."],
+["Respiration","A biochemical process that releases energy from food."],
+["Transportation","The movement of materials such as nutrients, gases and wastes within an organism."],
+["Excretion","The removal of metabolic waste products from the body."]
+],
+
+concepts:[
+"Plants prepare food through photosynthesis using carbon dioxide, water, light and chlorophyll.",
+"Human digestion involves mechanical and chemical breakdown of food.",
+"Respiration releases energy stored in food.",
+"Aerobic respiration uses oxygen, while anaerobic respiration occurs without oxygen.",
+"The human circulatory system transports oxygen, nutrients, hormones and wastes.",
+"The heart pumps blood through pulmonary and systemic circulation.",
+"Plants transport water and minerals through xylem and food through phloem.",
+"Kidneys remove nitrogenous wastes from blood and help maintain the internal chemical balance."
+],
+
+formulas:[
+"Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+"Glucose + Oxygen → Carbon dioxide + Water + Energy"
+],
+
+examples:[
+"Salivary amylase begins digestion of starch in the mouth.",
+"Gas exchange occurs in the alveoli of the lungs.",
+"Nephrons are the functional units of kidneys."
+],
+
+applications:[
+"Understanding life processes helps explain nutrition, exercise, breathing and health.",
+"Agriculture depends on understanding photosynthesis and plant transport."
+],
+
+revision:[
+"Learn the steps of human digestion.",
+"Differentiate aerobic and anaerobic respiration.",
+"Learn the structure and function of the heart.",
+"Understand the role of nephron.",
+"Revise xylem and phloem."
+],
+
+questions:[
+"What are life processes?",
+"Explain photosynthesis.",
+"Differentiate aerobic and anaerobic respiration.",
+"Describe double circulation.",
+"What is the function of haemoglobin?",
+"What is a nephron?",
+"Differentiate xylem and phloem."
+]
+},
+
+{
+id:6,
+subject:"biology",
+number:"06",
+title:"Control and Coordination",
+description:"Learn the nervous system, reflex action, brain, plant movements and hormones.",
+
+intro:
+"Organisms constantly receive information from their surroundings and respond to it. Control and coordination allow different parts of an organism to work together.",
+
+definitions:[
+["Stimulus","A change in the environment that produces a response."],
+["Response","A reaction of an organism to a stimulus."],
+["Reflex Action","A quick and automatic response to a stimulus."],
+["Hormone","A chemical messenger produced by endocrine glands."]
+],
+
+concepts:[
+"The nervous system allows organisms to detect stimuli and coordinate rapid responses.",
+"Neurons are specialised cells that transmit nerve impulses.",
+"The brain and spinal cord form the central nervous system.",
+"A reflex arc provides a rapid pathway for many reflex responses.",
+"Plants respond to light, gravity, water and touch.",
+"Plant hormones such as auxin influence growth.",
+"Animal hormones help coordinate long-term processes such as growth and metabolism."
+],
+
+formulas:[
+"Stimulus → Receptor → Sensory neuron → CNS → Motor neuron → Effector"
+],
+
+examples:[
+"Pulling a hand away from a hot object is a reflex response.",
+"Growth of a plant shoot towards light is a response to a stimulus.",
+"Adrenaline prepares the body for increased activity during stressful situations."
+],
+
+applications:[
+"The nervous system enables movement, sensation and coordination.",
+"Hormones regulate many important body functions."
+],
+
+revision:[
+"Learn the structure of a neuron.",
+"Understand the reflex arc.",
+"Revise major parts of the brain.",
+"Learn important plant hormones.",
+"Learn major animal hormones and their functions."
+],
+
+questions:[
+"What is a stimulus?",
+"What is a reflex action?",
+"Explain a reflex arc.",
+"What are the main parts of the brain?",
+"What is the role of auxin?",
+"What are hormones?"
+]
+},
+
+{
+id:7,
+subject:"biology",
+number:"07",
+title:"How Do Organisms Reproduce?",
+description:"Understand asexual and sexual reproduction in plants and animals.",
+
+intro:
+"Reproduction is the process through which organisms produce new individuals. It is essential for the continuity of species.",
+
+definitions:[
+["Reproduction","The biological process by which organisms produce new individuals."],
+["Asexual Reproduction","Reproduction involving one parent without fusion of gametes."],
+["Sexual Reproduction","Reproduction involving formation and fusion of male and female gametes."],
+["Fertilisation","The fusion of male and female gametes to form a zygote."]
+],
+
+concepts:[
+"Asexual reproduction generally involves a single parent and does not involve fusion of gametes.",
+"Binary fission, budding, fragmentation, spore formation and vegetative propagation are examples of asexual reproduction.",
+"Sexual reproduction involves specialised reproductive cells called gametes.",
+"Sexual reproduction generates variation among offspring.",
+"Flowering plants reproduce sexually through their flowers.",
+"Pollination transfers pollen to the appropriate part of a flower.",
+"Fertilisation produces a zygote that develops into a new organism."
+],
+
+formulas:[
+"Male gamete + Female gamete → Zygote"
+],
+
+examples:[
+"Amoeba reproduces by binary fission.",
+"Hydra can reproduce through budding.",
+"Potato can reproduce vegetatively through its buds."
+],
+
+applications:[
+"Understanding reproduction is important in agriculture, conservation and human reproductive health."
+],
+
+revision:[
+"Differentiate sexual and asexual reproduction.",
+"Learn types of asexual reproduction.",
+"Know the major parts of a flower.",
+"Understand pollination and fertilisation."
+],
+
+questions:[
+"Why is reproduction important?",
+"What is binary fission?",
+"What is budding?",
+"Explain vegetative propagation.",
+"What is pollination?",
+"What is fertilisation?"
+]
+},
+
+{
+id:8,
+subject:"biology",
+number:"08",
+title:"Heredity",
+description:"Study genes, chromosomes, traits, Mendel's experiments and variation.",
+
+intro:
+"Heredity deals with the transmission of characteristics from parents to offspring. Genetics helps explain why offspring resemble their parents while also showing differences.",
+
+definitions:[
+["Heredity","Transmission of characteristics from parents to offspring."],
+["Gene","A unit of heredity that influences a particular characteristic."],
+["Trait","A specific characteristic of an organism."],
+["Variation","Differences in characteristics among individuals of the same species."]
+],
+
+concepts:[
+"Genes carry hereditary information.",
+"Genes are located on chromosomes.",
+"Mendel used pea plants to study inheritance patterns.",
+"A dominant trait can express itself in the presence of a corresponding recessive allele.",
+"Variation can result from genetic differences and environmental influences.",
+"During sexual reproduction, genetic material from two parents contributes to the offspring."
+],
+
+formulas:[
+"Typical monohybrid phenotypic ratio: 3 : 1",
+"Typical monohybrid genotypic ratio: 1 : 2 : 1"
+],
+
+examples:[
+"Mendel studied contrasting traits such as tall and dwarf pea plants.",
+"Eye colour and some other characteristics can have genetic components."
+],
+
+applications:[
+"Genetics is important in agriculture, medicine, biodiversity and evolutionary studies."
+],
+
+revision:[
+"Learn Mendel's terminology.",
+"Understand dominant and recessive traits.",
+"Practise monohybrid crosses.",
+"Understand genes and chromosomes.",
+"Learn the meaning of variation."
+],
+
+questions:[
+"What is heredity?",
+"What is a gene?",
+"Who was Gregor Mendel?",
+"What is a dominant trait?",
+"What is a recessive trait?",
+"What is variation?"
+]
+},
+
+{
+id:9,
+subject:"biology",
+number:"09",
+title:"Our Environment",
+description:"Explore ecosystems, food chains, trophic levels, energy transfer, ozone and waste.",
+
+intro:
+"An environment includes living organisms and the physical conditions around them. Ecosystems describe how organisms interact with each other and with their surroundings.",
+
+definitions:[
+["Ecosystem","A functional unit consisting of living organisms and their physical environment."],
+["Food Chain","A sequence showing the transfer of food and energy between organisms."],
+["Trophic Level","A position occupied by an organism in a food chain."],
+["Decomposer","An organism that breaks down dead organic matter."],
+["Biodegradable","A substance that can be broken down naturally by microorganisms."]
+],
+
+concepts:[
+"An ecosystem consists of biotic and abiotic components.",
+"Producers make their own food and form the first trophic level.",
+"Consumers obtain energy by feeding on other organisms.",
+"Decomposers break down dead matter and recycle nutrients.",
+"Energy decreases as it moves from one trophic level to another.",
+"The 10% law describes the approximate fraction of energy transferred to the next trophic level.",
+"Non-biodegradable substances can persist in the environment.",
+"The ozone layer absorbs a significant portion of harmful ultraviolet radiation."
+],
+
+formulas:[
+"Approximate energy transfer to the next trophic level ≈ 10%"
+],
+
+examples:[
+"Grass → Grasshopper → Frog → Snake",
+"Plants act as producers.",
+"Fungi and many bacteria act as decomposers."
+],
+
+applications:[
+"Understanding ecosystems helps in wildlife conservation and environmental management.",
+"Waste segregation and recycling help reduce environmental impact."
+],
+
+revision:[
+"Learn food chains and trophic levels.",
+"Understand decomposers.",
+"Remember the 10% energy transfer concept.",
+"Differentiate biodegradable and non-biodegradable waste.",
+"Learn the importance of the ozone layer."
+],
+
+questions:[
+"What is an ecosystem?",
+"What is a food chain?",
+"What are trophic levels?",
+"What are decomposers?",
+"Explain the 10% law.",
+"Differentiate biodegradable and non-biodegradable substances.",
+"Why is the ozone layer important?"
+]
+},
+
+/* ================= PHYSICS ================= */
+
+{
+id:10,
+subject:"physics",
+number:"10",
+title:"Light – Reflection and Refraction",
+description:"Learn reflection, refraction, mirrors, lenses, ray diagrams and numerical formulas.",
+
+intro:
+"Light is a form of electromagnetic radiation that enables us to see objects. This chapter explains how light behaves when it strikes surfaces or travels between different transparent media.",
+
+definitions:[
+["Reflection","The bouncing back of light into the same medium after striking a surface."],
+["Refraction","The change in direction of light when it passes from one transparent medium to another."],
+["Principal Focus","The point on the principal axis where parallel rays converge or appear to diverge after reflection or refraction, depending on the optical device."]
+],
+
+concepts:[
+"The angle of incidence is equal to the angle of reflection.",
+"Concave mirrors can form different types of images depending on object position.",
+"Convex mirrors generally form virtual, erect and diminished images.",
+"Refraction occurs because the speed of light changes when it enters a different medium.",
+"Convex and concave lenses form images depending on the position of the object.",
+"Ray diagrams help determine image position, size and nature."
+],
+
+formulas:[
+"Mirror formula: 1/f = 1/v + 1/u",
+"Mirror magnification: m = hᵢ/hₒ = -v/u",
+"Lens formula: 1/f = 1/v - 1/u",
+"Lens magnification: m = hᵢ/hₒ = v/u"
+],
+
+examples:[
+"Convex mirrors are used as rear-view mirrors because they provide a wider field of view.",
+"Convex lenses can be used as magnifying glasses.",
+"A pencil partly immersed in water can appear displaced because of refraction."
+],
+
+applications:[
+"Mirrors are used in vehicles, optical instruments and solar applications.",
+"Lenses are used in cameras, spectacles, microscopes and telescopes."
+],
+
+revision:[
+"Learn the laws of reflection.",
+"Practise mirror and lens ray diagrams.",
+"Remember the sign convention.",
+"Practise numerical problems using the formulae."
+],
+
+questions:[
+"State the laws of reflection.",
+"What is refraction?",
+"Why are convex mirrors used as rear-view mirrors?",
+"Write the mirror formula.",
+"Write the lens formula.",
+"What is magnification?"
+]
+},
+
+{
+id:11,
+subject:"physics",
+number:"11",
+title:"The Human Eye and the Colourful World",
+description:"Understand the human eye, accommodation, vision defects, dispersion and scattering.",
+
+intro:
+"The human eye is a complex optical instrument that allows us to detect light and form images. The chapter also explains several optical phenomena observed in nature.",
+
+definitions:[
+["Accommodation","The ability of the eye lens to adjust its focal length so that objects at different distances can be focused on the retina."],
+["Myopia","A defect of vision in which distant objects are not seen clearly."],
+["Hypermetropia","A defect of vision in which nearby objects are not seen clearly."],
+["Presbyopia","An age-related reduction in the ability of the eye to focus on nearby objects."]
+],
+
+concepts:[
+"The cornea and eye lens help focus light on the retina.",
+"The iris controls the amount of light entering through the pupil.",
+"The retina contains light-sensitive cells.",
+"Myopia can be corrected using a suitable concave lens.",
+"Hypermetropia can be corrected using a suitable convex lens.",
+"Dispersion is the separation of white light into its constituent colours.",
+"Scattering of light explains several atmospheric phenomena."
+],
+
+formulas:[
+"Power of lens: P = 1/f",
+"f is measured in metres and P is measured in dioptres."
+],
+
+examples:[
+"A prism can disperse white light into a spectrum.",
+"The sky appears blue mainly because shorter wavelengths are scattered more strongly by the atmosphere."
+],
+
+applications:[
+"Spectacles use suitable lenses to correct common vision defects.",
+"Optical phenomena help explain natural observations such as colours in the sky."
+],
+
+revision:[
+"Learn the structure of the eye.",
+"Understand accommodation.",
+"Learn myopia, hypermetropia and their corrections.",
+"Revise dispersion and scattering."
+],
+
+questions:[
+"What is accommodation?",
+"What is myopia?",
+"How is myopia corrected?",
+"What is hypermetropia?",
+"What is dispersion?",
+"Why does the sky appear blue?"
+]
+},
+
+{
+id:12,
+subject:"physics",
+number:"12",
+title:"Electricity",
+description:"Master electric current, potential difference, resistance, Ohm's law, circuits and power.",
+
+intro:
+"Electricity is associated with the movement of electric charge. This chapter introduces current, potential difference and resistance and explains how electrical circuits behave.",
+
+definitions:[
+["Electric Current","The rate of flow of electric charge through a conductor."],
+["Potential Difference","The work done per unit charge in moving a charge between two points."],
+["Resistance","The opposition offered by a conductor to the flow of electric current."],
+["Electric Power","The rate at which electrical energy is consumed or converted."]
+],
+
+concepts:[
+"Electric current flows through a conducting path when a potential difference exists.",
+"Ohm's law relates potential difference, current and resistance under suitable constant physical conditions.",
+"Resistance depends on the material, length and cross-sectional area of a conductor.",
+"Resistors can be connected in series or parallel.",
+"Household circuits generally use parallel connections so appliances can operate independently.",
+"Electrical power tells us how quickly electrical energy is transferred."
+],
+
+formulas:[
+"I = Q/t",
+"V = IR",
+"R = ρl/A",
+"Series: R = R₁ + R₂ + R₃",
+"Parallel: 1/R = 1/R₁ + 1/R₂ + 1/R₃",
+"P = VI",
+"P = I²R",
+"P = V²/R",
+"Electrical Energy = P × t"
+],
+
+examples:[
+"A fuse or suitable protective device helps protect electrical circuits from excessive current.",
+"Household appliances are generally connected in parallel."
+],
+
+applications:[
+"Electricity powers lighting, communication devices, machines and household appliances.",
+"Knowledge of resistance and power helps in designing safe electrical systems."
+],
+
+revision:[
+"Learn Ohm's law.",
+"Practise series and parallel resistance.",
+"Remember power equations.",
+"Practise numerical problems.",
+"Understand electrical energy and its units."
+],
+
+questions:[
+"Define electric current.",
+"State Ohm's law.",
+"What is resistance?",
+"What factors affect resistance?",
+"Why are household appliances connected in parallel?",
+"Write the equations for electric power.",
+"Calculate electrical energy from power and time."
+]
+},
+
+{
+id:13,
+subject:"physics",
+number:"13",
+title:"Magnetic Effects of Electric Current",
+description:"Study magnetic fields, electromagnets, motors, generators and electromagnetic induction.",
+
+intro:
+"Electricity and magnetism are closely connected. A current-carrying conductor produces a magnetic field, and changing magnetic fields can induce electric current.",
+
+definitions:[
+["Magnetic Field","The region around a magnet or current-carrying conductor where magnetic effects can be detected."],
+["Electromagnet","A temporary magnet produced by passing current through a coil, usually around a suitable magnetic core."],
+["Electromagnetic Induction","The production of an induced current due to a changing magnetic field."],
+["Electric Motor","A device that converts electrical energy into mechanical energy."]
+],
+
+concepts:[
+"A current-carrying conductor produces a magnetic field.",
+"The right-hand thumb rule helps determine the direction of the magnetic field around a straight conductor.",
+"Magnetic field lines provide a visual representation of a magnetic field.",
+"An electromagnet can be switched on and off by controlling current.",
+"An electric motor uses magnetic effects of current to produce motion.",
+"Electromagnetic induction is the principle behind generators.",
+"An electric generator converts mechanical energy into electrical energy."
+],
+
+formulas:[
+"Electric motor: Electrical energy → Mechanical energy",
+"Electric generator: Mechanical energy → Electrical energy"
+],
+
+examples:[
+"Electric motors are used in fans, pumps and many machines.",
+"Generators are used to produce electrical energy.",
+"Electromagnets are used in devices where controllable magnetism is useful."
+],
+
+applications:[
+"Motors are used in household appliances and industrial machines.",
+"Generators are used to produce electricity.",
+"Electromagnetic principles are used in many modern electrical devices."
+],
+
+revision:[
+"Learn magnetic field line properties.",
+"Revise the right-hand thumb rule.",
+"Understand the principle of an electric motor.",
+"Understand electromagnetic induction.",
+"Know the basic working principle of a generator."
+],
+
+questions:[
+"What is a magnetic field?",
+"State the right-hand thumb rule.",
+"What is an electromagnet?",
+"What is electromagnetic induction?",
+"Explain the principle of an electric motor.",
+"What is the function of a generator?"
+]
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentFilter = "all";
+
+
+/* =========================================================
+   RENDER CHAPTERS
+========================================================= */
+
+function render(){
+
+    const grid = document.getElementById("chapterGrid");
+
+    const query = document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    grid.innerHTML = "";
+
+    const results = chapters.filter(chapter => {
+
+        const subjectMatch =
+            currentFilter === "all" ||
+            chapter.subject === currentFilter;
+
+        const searchable = (
+            chapter.title + " " +
+            chapter.subject + " " +
+            chapter.description + " " +
+            chapter.intro + " " +
+            chapter.concepts.join(" ")
+        ).toLowerCase();
+
+        const searchMatch =
+            !query || searchable.includes(query);
+
+        return subjectMatch && searchMatch;
+    });
+
+    document
+        .getElementById("noResults")
+        .classList.toggle("show",results.length === 0);
+
+    results.forEach((chapter,index)=>{
+
+        const card = document.createElement("article");
+
+        card.className = "chapter";
+
+        card.onclick = () => openChapter(chapter.id);
+
+        card.innerHTML = `
+
+            <div class="number">
+                ${chapter.number}
+            </div>
+
+            <div class="subject">
+                ${chapter.subject}
+            </div>
+
+            <h3>
+                ${chapter.title}
+            </h3>
+
+            <p>
+                ${chapter.description}
+            </p>
+
+            <span class="open">
+                Open detailed chapter →
+            </span>
+        `;
+
+        card.style.animation =
+            `up .4s ease ${index * .04}s both`;
+
+        grid.appendChild(card);
+    });
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function setFilter(filter,button){
+
+    currentFilter = filter;
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    render();
+}
+
+
+/* =========================================================
+   OPEN CHAPTER
+========================================================= */
+
+function openChapter(id){
+
+    const chapter =
+        chapters.find(c => c.id === id);
+
+    if(!chapter) return;
+
+    document.getElementById("modalSubject")
+        .textContent = chapter.subject;
+
+    document.getElementById("modalTitle")
+        .textContent = chapter.title;
+
+    document.getElementById("modalContent")
+        .innerHTML = `
+
+        <div class="content-block">
+
+            <h3>📘 Chapter Overview</h3>
+
+            <p>
+                ${chapter.intro}
+            </p>
+
+        </div>
+
+
+        <div class="content-block">
+
+            <h3>📖 Important Definitions</h3>
+
+            ${chapter.definitions.map(item => `
+                <div class="definition">
+                    <strong>${item[0]}:</strong>
+                    ${item[1]}
+                </div>
+            `).join("")}
+
+        </div>
+
+
+        <div class="content-block">
+
+            <h3>🧠 Detailed Concepts</h3>
+
+            <ul>
+                ${chapter.concepts.map(item => `
+                    <li>${item}</li>
+                `).join("")}
+            </ul>
+
+        </div>
+
+
+        <div class="content-block">
+
+            <h3>📐 Formulas / Equations</h3>
+
+            ${chapter.formulas.map(item => `
+                <div class="formula">
+                    ${item}
+                </div>
+            `).join("")}
+
+        </div>
+
+
+        <div class="content-block">
+
+            <h3>🔬 Examples</h3>
+
+            ${chapter.examples.map(item => `
+                <div class="example">
+                    ${item}
+                </div>
+            `).join("")}
+
+        </div>
+
+
+        <div class="content-block">
+
+            <h3>🌍 Applications</h3>
+
+            <ul>
+                ${chapter.applications.map(item => `
+                    <li>${item}</li>
+                `).join("")}
+            </ul>
+
+        </div>
+
+
+        <div class="content-block">
+
+            <h3>⭐ Quick Revision</h3>
+
+            <ul>
+                ${chapter.revision.map(item => `
+                    <li>${item}</li>
+                `).join("")}
+            </ul>
+
+        </div>
+
+
+        <div class="content-block">
+
+            <h3>❓ Important Questions</h3>
+
+            <ol>
+                ${chapter.questions.map(item => `
+                    <li>${item}</li>
+                `).join("")}
+            </ol>
+
+        </div>
+    `;
+
+    document
+        .getElementById("modal")
+        .classList.add("show");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+    document
+        .getElementById("modal")
+        .classList.remove("show");
+
+    document.body.style.overflow = "";
+}
+
+
+/* =========================================================
+   CLOSE BY CLICKING OUTSIDE
+========================================================= */
+
+document
+.getElementById("modal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeModal();
+    }
+
+});
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+        closeModal();
+    }
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("open");
+
+}
+
+function closeMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList.remove("open");
+
+}
+
+
+/* =========================================================
+   INITIALISE
+========================================================= */
+
+render();
+
+</script>
+
+</body>
+</html>
