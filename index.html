@@ -811,6 +811,24 @@ body{
     animation:chapterEntrance .4s ease both;
 }
 
+
+/* ================= INTERACTIVE FORMULA BANK ================= */
+.formula-bank-trigger{margin:10px auto 30px;max-width:1250px;padding:0 22px}
+.formula-bank-btn{width:100%;padding:18px 24px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(135deg,#0a2442,#07182e);color:#fff;font-weight:800;font-size:18px;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:.3s}
+.formula-bank-btn:hover{transform:translateY(-3px);border-color:rgba(65,165,255,.65);box-shadow:0 18px 45px rgba(0,0,0,.3)}
+.formula-modal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.82);backdrop-filter:blur(10px)}
+.formula-modal.show{display:flex}
+.formula-modal-box{width:min(1050px,100%);height:min(90vh,850px);max-height:90vh;overflow:hidden;display:flex;flex-direction:column;background:#071a31;border:1px solid var(--border);border-radius:24px;box-shadow:0 30px 90px rgba(0,0,0,.65);animation:formulaPop .3s ease}
+@keyframes formulaPop{from{opacity:0;transform:translateY(25px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.formula-modal-head{display:flex;flex:0 0 auto;justify-content:space-between;align-items:center;padding:25px 28px;border-bottom:1px solid var(--border)}
+.formula-modal-head h2{font-size:30px}.formula-close{min-width:40px;height:40px;background:#0c2949;color:#fff;border:1px solid var(--border);border-radius:10px;font-size:22px}
+.formula-subjects{display:flex;flex:0 0 auto;gap:10px;flex-wrap:wrap;padding:20px 25px;border-bottom:1px solid var(--border);background:#030f1e}
+.formula-subject-btn{border:1px solid var(--border);background:#081c35;color:var(--muted);padding:11px 18px;border-radius:30px;font-weight:700;transition:.25s}.formula-subject-btn.active,.formula-subject-btn:hover{color:#fff;background:#126ed4;border-color:#36b8ff}
+.formula-workspace{display:grid;grid-template-columns:300px minmax(0,1fr);flex:1 1 auto;min-height:0;overflow:hidden}.formula-chapters{min-height:0}.formula-results{min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:auto}
+.formula-chapters{padding:18px;border-right:1px solid var(--border);overflow-y:auto;background:#06172b;min-height:0;-webkit-overflow-scrolling:touch}.formula-chapter-btn{width:100%;text-align:left;padding:13px 14px;margin-bottom:9px;border:1px solid transparent;border-radius:12px;background:#081c35;color:#bcd0e3;transition:.2s}.formula-chapter-btn:hover,.formula-chapter-btn.active{background:#0c3156;color:#fff;border-color:rgba(32,217,255,.45)}
+.formula-results{padding:24px;overflow-y:auto}.formula-results h3{font-size:24px;margin-bottom:7px}.formula-results .formula-count{color:var(--muted);font-size:13px;margin-bottom:20px}.formula-card{background:linear-gradient(145deg,#061a31,#071f38);border:1px solid var(--border);border-radius:15px;padding:18px;margin-bottom:13px;transition:.25s}.formula-card:hover{transform:translateX(4px);border-color:rgba(32,217,255,.55)}.formula-card strong{display:block;color:#59c4ff;margin-bottom:8px}.formula-expression{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:16px;color:#f2f8ff;line-height:1.6;word-break:break-word}.formula-note{color:var(--muted);font-size:13px;margin-top:8px}
+@media(max-width:750px){.formula-modal-box{height:92vh}.formula-workspace{grid-template-columns:1fr;min-height:0}.formula-chapters{border-right:0;border-bottom:1px solid var(--border);max-height:210px;min-height:0}.formula-modal-head h2{font-size:23px}}
+
 </style>
 </head>
 
@@ -1012,6 +1030,31 @@ easier sections.
 </div>
 
 </section>
+
+<!-- INTERACTIVE FORMULA BANK TAB -->
+<div class="formula-bank-trigger">
+<button class="formula-bank-btn" onclick="openFormulaBank()">📐 Formula Bank <span style="color:#67c8ff">• Physics • Chemistry • Biology</span></button>
+</div>
+
+<!-- FORMULA BANK MODAL -->
+<div class="formula-modal" id="formulaModal">
+  <div class="formula-modal-box">
+    <div class="formula-modal-head">
+      <div><div class="subject">QUICK REVISION</div><h2>📐 Formula Bank</h2></div>
+      <button class="formula-close" onclick="closeFormulaBank()">×</button>
+    </div>
+    <div class="formula-subjects">
+      <button class="formula-subject-btn active" data-subject="physics" onclick="selectFormulaSubject('physics',this)">⚡ Physics</button>
+      <button class="formula-subject-btn" data-subject="chemistry" onclick="selectFormulaSubject('chemistry',this)">⚗ Chemistry</button>
+      <button class="formula-subject-btn" data-subject="biology" onclick="selectFormulaSubject('biology',this)">🧬 Biology</button>
+    </div>
+    <div class="formula-workspace">
+      <div class="formula-chapters" id="formulaChapters"></div>
+      <div class="formula-results" id="formulaResults"></div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 
 <footer>
@@ -2197,6 +2240,216 @@ function closeMenu(){
 
 render();
 
+
+/* =========================================================
+   INTERACTIVE FORMULA BANK
+========================================================= */
+const extraFormulaBank = {
+  physics:{
+    "Light – Reflection and Refraction":[
+      ["Mirror formula","1/f = 1/v + 1/u","f = focal length, u = object distance, v = image distance"],
+      ["Mirror magnification","m = hᵢ/hₒ = −v/u","hᵢ = image height, hₒ = object height"],
+      ["Lens formula","1/f = 1/v − 1/u","f = focal length, u = object distance, v = image distance"],
+      ["Lens magnification","m = hᵢ/hₒ = v/u",""],
+      ["Power of lens","P = 1/f","f must be in metres; P is in dioptres (D)"]
+    ],
+    "The Human Eye and the Colourful World":[
+      ["Power of lens","P = 1/f","f in metres; P in dioptres (D)"],
+      ["Lens focal length from power","f = 1/P","Use SI unit metre for f"]
+    ],
+    "Electricity":[
+      ["Electric current","I = Q/t","Q = charge, t = time"],
+      ["Ohm's law","V = IR","V = potential difference, I = current, R = resistance"],
+      ["Resistance of a conductor","R = ρl/A","ρ = resistivity, l = length, A = area of cross-section"],
+      ["Series combination","R = R₁ + R₂ + R₃ + …",""],
+      ["Parallel combination","1/R = 1/R₁ + 1/R₂ + 1/R₃ + …",""],
+      ["Electric power","P = VI = I²R = V²/R",""],
+      ["Electrical energy","E = Pt",""],
+      ["Commercial electrical energy","1 kWh = 3.6 × 10⁶ J",""],
+      ["Heating effect","H = I²Rt","" ]
+    ],
+    "Magnetic Effects of Electric Current":[
+      ["Force on a current-carrying conductor","F = BIl sin θ","B = magnetic field, I = current, l = conductor length"],
+      ["Electrical power","P = VI",""],
+      ["Electrical energy","E = Pt",""],
+      ["Motor principle","Electrical energy → Mechanical energy","Direction is determined using Fleming's Left-Hand Rule"],
+      ["Generator principle","Mechanical energy → Electrical energy","Direction is determined using Fleming's Right-Hand Rule"]
+    ]
+  },
+  chemistry:{
+    "Chemical Reactions and Equations":[
+      ["General reaction","Reactants → Products",""],
+      ["Combination","A + B → AB","Two or more reactants form one product"],
+      ["Magnesium burns in oxygen","2Mg + O₂ → 2MgO","Combination; magnesium burns with a dazzling white flame"],
+      ["Decomposition","AB → A + B","One compound breaks into simpler substances"],
+      ["Thermal decomposition of ferrous sulphate","2FeSO₄ → Fe₂O₃ + SO₂ + SO₃","On heating"],
+      ["Thermal decomposition of lead nitrate","2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂","On heating; brown nitrogen dioxide fumes are produced"],
+      ["Electrolytic decomposition of water","2H₂O → 2H₂ + O₂","By passing electric current through water"],
+      ["Photochemical decomposition of silver chloride","2AgCl → 2Ag + Cl₂","In sunlight"],
+      ["Photochemical decomposition of silver bromide","2AgBr → 2Ag + Br₂","In sunlight"],
+      ["Displacement","A + BC → AC + B","A more reactive element displaces a less reactive element"],
+      ["Zinc displaces copper","Zn + CuSO₄ → ZnSO₄ + Cu","Zinc is more reactive than copper"],
+      ["Iron displaces copper","Fe + CuSO₄ → FeSO₄ + Cu",""],
+      ["Double displacement","AB + CD → AD + CB","Exchange of ions between compounds"],
+      ["Precipitation reaction","AgNO₃ + NaCl → AgCl↓ + NaNO₃","AgCl is the insoluble precipitate"],
+      ["Oxidation of copper","2Cu + O₂ → 2CuO","Copper is oxidised to copper(II) oxide"],
+      ["Reduction of copper oxide","CuO + H₂ → Cu + H₂O","Copper oxide is reduced by hydrogen"],
+      ["Redox example","CuO + H₂ → Cu + H₂O","Oxidation and reduction occur together"],
+      ["Oxidation of glucose in respiration","C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy","A common oxidation reaction"],
+      ["Exothermic combustion of methane","CH₄ + 2O₂ → CO₂ + 2H₂O + heat","Combustion releases heat"],
+      ["Corrosion of iron","Iron + Oxygen + Water → Hydrated iron(III) oxide (rust)","General representation of rusting"],
+      ["Oxidation–reduction","Oxidation + Reduction = Redox reaction","" ]
+    ],
+    "Acids, Bases and Salts":[
+      ["Ionisation of hydrochloric acid","HCl + H₂O → H₃O⁺ + Cl⁻","Acid in aqueous solution"],
+      ["Ionisation of nitric acid","HNO₃ + H₂O → H₃O⁺ + NO₃⁻","Acid in aqueous solution"],
+      ["Ionisation of sulphuric acid","H₂SO₄ + 2H₂O → 2H₃O⁺ + SO₄²⁻","Overall representation"],
+      ["Neutralisation","HCl + NaOH → NaCl + H₂O","Acid + base → salt + water"],
+      ["Acid with metal","Zn + 2HCl → ZnCl₂ + H₂↑","Hydrogen gas is evolved"],
+      ["Acid with metal carbonate","Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂↑","Carbon dioxide is evolved"],
+      ["Acid with metal hydrogencarbonate","NaHCO₃ + HCl → NaCl + H₂O + CO₂↑","Carbon dioxide is evolved"],
+      ["Acid with metal oxide","CuO + 2HCl → CuCl₂ + H₂O","Metal oxide + acid"],
+      ["Lime water with carbon dioxide","Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O","Milkiness due to CaCO₃"],
+      ["Excess carbon dioxide in lime water","CaCO₃ + CO₂ + H₂O → Ca(HCO₃)₂","Milkiness disappears with excess CO₂"],
+      ["Preparation of bleaching powder","Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O","Chlorine reacts with dry slaked lime"],
+      ["Preparation of baking soda","NaCl + H₂O + CO₂ + NH₃ → NH₄Cl + NaHCO₃","Solvay process step"],
+      ["Heating baking soda","2NaHCO₃ → Na₂CO₃ + H₂O + CO₂","On heating"],
+      ["Baking soda with acid","NaHCO₃ + H⁺ → salt + H₂O + CO₂","Basis of its reaction with acids"],
+      ["Preparation of washing soda","Na₂CO₃ + 10H₂O → Na₂CO₃·10H₂O","Crystallisation of sodium carbonate"],
+      ["Plaster of Paris with water","CaSO₄·½H₂O + 1½H₂O → CaSO₄·2H₂O","Forms gypsum; setting of plaster"],
+      ["pH scale","pH < 7 → acidic; pH = 7 → neutral; pH > 7 → basic","" ]
+    ],
+    "Metals and Non-metals":[
+      ["Metal with oxygen","Metal + Oxygen → Metal Oxide","General reaction"],
+      ["Sodium with oxygen","4Na + O₂ → 2Na₂O",""],
+      ["Magnesium with oxygen","2Mg + O₂ → 2MgO",""],
+      ["Metal with water","Metal + Water → Metal Hydroxide/Oxide + Hydrogen","General reaction"],
+      ["Sodium with water","2Na + 2H₂O → 2NaOH + H₂↑","Very vigorous reaction"],
+      ["Calcium with water","Ca + 2H₂O → Ca(OH)₂ + H₂↑",""],
+      ["Magnesium with water","Mg + 2H₂O → Mg(OH)₂ + H₂↑","Slow with cold water"],
+      ["Metal with steam","3Fe + 4H₂O → Fe₃O₄ + 4H₂↑","Iron reacts with steam"],
+      ["Metal with acid","Metal + Acid → Salt + Hydrogen","General reaction for suitable metals"],
+      ["Zinc with hydrochloric acid","Zn + 2HCl → ZnCl₂ + H₂↑",""],
+      ["Iron with dilute sulphuric acid","Fe + H₂SO₄ → FeSO₄ + H₂↑",""],
+      ["Metal displacement","More reactive metal + Salt solution → New salt + displaced metal",""],
+      ["Iron displaces copper","Fe + CuSO₄ → FeSO₄ + Cu","Blue solution becomes green"],
+      ["Zinc displaces copper","Zn + CuSO₄ → ZnSO₄ + Cu",""],
+      ["Aluminium displacement","2Al + 3CuCl₂ → 2AlCl₃ + 3Cu",""],
+      ["Formation of ionic compound","2Na + Cl₂ → 2NaCl","Electron transfer forms Na⁺ and Cl⁻"],
+      ["Roasting of zinc sulphide","2ZnS + 3O₂ → 2ZnO + 2SO₂","Conversion of sulphide ore to oxide"],
+      ["Reduction of zinc oxide","ZnO + C → Zn + CO","Carbon reduces zinc oxide"],
+      ["Thermite reaction","Fe₂O₃ + 2Al → Al₂O₃ + 2Fe + heat","Highly exothermic displacement reaction"],
+      ["Electrolytic extraction of sodium","2NaCl(l) → 2Na + Cl₂","During electrolysis of molten sodium chloride"],
+      ["Copper with oxygen","2Cu + O₂ → 2CuO","On heating copper"],
+      ["Copper oxide with hydrogen","CuO + H₂ → Cu + H₂O","Reduction" ]
+    ],
+    "Carbon and Its Compounds":[
+      ["Methane combustion","CH₄ + 2O₂ → CO₂ + 2H₂O + heat","Combustion"],
+      ["Ethanol combustion","C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O + heat","Combustion reaction"],
+      ["Ethene combustion","C₂H₄ + 3O₂ → 2CO₂ + 2H₂O","Combustion"],
+      ["Ethanol oxidation","CH₃CH₂OH + 2[O] → CH₃COOH + H₂O","Oxidation using an oxidising agent"],
+      ["Ethanol with sodium","2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂↑","Sodium ethoxide is formed"],
+      ["Ethanoic acid with sodium","2CH₃COOH + 2Na → 2CH₃COONa + H₂↑","Hydrogen gas is evolved"],
+      ["Ethanoic acid with sodium hydroxide","CH₃COOH + NaOH → CH₃COONa + H₂O","Neutralisation"],
+      ["Ethanoic acid with sodium hydrogencarbonate","CH₃COOH + NaHCO₃ → CH₃COONa + H₂O + CO₂↑","Carbon dioxide causes brisk effervescence"],
+      ["Ethanoic acid with sodium carbonate","2CH₃COOH + Na₂CO₃ → 2CH₃COONa + H₂O + CO₂↑","Acid–carbonate reaction"],
+      ["Esterification","CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O","Ethanoic acid + ethanol in presence of concentrated H₂SO₄"],
+      ["Saponification","CH₃COOC₂H₅ + NaOH → CH₃COONa + C₂H₅OH","Alkaline hydrolysis of an ester"],
+      ["Addition of hydrogen to ethene","C₂H₄ + H₂ → C₂H₆","Hydrogenation in presence of catalyst"],
+      ["Addition of bromine to ethene","C₂H₄ + Br₂ → C₂H₄Br₂","Addition reaction; bromine water is decolourised"],
+      ["Substitution of methane","CH₄ + Cl₂ → CH₃Cl + HCl","In sunlight/UV light"],
+      ["Ethene polymerisation","nCH₂=CH₂ → (–CH₂–CH₂–)ₙ","Formation of polythene"],
+      ["Alkanes","CₙH₂ₙ₊₂","Saturated hydrocarbons"],
+      ["Alkenes","CₙH₂ₙ","Unsaturated hydrocarbons with a double bond"],
+      ["Alkynes","CₙH₂ₙ₋₂","Unsaturated hydrocarbons with a triple bond" ]
+    ]
+  },
+  biology:{
+    "Life Processes":[
+      ["Photosynthesis","6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂","Occurs in the presence of sunlight and chlorophyll"],
+      ["Aerobic respiration","Glucose + Oxygen → Carbon dioxide + Water + Energy",""],
+      ["Energy currency","ATP","Adenosine triphosphate" ]
+    ],
+    "Control and Coordination":[
+      ["Reflex arc","Stimulus → Receptor → Sensory neuron → CNS → Motor neuron → Effector",""],
+      ["Plant response","Stimulus → Plant response","Examples include responses to light, gravity, water and touch"]
+    ],
+    "How Do Organisms Reproduce?":[
+      ["Fertilisation","Male gamete + Female gamete → Zygote",""],
+      ["Asexual reproduction","One parent → New individual(s)","No fusion of gametes" ]
+    ],
+    "Heredity":[
+      ["Monohybrid phenotypic ratio","3 : 1","Typical Mendelian ratio"],
+      ["Monohybrid genotypic ratio","1 : 2 : 1","Typical Mendelian ratio"],
+      ["Probability","Number of favourable outcomes / Total number of equally likely outcomes","Useful for inheritance calculations"]
+    ],
+    "Our Environment":[
+      ["10% law","Energy passed to next trophic level ≈ 10%","The remaining energy is largely used in life processes and lost as heat"],
+      ["Food chain","Producer → Primary consumer → Secondary consumer → …","Energy flows through trophic levels"]
+    ]
+  }
+};
+
+function getFormulaChapters(subject){
+  return chapters.filter(c=>c.subject===subject);
+}
+
+function getFormulaItems(chapter){
+  const custom=extraFormulaBank[chapter.subject]?.[chapter.title];
+  if(custom) return custom;
+  return (chapter.formulas||[]).map((x,i)=>[`Important formula/equation ${i+1}`,x,""]);
+}
+
+let currentFormulaSubject='physics';
+let currentFormulaChapter=null;
+
+function openFormulaBank(){
+  document.getElementById('formulaModal').classList.add('show');
+  document.body.style.overflow='hidden';
+  selectFormulaSubject('physics',document.querySelector('.formula-subject-btn[data-subject="physics"]'));
+}
+
+function closeFormulaBank(){
+  document.getElementById('formulaModal').classList.remove('show');
+  if(!document.getElementById('modal').classList.contains('show')) document.body.style.overflow='';
+}
+
+function selectFormulaSubject(subject,button){
+  currentFormulaSubject=subject;
+  document.querySelectorAll('.formula-subject-btn').forEach(b=>b.classList.remove('active'));
+  if(button) button.classList.add('active');
+  const list=document.getElementById('formulaChapters');
+  const subjectChapters=getFormulaChapters(subject);
+  currentFormulaChapter=subjectChapters[0]?.id||null;
+  list.innerHTML=subjectChapters.map((c,i)=>`<button class="formula-chapter-btn ${i===0?'active':''}" onclick="selectFormulaChapter(${c.id},this)">${c.number}. ${c.title}</button>`).join('');
+  if(currentFormulaChapter) renderFormulaChapter(currentFormulaChapter);
+}
+
+function selectFormulaChapter(id,button){
+  currentFormulaChapter=id;
+  document.querySelectorAll('.formula-chapter-btn').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+  renderFormulaChapter(id);
+}
+
+function renderFormulaChapter(id){
+  const chapter=chapters.find(c=>c.id===id);
+  if(!chapter) return;
+  const items=getFormulaItems(chapter);
+  document.getElementById('formulaResults').innerHTML=`
+    <h3>${chapter.title}</h3>
+    <div class="formula-count">${items.length} important formula${items.length===1?'':'s / equations'} for quick revision</div>
+    ${items.map(item=>`<div class="formula-card"><strong>${item[0]}</strong><div class="formula-expression">${item[1]}</div>${item[2]?`<div class="formula-note">${item[2]}</div>`:''}</div>`).join('')}
+  `;
+}
+
+document.getElementById('formulaModal').addEventListener('click',function(e){
+  if(e.target===this) closeFormulaBank();
+});
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape' && document.getElementById('formulaModal').classList.contains('show')) closeFormulaBank();
+});
 
 </script>
 
