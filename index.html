@@ -516,26 +516,6 @@ section{
     margin:10px 0;
 }
 
-/* REVISION */
-
-.revision{
-    background:linear-gradient(135deg,rgba(22,131,255,.14),rgba(32,217,255,.04));
-    border:1px solid var(--border);
-    border-radius:25px;
-    text-align:center;
-    padding:45px 25px;
-}
-
-.revision h2{
-    font-size:35px;
-}
-
-.revision p{
-    max-width:700px;
-    margin:12px auto 25px;
-    color:var(--muted);
-}
-
 /* FOOTER */
 
 footer{
@@ -667,6 +647,170 @@ footer p{
         grid-template-columns:1fr;
     }
 }
+.chapter-text{min-width:0}.chapter-text .content-block:first-child{margin-top:0}.chapter-entrance{animation:chapterEntrance .5s ease both}
+.important-question{list-style:none;margin:10px 0;padding:0 !important}
+.question-button{width:100%;text-align:left;color:#eaf6ff;background:#091f39;border:1px solid var(--border);border-radius:12px;padding:13px 45px 13px 15px;transition:.25s;position:relative}
+.question-button::after{content:"+";position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#57c2ff;font-size:22px;font-weight:700}
+.question-button:hover{transform:translateX(3px);border-color:rgba(65,165,255,.65);background:#0c2949}.question-button.open::after{content:"−"}
+.answer-box{display:none;margin:7px 0 13px;padding:13px 15px;color:#c9dced;background:rgba(22,131,255,.07);border-left:3px solid var(--cyan);border-radius:0 10px 10px 10px;animation:answerReveal .25s ease both}
+.answer-box.show{display:block}
+@keyframes visualPulse{0%,100%{transform:scale(.94);opacity:.45}50%{transform:scale(1.06);opacity:.95}}
+@keyframes coreFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+@keyframes orbitSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes chapterEntrance{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes answerReveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:850px){}
+
+/* =========================================================
+   SCIENCE10 MODERN CHAPTER WORKSPACE UI
+   Inspired by the supplied dark/cyan reference.
+   Existing chapter data and features are preserved.
+========================================================= */
+
+:root{
+    --ui-navy:#020b18;
+    --ui-panel:#06172b;
+    --ui-panel-2:#081f39;
+    --ui-panel-3:#0b2948;
+    --ui-line:rgba(79,170,255,.30);
+    --ui-cyan:#20d9ff;
+    --ui-blue:#1683ff;
+    --ui-text:#eef8ff;
+    --ui-muted:#a9c3dc;
+}
+
+body{
+    background:
+        radial-gradient(circle at 75% 10%,rgba(22,131,255,.10),transparent 30%),
+        linear-gradient(135deg,#020a15,#06172b 55%,#020b18);
+}
+
+/* Chapter modal becomes a full learning workspace */
+#chapterModal .modal-content,
+#chapterModal .chapter-modal,
+.chapter-modal{
+    background:#031020 !important;
+}
+
+/* Explanation panel */
+.chapter-text{min-width:0;max-height:none;overflow:visible;padding-right:0}
+
+.chapter-text::-webkit-scrollbar{
+    width:7px;
+}
+.chapter-text::-webkit-scrollbar-track{
+    background:#041326;
+}
+.chapter-text::-webkit-scrollbar-thumb{
+    background:#14568d;
+    border-radius:20px;
+}
+
+.chapter-text .content-block{
+    background:linear-gradient(145deg,#061a31,#071f38);
+    border:1px solid var(--ui-line);
+    border-radius:15px;
+    padding:22px;
+    margin:0 0 16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.chapter-text .content-block h3{
+    color:#fff;
+    font-size:21px;
+    margin:0 0 13px;
+}
+
+.chapter-text .content-block p,
+.chapter-text .content-block li,
+.chapter-text .definition,
+.chapter-text .example{
+    color:#c8dced;
+    font-size:16px;
+    line-height:1.72;
+}
+
+.chapter-text .content-block li::marker{
+    color:var(--ui-cyan);
+}
+
+/* Important questions bar */
+.chapter-text .important-question{
+    margin:10px 0;
+}
+
+.question-button{
+    background:linear-gradient(90deg,#082b50,#0a3157);
+    border:1px solid rgba(32,217,255,.32);
+    color:#eaf7ff;
+    font-size:15px;
+    min-height:50px;
+}
+
+.question-button:hover,
+.question-button.open{
+    background:linear-gradient(90deg,#0b4780,#0c5b9b);
+    border-color:var(--ui-cyan);
+}
+
+.answer-box{
+    background:rgba(22,131,255,.09);
+    border-left-color:var(--ui-cyan);
+    color:#cfe7f8;
+    font-size:15px;
+    line-height:1.65;
+}
+
+/* Chapter header area */
+#chapterModal .modal-header{
+    background:linear-gradient(90deg,#04162b,#061e36);
+    border-bottom:1px solid var(--ui-line);
+}
+
+#chapterModal .modal-header h2{
+    color:#fff;
+}
+
+#chapterModal .modal-header .subject{
+    color:var(--ui-cyan);
+}
+
+/* Make the overall chapter workspace feel like the reference */
+#chapterModal .modal-body{
+    background:#020d1b;
+}
+
+
+
+
+
+
+.reference-learning-tabs{
+    display:flex;
+    gap:28px;
+    padding:0 22px;
+    border-bottom:1px solid var(--ui-line);
+    background:#030f1e;
+}
+
+
+
+/* =========================================================
+   COMPLETE CHAPTER READING MODE
+========================================================= */
+.complete-chapter,
+.chapter-text.complete-chapter{
+    width:100%;
+    max-width:none;
+    min-width:0;
+}
+.complete-chapter .content-block{
+    width:100%;
+}
+.complete-chapter .chapter-entrance{
+    animation:chapterEntrance .4s ease both;
+}
+
 </style>
 </head>
 
@@ -688,12 +832,10 @@ Science<span class="gradient">10</span>
 <li><a href="#home" onclick="closeMenu()">Home</a></li>
 <li><a href="#chapters" onclick="closeMenu()">Chapters</a></li>
 <li><a href="#features" onclick="closeMenu()">Features</a></li>
-<li><a href="#revision" onclick="closeMenu()">Revision</a></li>
 </ul>
 
 </div>
 </nav>
-
 
 <!-- HERO -->
 
@@ -712,7 +854,7 @@ Learn Science.<br>
 Welcome to Science10 — an interactive learning website designed
 for Class 10 students. Explore Chemistry, Biology and Physics
 with detailed explanations, definitions, formulas, examples,
-revision points and important questions.
+ and important questions.
 </p>
 
 <div class="hero-buttons">
@@ -721,15 +863,10 @@ revision points and important questions.
 📚 Explore Chapters
 </a>
 
-<a class="btn secondary" href="#revision">
-⚡ Quick Revision
-</a>
-
 </div>
 
 </div>
 </header>
-
 
 <!-- STATS -->
 
@@ -759,7 +896,6 @@ revision points and important questions.
 
 </div>
 </div>
-
 
 <!-- CHAPTER SECTION -->
 
@@ -820,7 +956,6 @@ All
 
 </section>
 
-
 <!-- FEATURES -->
 
 <section id="features">
@@ -833,7 +968,7 @@ All
 
 <p>
 The website combines study material with interactive
-technology to make revision easier.
+technology to make learning easier.
 </p>
 
 </div>
@@ -876,51 +1011,7 @@ easier sections.
 </p>
 </div>
 
-<div class="feature">
-<div class="feature-icon">⭐</div>
-<h3>Revision Points</h3>
-<p>
-Important points are highlighted so students can revise
-chapters quickly.
-</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📱</div>
-<h3>Responsive</h3>
-<p>
-The website adapts to computers, tablets and mobile phones.
-</p>
-</div>
-
-</div>
-
 </section>
-
-
-<!-- REVISION -->
-
-<section id="revision">
-
-<div class="revision">
-
-<h2>⚡ Ready for Revision?</h2>
-
-<p>
-Use the chapter search above to find a topic quickly.
-Open a chapter to study its concepts, definitions,
-formulas, examples, revision points and questions.
-</p>
-
-<a href="#chapters" class="btn primary">
-Start Revising →
-</a>
-
-</div>
-
-</section>
-
-
 <!-- FOOTER -->
 
 <footer>
@@ -932,7 +1023,6 @@ Start Revising →
 <p>Chemistry • Biology • Physics</p>
 
 </footer>
-
 
 <!-- MODAL -->
 
@@ -959,7 +1049,6 @@ Start Revising →
 </div>
 
 </div>
-
 
 <script>
 
@@ -1023,13 +1112,6 @@ applications:[
 "Refrigeration and antioxidants can help slow rancidity in food."
 ],
 
-revision:[
-"Learn the five major types of chemical reactions.",
-"Practise balancing chemical equations.",
-"Understand oxidation and reduction.",
-"Remember the meaning of corrosion and rancidity."
-],
-
 questions:[
 "What is a chemical reaction?",
 "Why should chemical equations be balanced?",
@@ -1089,13 +1171,6 @@ applications:[
 "Plaster of Paris is used for making casts and moulds."
 ],
 
-revision:[
-"Learn indicator colour changes.",
-"Understand the pH scale.",
-"Remember important salt names and uses.",
-"Practise neutralisation reactions."
-],
-
 questions:[
 "What is an acid?",
 "What is a base?",
@@ -1150,13 +1225,6 @@ applications:[
 "Alloys are used to obtain materials with improved properties.",
 "Iron and steel are widely used in construction.",
 "Copper and aluminium are commonly used in electrical applications because of their conductivity."
-],
-
-revision:[
-"Learn the reactivity series.",
-"Understand ionic bond formation.",
-"Revise properties of metals and non-metals.",
-"Learn methods of preventing corrosion."
 ],
 
 questions:[
@@ -1219,14 +1287,6 @@ applications:[
 "Carbon compounds are used in fuels, medicines, plastics, fibres and many other materials."
 ],
 
-revision:[
-"Remember tetravalency and catenation.",
-"Learn saturated and unsaturated compounds.",
-"Revise functional groups.",
-"Understand homologous series.",
-"Learn important reactions of carbon compounds."
-],
-
 questions:[
 "Why does carbon form so many compounds?",
 "What is catenation?",
@@ -1284,14 +1344,6 @@ applications:[
 "Agriculture depends on understanding photosynthesis and plant transport."
 ],
 
-revision:[
-"Learn the steps of human digestion.",
-"Differentiate aerobic and anaerobic respiration.",
-"Learn the structure and function of the heart.",
-"Understand the role of nephron.",
-"Revise xylem and phloem."
-],
-
 questions:[
 "What are life processes?",
 "Explain photosynthesis.",
@@ -1345,14 +1397,6 @@ applications:[
 "Hormones regulate many important body functions."
 ],
 
-revision:[
-"Learn the structure of a neuron.",
-"Understand the reflex arc.",
-"Revise major parts of the brain.",
-"Learn important plant hormones.",
-"Learn major animal hormones and their functions."
-],
-
 questions:[
 "What is a stimulus?",
 "What is a reflex action?",
@@ -1404,13 +1448,6 @@ applications:[
 "Understanding reproduction is important in agriculture, conservation and human reproductive health."
 ],
 
-revision:[
-"Differentiate sexual and asexual reproduction.",
-"Learn types of asexual reproduction.",
-"Know the major parts of a flower.",
-"Understand pollination and fertilisation."
-],
-
 questions:[
 "Why is reproduction important?",
 "What is binary fission?",
@@ -1459,14 +1496,6 @@ examples:[
 
 applications:[
 "Genetics is important in agriculture, medicine, biodiversity and evolutionary studies."
-],
-
-revision:[
-"Learn Mendel's terminology.",
-"Understand dominant and recessive traits.",
-"Practise monohybrid crosses.",
-"Understand genes and chromosomes.",
-"Learn the meaning of variation."
 ],
 
 questions:[
@@ -1521,14 +1550,6 @@ examples:[
 applications:[
 "Understanding ecosystems helps in wildlife conservation and environmental management.",
 "Waste segregation and recycling help reduce environmental impact."
-],
-
-revision:[
-"Learn food chains and trophic levels.",
-"Understand decomposers.",
-"Remember the 10% energy transfer concept.",
-"Differentiate biodegradable and non-biodegradable waste.",
-"Learn the importance of the ozone layer."
 ],
 
 questions:[
@@ -1587,13 +1608,6 @@ applications:[
 "Lenses are used in cameras, spectacles, microscopes and telescopes."
 ],
 
-revision:[
-"Learn the laws of reflection.",
-"Practise mirror and lens ray diagrams.",
-"Remember the sign convention.",
-"Practise numerical problems using the formulae."
-],
-
 questions:[
 "State the laws of reflection.",
 "What is refraction?",
@@ -1644,13 +1658,6 @@ examples:[
 applications:[
 "Spectacles use suitable lenses to correct common vision defects.",
 "Optical phenomena help explain natural observations such as colours in the sky."
-],
-
-revision:[
-"Learn the structure of the eye.",
-"Understand accommodation.",
-"Learn myopia, hypermetropia and their corrections.",
-"Revise dispersion and scattering."
 ],
 
 questions:[
@@ -1711,14 +1718,6 @@ applications:[
 "Knowledge of resistance and power helps in designing safe electrical systems."
 ],
 
-revision:[
-"Learn Ohm's law.",
-"Practise series and parallel resistance.",
-"Remember power equations.",
-"Practise numerical problems.",
-"Understand electrical energy and its units."
-],
-
 questions:[
 "Define electric current.",
 "State Ohm's law.",
@@ -1774,14 +1773,6 @@ applications:[
 "Electromagnetic principles are used in many modern electrical devices."
 ],
 
-revision:[
-"Learn magnetic field line properties.",
-"Revise the right-hand thumb rule.",
-"Understand the principle of an electric motor.",
-"Understand electromagnetic induction.",
-"Know the basic working principle of a generator."
-],
-
 questions:[
 "What is a magnetic field?",
 "State the right-hand thumb rule.",
@@ -1796,11 +1787,136 @@ questions:[
 
 
 /* =========================================================
+   EXPANDED EXPLANATION FOR EVERY EXISTING CONCEPT
+   Source basis: the chapter concepts already stored above.
+========================================================= */
+const expandedExplanations = {
+    "1": [
+        "Chemical reactions can often be identified by observable changes. These include a change in colour or temperature, a change of physical state, formation of an insoluble precipitate, or evolution of a gas. These observations indicate that new substances may have formed.",
+        "Chemical equations must be balanced because atoms are not created or destroyed during a chemical reaction. Balancing changes only the coefficients placed before formulae, so the number of atoms of each element is equal on both sides.",
+        "In a combination reaction, two or more reactants combine to form one main product. For example, magnesium reacts with oxygen to form magnesium oxide, so the reaction follows the pattern A + B → AB.",
+        "A decomposition reaction is the reverse pattern of combination: one compound breaks into two or more simpler substances. Decomposition may be caused by heat, light or electricity, depending on the reaction.",
+        "In a displacement reaction, a more reactive element replaces a less reactive element from its compound. The reactivity series is used to decide whether such a displacement can occur.",
+        "A double displacement reaction involves exchange of ions between two compounds. Such reactions can produce a precipitate, a gas or another product that drives the reaction forward.",
+        "Oxidation and reduction are linked processes. Oxidation can involve addition of oxygen, removal of hydrogen or loss of electrons, while reduction can involve removal of oxygen, addition of hydrogen or gain of electrons. When both occur together, the reaction is called a redox reaction.",
+        "Corrosion is the gradual deterioration of a metal because of reactions with substances in its environment, such as oxygen and moisture. Preventing contact with the environment can slow corrosion.",
+        "Rancidity occurs when fats and oils are oxidised, causing unpleasant taste and smell. The existing material identifies refrigeration and antioxidants as ways to slow this process."
+    ],
+    "2": [
+        "Acids show their characteristic acidic behaviour in aqueous solution because they produce hydrogen ions. Their properties and reactions can therefore be studied when they are dissolved in water.",
+        "Bases react with acids and can neutralise them. In a neutralisation reaction, the acidic and basic effects are reduced and salt and water are formed.",
+        "Indicators are substances that give a colour change depending on the acidic or basic nature of a solution. Litmus, methyl orange and phenolphthalein are common examples used to identify the nature of solutions.",
+        "The pH scale is used to express how acidic or basic a solution is and generally ranges from 0 to 14. A value below 7 indicates acidity, 7 is neutral, and a value above 7 indicates basicity.",
+        "Strongly acidic solutions have lower pH values, while strongly basic solutions have higher pH values. The pH value therefore gives a convenient way of comparing the acidic or basic nature of solutions.",
+        "Neutralisation is useful because unwanted acidity or basicity can be controlled. The chapter identifies applications in agriculture, medicine and industry.",
+        "Baking soda, washing soda, bleaching powder and plaster of Paris are important salts in the chapter. Their different chemical properties make them useful in baking, cleaning, disinfection, bleaching, casts and moulds."
+    ],
+    "3": [
+        "Metals are generally lustrous, malleable, ductile and good conductors of heat and electricity. These properties make many metals useful for construction, electrical applications and manufacturing.",
+        "Non-metals generally do not show the typical metallic properties. Their physical and chemical behaviour is different from that of metals, so they have different uses and reactions.",
+        "The reactivity series arranges metals according to their relative tendency to react. A metal higher in the series is generally more reactive than a metal lower in the series.",
+        "A more reactive metal can displace a less reactive metal from its compound. For example, zinc can displace copper from copper sulphate because zinc is higher in the reactivity series.",
+        "Ionic compounds contain oppositely charged ions held together by electrostatic attraction. This strong attraction generally makes ionic compounds hard and gives them relatively high melting points.",
+        "The method used to extract a metal depends on its position in the reactivity series. The relative reactivity of the metal determines how easily its compound can be converted into the metal.",
+        "Corrosion can be reduced by preventing the metal from contacting the surrounding environment. Painting, oiling, galvanising and alloying are methods listed in the chapter."
+    ],
+    "4": [
+        "Carbon has four valence electrons and forms four covalent bonds by sharing electrons. This tetravalency allows carbon to form stable compounds with carbon and many other elements.",
+        "Catenation is carbon's ability to bond with other carbon atoms. Because carbon-carbon bonds are strong, carbon can form straight chains, branched chains and rings, producing a very large variety of compounds.",
+        "Saturated compounds contain only single bonds between carbon atoms. Alkanes are the main examples represented by the general formula CₙH₂ₙ₊₂.",
+        "Unsaturated compounds contain at least one double or triple bond. Alkenes contain carbon-carbon double bonds, while alkynes contain carbon-carbon triple bonds.",
+        "Functional groups are atoms or groups of atoms attached to a carbon chain that determine characteristic chemical properties. Different functional groups therefore give organic compounds different reactions and properties.",
+        "A homologous series is a family of organic compounds with the same functional group and similar chemical properties. Consecutive members differ by a –CH₂– unit, so their formulae and physical properties change in a regular way.",
+        "Carbon compounds can undergo combustion, oxidation, addition and substitution reactions. The type of reaction depends on the structure of the compound and the reacting conditions.",
+        "Soaps and detergents help clean oily dirt because their molecules can interact with both water and grease. This allows oily material to be dispersed so it can be removed with water."
+    ],
+    "5": [
+        "Photosynthesis is the process by which green plants prepare food using carbon dioxide and water in the presence of light and chlorophyll. The glucose produced stores chemical energy, while oxygen is released.",
+        "Human digestion involves both mechanical and chemical breakdown of food. Food is processed along the digestive system so that useful nutrients can be absorbed and used by the body.",
+        "Respiration releases energy stored in food. The released energy supports activities and processes required for the organism to remain alive.",
+        "Aerobic respiration uses oxygen and releases energy from food. Anaerobic respiration occurs without oxygen and follows a different pathway, producing different end products.",
+        "The human circulatory system transports oxygen, nutrients, hormones and wastes. Blood provides the medium through which these materials move between different parts of the body.",
+        "The heart pumps blood through pulmonary and systemic circulation. Pulmonary circulation connects the heart and lungs, while systemic circulation carries blood between the heart and the rest of the body.",
+        "Plants use xylem to transport water and minerals and phloem to transport food. These tissues allow materials produced or absorbed in one part of a plant to reach other parts.",
+        "Kidneys remove nitrogenous wastes from the blood and help maintain the internal chemical balance of the body. Nephrons are the functional units within the kidneys that perform the processes involved in urine formation."
+    ],
+    "6": [
+        "The nervous system detects changes in the environment and coordinates rapid responses. Receptors receive information, and nerve impulses carry information through specialised pathways.",
+        "Neurons are specialised cells that transmit nerve impulses. Their structure allows information to travel from receptors toward the central nervous system and from the central nervous system toward effectors.",
+        "The brain and spinal cord together form the central nervous system. They receive and process information and coordinate appropriate responses.",
+        "A reflex arc provides a rapid pathway for many reflex responses. The pathway connects a receptor to the central nervous system and then to an effector, allowing a quick response without waiting for a slower conscious process.",
+        "Plants respond to environmental stimuli such as light, gravity, water and touch. Their responses are usually expressed through changes in growth or movement of particular parts.",
+        "Auxin is a plant hormone that influences growth. The chapter uses the growth of a plant shoot towards light as an example of a response to a stimulus.",
+        "Animal hormones act as chemical messengers and help coordinate longer-term processes such as growth and metabolism. They provide another method of coordination in addition to rapid nerve impulses."
+    ],
+    "7": [
+        "Asexual reproduction generally involves one parent and does not involve fusion of gametes. Because there is no gamete fusion, offspring are generally similar to the parent.",
+        "Binary fission, budding, fragmentation, spore formation and vegetative propagation are different forms of asexual reproduction. Each method produces new individuals through a particular mechanism.",
+        "Sexual reproduction involves specialised reproductive cells called gametes. Male and female gametes contribute genetic material to the new individual.",
+        "Sexual reproduction generates variation among offspring because genetic material from two parents contributes to the offspring. Variation can make individuals different from one another.",
+        "In flowering plants, sexual reproduction takes place through the reproductive structures of flowers. The flower contains structures involved in producing and transferring gametes.",
+        "Pollination is the transfer of pollen to the appropriate part of a flower. It allows the male reproductive material to reach the female reproductive structure.",
+        "Fertilisation is the fusion of male and female gametes to form a zygote. The zygote then develops through successive stages into a new organism."
+    ],
+    "8": [
+        "Genes carry hereditary information that contributes to characteristics passed from parents to offspring. They provide the genetic basis for inherited traits.",
+        "Genes are located on chromosomes. Chromosomes therefore serve as structures that carry many genes within cells.",
+        "Mendel used pea plants to investigate inheritance patterns by studying contrasting characteristics. His experiments helped establish basic ideas about how traits are passed from parents to offspring.",
+        "A dominant trait can express itself when the corresponding dominant allele is present. A recessive trait is expressed when the required recessive genetic combination is present.",
+        "Variation means differences in characteristics among individuals of the same species. The chapter identifies both genetic differences and environmental influences as sources of variation.",
+        "During sexual reproduction, genetic material from two parents contributes to the offspring. This combination helps explain both resemblance to parents and differences among offspring."
+    ],
+    "9": [
+        "An ecosystem contains living, or biotic, components and non-living, or abiotic, components. These components interact with one another and together form a functional system.",
+        "Producers make their own food and occupy the first trophic level. Green plants are examples because they prepare food and provide the starting point for energy transfer in a food chain.",
+        "Consumers cannot make their own food in the same way as producers, so they obtain energy by feeding on other organisms. Different consumers occupy different trophic levels.",
+        "Decomposers break down dead organic matter and return materials to the environment. Fungi and many bacteria perform this important role and help recycle nutrients.",
+        "Energy decreases as it moves from one trophic level to the next. The chapter uses the 10% concept to describe the approximate fraction of energy transferred to the next level.",
+        "The 10% law means that, approximately, only one-tenth of the energy available at one trophic level is transferred to the next. The remaining energy is used in life processes and is not passed on as food energy to the next level.",
+        "Non-biodegradable substances are not readily broken down by microorganisms and can remain in the environment for long periods. Their accumulation can increase environmental impact.",
+        "The ozone layer absorbs a significant portion of harmful ultraviolet radiation. Its protective role is therefore important for life and the environment."
+    ],
+    "10": [
+        "Reflection is the bouncing back of light into the same medium after light strikes a surface. The laws of reflection describe the relationship between the incident ray, reflected ray and normal.",
+        "For a concave mirror, the nature and size of the image depend on the position of the object relative to the mirror's important points. Different object positions therefore produce different image characteristics.",
+        "A convex mirror generally forms a virtual, erect and diminished image. It also provides a wider field of view, which explains its use as a rear-view mirror.",
+        "Refraction is the change in direction of light when it passes from one transparent medium to another. It occurs because the speed of light changes when it enters a different medium.",
+        "Convex and concave lenses form different types of images depending on the position of the object. Their behaviour can be studied using principal rays and the resulting ray diagrams.",
+        "Ray diagrams provide a visual method for determining the position, size and nature of an image. They are especially useful when studying mirrors and lenses and when solving optical problems."
+    ],
+    "11": [
+        "The cornea and eye lens help focus incoming light so that an image can be formed on the retina. The retina is the light-sensitive surface where the image is received.",
+        "The iris controls the amount of light entering the eye through the pupil. It changes the effective size of the pupil so that the amount of incoming light can be controlled.",
+        "The retina contains light-sensitive cells that respond to light. The information produced by these cells is carried through the visual pathway so that the brain can interpret what is seen.",
+        "Myopia is a vision defect in which distant objects are not seen clearly. The chapter states that it can be corrected using a suitable concave lens.",
+        "Hypermetropia is a vision defect in which nearby objects are not seen clearly. It can be corrected using a suitable convex lens.",
+        "Dispersion is the separation of white light into its constituent colours. A prism can produce a spectrum because the different colours are deviated differently.",
+        "Scattering of light explains several atmospheric phenomena. The chapter gives the blue appearance of the sky as an example, noting that shorter wavelengths are scattered more strongly by the atmosphere."
+    ],
+    "12": [
+        "Electric current is the flow of electric charge through a conductor. A conducting path and a potential difference are required for current to flow through a circuit.",
+        "Ohm's law relates potential difference, current and resistance under suitable constant physical conditions. The relationship is written as V = IR, so changing one quantity affects the others according to this relationship.",
+        "Resistance is affected by the material of the conductor, its length and its cross-sectional area. The relationship R = ρl/A shows that resistance increases with length and decreases with cross-sectional area when the other relevant conditions remain fixed.",
+        "Resistors can be connected in series or parallel. In series the same current passes through successive resistors, while parallel branches provide separate paths for current.",
+        "Household circuits generally use parallel connections so appliances can operate independently. Switching or failure of one branch therefore does not normally stop the other branches from operating.",
+        "Electrical power describes how quickly electrical energy is transferred or consumed. The chapter gives several equivalent equations, including P = VI, P = I²R and P = V²/R, which can be selected according to the known quantities."
+    ],
+    "13": [
+        "A current-carrying conductor produces a magnetic field around it. The magnetic effect of current is therefore a direct connection between electrical current and magnetism.",
+        "The right-hand thumb rule is used to determine the direction of the magnetic field around a straight current-carrying conductor. The thumb represents the current direction and the curled fingers indicate the magnetic field direction.",
+        "Magnetic field lines provide a visual representation of a magnetic field. Their pattern helps show the direction and relative arrangement of the magnetic field around a magnet or current-carrying conductor.",
+        "An electromagnet is a temporary magnet produced by passing current through a coil, usually around a suitable magnetic core. Because its magnetism depends on current, it can be controlled by switching the current on or off.",
+        "An electric motor uses the magnetic effect of current to produce motion. Electrical energy is converted into mechanical energy, which is why motors can drive fans, pumps and machines.",
+        "Electromagnetic induction is the production of an induced current due to a changing magnetic field. This principle is used in electrical generators.",
+        "An electric generator converts mechanical energy into electrical energy. Generators use electromagnetic induction to produce electric current."
+    ]
+};
+
+/* =========================================================
    VARIABLES
 ========================================================= */
 
 let currentFilter = "all";
-
 
 /* =========================================================
    RENDER CHAPTERS
@@ -1880,7 +1996,6 @@ function render(){
     });
 }
 
-
 /* =========================================================
    FILTER
 ========================================================= */
@@ -1898,10 +2013,39 @@ function setFilter(filter,button){
     render();
 }
 
-
 /* =========================================================
    OPEN CHAPTER
 ========================================================= */
+
+function answerQuestion(chapter,question){
+    const q=question.toLowerCase();
+    for(const item of chapter.definitions){
+        const term=item[0].toLowerCase();
+        if(q.includes(term)||(q.startsWith("what is")&&q.includes(term.split(" ")[0]))) return `<strong>${item[0]}:</strong> ${item[1]}`;
+    }
+    const stop=new Set(["what","which","why","how","does","are","the","this","that","with","from","into","explain","state","write","define","differentiate","and","for","can"]);
+    const words=q.replace(/[^a-z0-9\s]/g," ").split(/\s+/).filter(w=>w.length>3&&!stop.has(w));
+    const ranked=chapter.concepts.map(c=>({text:c,score:words.reduce((n,w)=>n+(c.toLowerCase().includes(w)?1:0),0)})).sort((a,b)=>b.score-a.score).filter(x=>x.score>0).slice(0,2).map(x=>x.text);
+    if(ranked.length) return ranked.join(" ");
+    if(q.includes("formula")||q.includes("equation")) return chapter.formulas.join(" ");
+    if(q.includes("example")) return chapter.examples.join(" ");
+    return chapter.intro+" Key points: "+chapter.concepts.slice(0,2).join(" ");
+}
+function toggleAnswer(button){
+    const answer=button.nextElementSibling; const open=answer.classList.toggle("show"); button.classList.toggle("open",open);
+}
+
+function renderCompleteExplanation(chapter){
+    return `
+      <div class="content-block chapter-entrance">
+        <h3>📘 Complete Explanation</h3>
+        <p>${chapter.intro}</p>
+        <h4>Core idea</h4>
+        <p>${chapter.concepts.join(" ")}</p>
+        <h4>How to understand this chapter</h4>
+        <p>The chapter can be studied through its key definitions, concepts, examples, applications and formulae below. These sections together cover the learning material stored for this chapter.</p>
+      </div>`;
+}
 
 function openChapter(id){
 
@@ -1911,116 +2055,75 @@ function openChapter(id){
     if(!chapter) return;
 
     document.getElementById("modalSubject")
-        .textContent = chapter.subject;
+        .textContent = chapter.subject + " • Interactive Explanation";
 
     document.getElementById("modalTitle")
         .textContent = chapter.title;
 
     document.getElementById("modalContent")
         .innerHTML = `
+        <div class="chapter-text complete-chapter">
+            ${renderCompleteExplanation(chapter)}
 
-        <div class="content-block">
+            <div class="content-block chapter-entrance">
+                <h3>📖 Important Definitions</h3>
+                ${chapter.definitions.map(item => `
+                    <div class="definition">
+                        <strong>${item[0]}:</strong> ${item[1]}
+                    </div>
+                `).join("")}
+            </div>
 
-            <h3>📘 Chapter Overview</h3>
-
-            <p>
-                ${chapter.intro}
-            </p>
-
-        </div>
-
-
-        <div class="content-block">
-
-            <h3>📖 Important Definitions</h3>
-
-            ${chapter.definitions.map(item => `
-                <div class="definition">
-                    <strong>${item[0]}:</strong>
-                    ${item[1]}
+            <div class="content-block chapter-entrance">
+                <h3>🧠 Detailed Explanation — Every Chapter Point</h3>
+                <div class="expanded-concepts">
+                    ${(expandedExplanations[chapter.id] || []).map((item,index) => `
+                        <article class="expanded-point">
+                            <div class="expanded-number">${index + 1}</div>
+                            <div>
+                                <h4>${chapter.concepts[index] || "Key concept"}</h4>
+                                <p>${item}</p>
+                            </div>
+                        </article>
+                    `).join("")}
                 </div>
-            `).join("")}
+            </div>
 
-        </div>
-
-
-        <div class="content-block">
-
-            <h3>🧠 Detailed Concepts</h3>
-
-            <ul>
-                ${chapter.concepts.map(item => `
-                    <li>${item}</li>
+            <div class="content-block chapter-entrance">
+                <h3>📐 Formulas / Equations</h3>
+                ${chapter.formulas.map(item => `
+                    <div class="formula">${item}</div>
                 `).join("")}
-            </ul>
+            </div>
 
-        </div>
-
-
-        <div class="content-block">
-
-            <h3>📐 Formulas / Equations</h3>
-
-            ${chapter.formulas.map(item => `
-                <div class="formula">
-                    ${item}
-                </div>
-            `).join("")}
-
-        </div>
-
-
-        <div class="content-block">
-
-            <h3>🔬 Examples</h3>
-
-            ${chapter.examples.map(item => `
-                <div class="example">
-                    ${item}
-                </div>
-            `).join("")}
-
-        </div>
-
-
-        <div class="content-block">
-
-            <h3>🌍 Applications</h3>
-
-            <ul>
-                ${chapter.applications.map(item => `
-                    <li>${item}</li>
+            <div class="content-block chapter-entrance">
+                <h3>🔬 Examples</h3>
+                ${chapter.examples.map(item => `
+                    <div class="example">${item}</div>
                 `).join("")}
-            </ul>
+            </div>
 
-        </div>
+            <div class="content-block chapter-entrance">
+                <h3>🌍 Applications</h3>
+                <ul>
+                    ${chapter.applications.map(item => `<li>${item}</li>`).join("")}
+                </ul>
+            </div>
 
-
-        <div class="content-block">
-
-            <h3>⭐ Quick Revision</h3>
-
-            <ul>
-                ${chapter.revision.map(item => `
-                    <li>${item}</li>
-                `).join("")}
-            </ul>
-
-        </div>
-
-
-        <div class="content-block">
-
-            <h3>❓ Important Questions</h3>
-
-            <ol>
-                ${chapter.questions.map(item => `
-                    <li>${item}</li>
-                `).join("")}
-            </ol>
-
-        </div>
-    `;
+            <div class="content-block chapter-entrance">
+                <h3>❓ Important Questions — Click to Reveal Answers</h3>
+                <ol>
+                    ${chapter.questions.map(item => `
+                        <li class="important-question">
+                            <button class="question-button" onclick="toggleAnswer(this)">
+                                ${item}
+                            </button>
+                            <div class="answer-box">${answerQuestion(chapter,item)}</div>
+                        </li>
+                    `).join("")}
+                </ol>
+            </div>
+        </div>`;
 
     document
         .getElementById("modal")
@@ -2028,7 +2131,6 @@ function openChapter(id){
 
     document.body.style.overflow = "hidden";
 }
-
 
 /* =========================================================
    CLOSE MODAL
@@ -2042,7 +2144,6 @@ function closeModal(){
 
     document.body.style.overflow = "";
 }
-
 
 /* =========================================================
    CLOSE BY CLICKING OUTSIDE
@@ -2058,7 +2159,6 @@ document
 
 });
 
-
 /* =========================================================
    ESCAPE KEY
 ========================================================= */
@@ -2070,7 +2170,6 @@ document.addEventListener("keydown",function(e){
     }
 
 });
-
 
 /* =========================================================
    MOBILE MENU
@@ -2092,12 +2191,12 @@ function closeMenu(){
 
 }
 
-
 /* =========================================================
    INITIALISE
 ========================================================= */
 
 render();
+
 
 </script>
 
