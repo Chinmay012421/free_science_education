@@ -812,6 +812,40 @@ body{
 }
 
 
+/* ================= REVISION BUTTON ================= */
+.hero-buttons .secondary{
+    text-decoration:none;
+}
+
+#formulaBankAnchor{
+    scroll-margin-top:90px;
+}
+
+@media(max-width:650px){
+    .hero-buttons .btn{
+        width:100%;
+        text-align:center;
+    }
+}
+
+function scrollToFormulaBank(event){
+    event.preventDefault();
+    const target=document.getElementById("formulaBankAnchor");
+    if(target){
+        target.scrollIntoView({behavior:"smooth",block:"center"});
+        setTimeout(()=>{
+            const button=target.querySelector(".formula-bank-btn");
+            if(button){
+                button.animate([
+                    {transform:"scale(1)"},
+                    {transform:"scale(1.03)"},
+                    {transform:"scale(1)"}
+                ],{duration:500,easing:"ease-out"});
+            }
+        },650);
+    }
+}
+
 /* ================= INTERACTIVE FORMULA BANK ================= */
 .formula-bank-trigger{margin:10px auto 30px;max-width:1250px;padding:0 22px}
 .formula-bank-btn{width:100%;padding:18px 24px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(135deg,#0a2442,#07182e);color:#fff;font-weight:800;font-size:18px;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:.3s}
@@ -879,6 +913,10 @@ with detailed explanations, definitions, formulas, examples,
 
 <a class="btn primary" href="#chapters">
 📚 Explore Chapters
+</a>
+
+<a class="btn secondary" href="#formulaBankAnchor" onclick="scrollToFormulaBank(event)">
+🔄 Revision
 </a>
 
 </div>
@@ -1032,7 +1070,7 @@ easier sections.
 </section>
 
 <!-- INTERACTIVE FORMULA BANK TAB -->
-<div class="formula-bank-trigger">
+<div class="formula-bank-trigger" id="formulaBankAnchor">
 <button class="formula-bank-btn" onclick="openFormulaBank()">📐 Formula Bank <span style="color:#67c8ff">• Physics • Chemistry • Biology</span></button>
 </div>
 
