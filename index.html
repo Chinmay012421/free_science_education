@@ -2300,7 +2300,7 @@ const allNCERTActivities = {"Chemical Reactions and Equations": [["1.1", "Burnin
 function renderAllNCERTActivities(chapter){
  const list=allNCERTActivities[chapter.title]||[];
  if(!list.length)return "";
- return `<div class="complete-activity-index"><div class="complete-activity-heading">📚 Complete NCERT Activity Set <span>${list.length} activities</span></div><p class="complete-activity-note">Every numbered activity in this chapter is listed here in concise, student-friendly form. The detailed activity cards remain below.</p><div class="complete-activity-grid">${list.map(([no,title])=>`<article class="complete-activity-card"><div class="complete-activity-number">Activity ${no}</div><h4>${title}</h4><p>Read the chapter concept, observe the result, record the observation and connect it with the scientific principle being studied.</p></article>`).join("")}</div></div>`;
+ 
 }
 
 const chapterActivities = {
@@ -2377,61 +2377,147 @@ function findActivityDiagram(activity, diagrams){
   return bestScore > 0 ? best : null;
 }
 
+function buildActivityDetails(chapterTitle, code, title, existing={}){
+  if(existing && existing.background && existing.explanation && existing.process && existing.observation && existing.conclusion) return existing;
+
+  const lower = title.toLowerCase();
+  let explanation = `This activity helps you understand ${title.toLowerCase()} in the context of ${chapterTitle}. The key idea is to observe the change or behaviour, connect the observation with the scientific concept, and explain the result using the relevant principle from the chapter.`;
+  let observation = `Observe the change or pattern produced in this activity and record it carefully. The observation should be used as evidence for the concept being studied.`;
+  let result = `The activity provides an observable way to connect ${title.toLowerCase()} with the chapter concept.`;
+  let process = `1. Read the activity objective and identify the concept being tested. 2. Observe the teacher-approved demonstration or setup carefully. 3. Record the important observations. 4. Compare the observation with the concept explained in the chapter. 5. State the result and conclusion in your own words.`;
+
+  if(lower.includes('burning magnesium')) explanation='Magnesium combines with oxygen on heating and forms magnesium oxide. The bright light and formation of a white solid are evidence that a new substance has been produced, so the process is a chemical reaction.';
+  else if(lower.includes('lead nitrate') && lower.includes('potassium iodide')) explanation='When lead nitrate solution reacts with potassium iodide solution, lead iodide is formed as a yellow precipitate while potassium nitrate remains in solution. Formation of the insoluble precipitate shows that new substances have formed.';
+  else if(lower.includes('zinc') && lower.includes('dilute acid')) explanation='Zinc reacts with a dilute acid to form a salt and hydrogen gas. The bubbles observed are due to the gaseous product. This demonstrates a reaction of a metal with an acid.';
+  else if(lower.includes('writing a chemical equation')) explanation='A chemical equation represents a reaction using the formulae of reactants and products. It provides a concise symbolic description of the substances taking part in the reaction.';
+  else if(lower.includes('balancing chemical')) explanation='A chemical equation is balanced by changing coefficients in front of formulae so that every element has the same number of atoms on both sides. Subscripts are never changed because changing a subscript changes the identity of the substance.';
+  else if(lower.includes('ferrous sulphate')) explanation='On heating, ferrous sulphate undergoes thermal decomposition and produces new substances. The change in colour and formation of gases are evidence of decomposition.';
+  else if(lower.includes('silver chloride')) explanation='Silver chloride is sensitive to light and decomposes on exposure to sunlight, producing silver and chlorine. Its colour change demonstrates a photochemical decomposition reaction.';
+  else if(lower.includes('iron in copper sulphate')) explanation='Iron can displace copper from copper sulphate solution because iron is more reactive than copper. The characteristic colour change and copper deposition demonstrate a displacement reaction.';
+  else if(lower.includes('sodium sulphate') && lower.includes('barium chloride')) explanation='Sodium sulphate and barium chloride exchange ions in solution to form barium sulphate and sodium chloride. Insoluble barium sulphate appears as a precipitate, showing a double-displacement reaction.';
+  else if(lower.includes('double displacement')) explanation='In a double-displacement reaction, ions of two compounds exchange partners to form two new compounds. A precipitate, gas or another visible change can provide evidence that the reaction has occurred.';
+  else if(lower.includes('copper powder')) explanation='Heating copper in air allows it to react with oxygen and form copper(II) oxide. The colour change provides evidence that a new compound has formed.';
+  else if(lower.includes('indicator')) explanation='Indicators change colour depending on whether a solution is acidic, neutral or basic. Comparing the indicator colour with known standards helps identify the nature of the solution.';
+  else if(lower.includes('olfactory')) explanation='Olfactory indicators are substances whose smell changes or becomes difficult to detect in certain acidic or basic conditions. They provide an alternative way to distinguish acidic and basic media.';
+  else if(lower.includes('carbonate')) explanation='An acid reacting with a metal carbonate produces a salt, water and carbon dioxide. Effervescence is caused by the carbon dioxide gas released during the reaction.';
+  else if(lower.includes('lime water')) explanation='Carbon dioxide turns lime water milky because calcium carbonate is formed. This provides a common test for carbon dioxide.';
+  else if(lower.includes('metal oxide') && lower.includes('acid')) explanation='Many metal oxides react with acids to form salt and water. This demonstrates the basic nature of metal oxides in such reactions.';
+  else if(lower.includes('electrical conductivity')) explanation='Solutions containing ions can conduct electric current because the ions are able to move through the solution. The conductivity depends on the presence and concentration of charged particles.';
+  else if(lower.includes('pH')) explanation='The pH scale indicates how acidic or basic a solution is. A lower pH represents greater acidity, while a higher pH represents greater basicity; pH 7 is neutral at standard conditions.';
+  else if(lower.includes('hydrated salts')) explanation='Some salts contain a definite amount of water of crystallisation. Heating can remove this water and change the appearance or properties of the salt.';
+  else if(lower.includes('plaster of paris') || lower.includes('gypsum')) explanation='Gypsum and plaster of Paris differ in their water of crystallisation. Controlled hydration and dehydration explain why plaster of Paris can set into a hard material when mixed with water.';
+  else if(lower.includes('malleability')) explanation='Malleability is the ability of a metal to be beaten into thin sheets. Observing how metals deform under force helps distinguish this property from brittleness.';
+  else if(lower.includes('ductility')) explanation='Ductility is the ability of a metal to be drawn into wires. It is an important physical property that explains the use of metals such as copper in electrical wiring.';
+  else if(lower.includes('conduction')) explanation='Metals generally conduct heat and electricity well because of their mobile electrons. Comparing different materials demonstrates differences in their ability to transfer thermal or electrical energy.';
+  else if(lower.includes('oxygen')) explanation='Many metals react with oxygen to form metal oxides. The ease and intensity of the reaction depend on the reactivity of the metal.';
+  else if(lower.includes('water')) explanation='Different metals react with water at different rates. More reactive metals react more readily, while some metals react only with hot water or steam.';
+  else if(lower.includes('displacement')) explanation='A more reactive metal can displace a less reactive metal from its compound. This demonstrates the relative positions of metals in the reactivity series.';
+  else if(lower.includes('reactivity series')) explanation='The reactivity series arranges metals according to their tendency to lose electrons and form compounds. Displacement observations can be used to compare the reactivity of metals.';
+  else if(lower.includes('ionic compounds')) explanation='Ionic compounds contain oppositely charged ions held by electrostatic forces. Their high melting points and electrical behaviour in molten or aqueous states are related to this structure.';
+  else if(lower.includes('corrosion')) explanation='Corrosion is the gradual deterioration of a metal due to chemical reactions with its surroundings. Preventive methods work by reducing the metal’s contact with air, moisture or other reactive substances.';
+  else if(lower.includes('combustion')) explanation='Carbon compounds generally burn in oxygen and release energy. Complete combustion usually produces carbon dioxide and water, while limited oxygen can lead to incomplete combustion products.';
+  else if(lower.includes('oxidation of ethanol')) explanation='Ethanol can be oxidised to ethanoic acid under suitable conditions. This demonstrates oxidation of an alcohol and the conversion of one functional group into another.';
+  else if(lower.includes('ethanol and sodium')) explanation='Ethanol reacts with sodium with release of hydrogen gas and formation of sodium ethoxide. The reaction shows that ethanol contains a hydrogen that can participate in this reaction.';
+  else if(lower.includes('esterification')) explanation='An alcohol and a carboxylic acid can react to form an ester and water. Esters often have characteristic pleasant smells and are important in flavourings and fragrances.';
+  else if(lower.includes('soap')) explanation='Soap molecules have a water-attracting end and a water-repelling hydrocarbon end. In water they can form micelles that surround oily dirt, allowing it to be carried away during washing.';
+  else if(lower.includes('photosynthesis')) explanation='Green plants use light energy to make food from carbon dioxide and water in the presence of chlorophyll. Activities involving light, chlorophyll or carbon dioxide demonstrate conditions required for photosynthesis.';
+  else if(lower.includes('saliva') && lower.includes('starch')) explanation='Saliva contains the enzyme amylase, which begins the digestion of starch in the mouth. The disappearance of starch during the test demonstrates enzyme action.';
+  else if(lower.includes('exhaled air')) explanation='Exhaled air contains more carbon dioxide than inhaled air because carbon dioxide is produced during cellular respiration and transported to the lungs for removal.';
+  else if(lower.includes('fermentation')) explanation='Yeast can obtain energy anaerobically by fermentation, converting sugars into ethanol and carbon dioxide. Gas production provides evidence of the process.';
+  else if(lower.includes('respiration in fish')) explanation='Fish obtain dissolved oxygen from water through their gills. The large surface area and thin, moist surfaces of gills support efficient exchange of gases.';
+  else if(lower.includes('water in plants')) explanation='Water is transported through xylem from roots towards other parts of a plant. Capillary effects, root pressure and especially transpiration contribute to this upward movement.';
+  else if(lower.includes('transpiration')) explanation='Transpiration is the loss of water vapour from aerial parts of plants, mainly through stomata. It contributes to the upward movement of water and helps regulate plant temperature.';
+  else if(lower.includes('taste and smell')) explanation='Taste and smell are coordinated sensory processes. Receptors detect chemical stimuli and send signals through sensory neurons to the brain, where the information is interpreted.';
+  else if(lower.includes('plant response to light')) explanation='Plants can respond directionally to light. In shoots, auxin distribution causes unequal growth, producing bending towards a light source.';
+  else if(lower.includes('budding')) explanation='In budding, a small outgrowth develops on the parent organism and can grow into a new individual. Yeast is a common example of a unicellular organism reproducing by budding.';
+  else if(lower.includes('bread mould')) explanation='Bread mould reproduces asexually using spores. Spores are produced in specialised structures and can disperse to suitable places where they may germinate.';
+  else if(lower.includes('binary fission')) explanation='In binary fission, a single-celled organism duplicates its genetic material and divides into two daughter cells. Amoeba is a familiar example.';
+  else if(lower.includes('fragmentation')) explanation='Fragmentation is an asexual reproductive process in which an organism breaks into pieces and each suitable fragment can grow into a new individual.';
+  else if(lower.includes('potato buds')) explanation='The buds or eyes of a potato can develop into new plants. This is vegetative propagation because a new plant arises from a vegetative part of the parent plant.';
+  else if(lower.includes('cuttings')) explanation='A plant cutting can develop roots and shoots under suitable conditions, producing a new plant genetically similar to the parent. This is vegetative propagation.';
+  else if(lower.includes('earlobe')) explanation='Variation in traits such as earlobe attachment illustrates that individuals of the same species can differ in inherited characteristics. Such variation provides material on which natural selection can act.';
+  else if(lower.includes('mendelian')) explanation='Mendelian inheritance uses dominant and recessive alleles to predict how traits can pass from parents to offspring. A genetic cross helps calculate possible combinations in the offspring.';
+  else if(lower.includes('spoon')) explanation='A curved spoon has reflecting surfaces that can behave approximately like concave or convex mirrors. The type and position of the image depend on the curvature and object position.';
+  else if(lower.includes('concave mirror')) explanation='A concave mirror can converge parallel rays towards its principal focus. Image position, size and nature depend on the object’s position relative to the focus and centre of curvature.';
+  else if(lower.includes('convex mirror')) explanation='A convex mirror diverges reflected rays and generally forms a virtual, erect and diminished image. This wide field of view makes convex mirrors useful as rear-view mirrors.';
+  else if(lower.includes('glass slab')) explanation='Light bends when it passes obliquely between air and glass because its speed changes. On emerging from a parallel-sided glass slab, the emergent ray is parallel to the incident ray but laterally displaced.';
+  else if(lower.includes('apparent depth') || lower.includes('coin in water')) explanation='An object under water appears raised because light from it refracts as it travels from water into air. The eye traces the refracted rays backward in straight lines, giving the impression of a shallower position.';
+  else if(lower.includes('lens')) explanation='A convex lens can converge light while a concave lens diverges it. The image produced depends on the type of lens and the object position relative to its focal points.';
+  else if(lower.includes('prism') || lower.includes('dispersion')) explanation='A prism refracts light and can separate white light into its constituent colours because different wavelengths are deviated by different amounts. This produces a spectrum.';
+  else if(lower.includes('scattering')) explanation='Scattering occurs when light interacts with small particles in a medium. Shorter wavelengths are scattered more strongly by very small particles, helping explain the blue appearance of the clear daytime sky.';
+  else if(lower.includes('ohm')) explanation='Ohm’s law states that for an ohmic conductor under suitable constant physical conditions, potential difference is directly proportional to current: V = IR. Measuring V and I allows the resistance to be determined.';
+  else if(lower.includes('resistance')) explanation='Resistance opposes the flow of electric charge. For a uniform wire, resistance depends on material, length and cross-sectional area, and can also change with temperature.';
+  else if(lower.includes('series')) explanation='In a series circuit there is one path for current, so the same current passes through each component. The equivalent resistance is the sum of the individual resistances.';
+  else if(lower.includes('parallel')) explanation='In a parallel circuit components are connected across the same two points, so they have the same potential difference. Current divides among the branches and the equivalent resistance is less than the smallest branch resistance.';
+  else if(lower.includes('magnetic')) explanation='A current-carrying conductor produces a magnetic field. Compass deflection or magnetic field-line patterns can be used to observe the field and determine its direction.';
+  else if(lower.includes('iron filings')) explanation='Iron filings align along the magnetic field around a bar magnet, giving a visible pattern of field lines. The pattern is strongest where the lines are most closely spaced.';
+  else if(lower.includes('circular loop') || lower.includes('circular coil')) explanation='A current-carrying circular loop produces a magnetic field whose direction can be found using the right-hand thumb rule. At the centre, the field contributions from different parts of the loop reinforce one another.';
+  else if(lower.includes('force on a current')) explanation='A current-carrying conductor placed in a magnetic field experiences a force. The direction of this force depends on the directions of the current and magnetic field and can be determined using Fleming’s left-hand rule.';
+  else if(lower.includes('electromagnetic induction') || lower.includes('induction')) explanation='Electromagnetic induction is the production of an induced current or emf when the magnetic flux linked with a circuit changes. Relative motion between a magnet and coil can therefore produce an induced effect.';
+  else if(lower.includes('aquarium')) explanation='An aquarium can be viewed as a small ecosystem containing living organisms and non-living components. The activity helps identify producers, consumers, decomposers and the physical conditions needed to maintain balance.';
+  else if(lower.includes('food chain')) explanation='A food chain shows the transfer of food and energy from one organism to another. Producers form the first trophic level, followed by consumers at successive levels.';
+  else if(lower.includes('pesticides')) explanation='Persistent pesticides can enter food chains and become more concentrated at higher trophic levels. This demonstrates how pollutants can affect organisms beyond the place where they are first introduced.';
+  else if(lower.includes('ozone')) explanation='Ozone in the stratosphere absorbs much of the Sun’s harmful ultraviolet radiation. Certain chemicals can damage ozone molecules, so reducing ozone-depleting substances helps protect this layer.';
+  else if(lower.includes('decomposition') || lower.includes('waste')) explanation='Decomposition breaks down biodegradable waste through the activity of microorganisms. Conditions such as moisture, temperature, oxygen availability and the nature of the material affect the rate of decomposition.';
+
+  return {
+    title:title, background:`This activity focuses on ${title.toLowerCase()} and connects the observation to the ${chapterTitle} concepts.`, objective:`To understand and explain ${title.toLowerCase()} using observation and the scientific principle from the chapter.`, materials:existing.materials||'Teacher-approved demonstration or activity materials, observation sheet and suitable safety equipment.', process:existing.process||process, observation:existing.observation||observation, result:existing.result||result, explanation:existing.explanation||explanation, conclusion:existing.conclusion||`The activity connects ${title.toLowerCase()} with the scientific principle discussed in ${chapterTitle}.`, precautions:existing.precautions||'Follow teacher instructions, use only approved materials and do not perform unapproved laboratory experiments.'
+  };
+}
+
+function getAllDetailedActivities(chapter){
+  const list=allNCERTActivities[chapter.title]||[];
+  const existing=chapterActivities[chapter.title]||[];
+  return list.map(([code,title])=>{
+    const nt=title.toLowerCase();
+    const match=existing.find(a=>{
+      const at=a.title.toLowerCase();
+      return at===nt || at.includes(nt) || nt.includes(at) ||
+             (nt.includes('balancing') && at.includes('balancing'));
+    });
+    const item=buildActivityDetails(chapter.title,code,title,match||{}); item._code=code; if(match && match.interactive) item.interactive=match.interactive; return item;
+  });
+}
+
 function renderActivities(chapter, diagrams=[]){
-  const completeIndex = renderAllNCERTActivities(chapter);
-  const activities = chapterActivities[chapter.title] || [];
-  if(!activities.length) return "";
+  const activities=getAllDetailedActivities(chapter);
+  if(!activities.length) return '';
   return `
-    <div class="content-block activities-block chapter-entrance">${completeIndex}
+    <div class="content-block activities-block chapter-entrance">
       <div class="activity-heading">
-        <div>
-          <span class="activity-kicker">LEARN BY DOING</span>
-          <h3>🧪 Activities</h3>
-        </div>
+        <div><span class="activity-kicker">LEARN BY DOING</span><h3>🧪 Activities</h3></div>
         <span class="activity-count">${activities.length} activities</span>
       </div>
       <p class="activity-intro">Open the Activities section to see every activity for this chapter, including its diagram and complete explanation.</p>
-      <button class="activities-main-button" onclick="toggleChapterActivities(this)" aria-expanded="false">
-        <span>🧪 Activities</span><span class="activities-main-chevron">⌄</span>
-      </button>
+      <button class="activities-main-button" onclick="toggleChapterActivities(this)" aria-expanded="false"><span>🧪 Activities</span><span class="activities-main-chevron">⌄</span></button>
       <div class="chapter-activities-panel">
         <div class="activity-list">
           ${activities.map((a,i)=>{
-            const diagram = a.diagram ? diagrams.find(d => d.src === a.diagram || d.figureNo === a.diagram) : findActivityDiagram(a, diagrams);
-            return `
-            <article class="activity-card">
-              <div class="activity-title-row">
-                <span class="activity-number">${String(i+1).padStart(2,'0')}</span>
-                <span class="activity-title">${a.title}</span>
-              </div>
-              ${diagram ? `
-                <figure class="activity-diagram">
-                  <div class="activity-diagram-label">${diagram.figureNo || "Activity Diagram"}</div>
-                  <img src="${diagram.src}" alt="${(diagram.caption || a.title).replace(/"/g,"&quot;")}" loading="lazy" decoding="async"
-                    onerror="this.closest('figure').classList.add('diagram-image-error'); this.style.display='none';">
-                  <figcaption>${diagram.caption || a.title}</figcaption>
-                </figure>` : ""}
+            const diagram=a.diagram ? diagrams.find(d=>d.src===a.diagram || d.figureNo===a.diagram) : findActivityDiagram(a,diagrams);
+            return `<article class="activity-card">
+              <div class="activity-title-row"><span class="activity-number">${a._code||String(i+1).padStart(2,'0')}</span><span class="activity-title">${a.title}</span></div>
+              ${diagram?`<figure class="activity-diagram"><div class="activity-diagram-label">${diagram.figureNo||'Activity Diagram'}</div><img src="${diagram.src}" alt="${(diagram.caption||a.title).replace(/"/g,'&quot;')}" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('diagram-image-error');this.style.display='none';"><figcaption>${diagram.caption||a.title}</figcaption></figure>`:''}
               <div class="activity-explanation">
                 <div class="activity-explanation-title">💡 Full Explanation of the Activity</div>
-                <div class="activity-explanation-section"><strong>What this activity demonstrates:</strong><p>${a.background || "This activity demonstrates the scientific concept discussed in this chapter."}</p></div>
-                <div class="activity-explanation-section"><strong>What happens and why:</strong><p>${a.explanation || "The observations made during the activity are connected to the scientific principle being studied."}</p></div>
-                <div class="activity-explanation-section"><strong>What the observation means:</strong><p>${a.observation || "The observation provides evidence for the scientific concept being demonstrated."}</p></div>
-                <div class="activity-explanation-section"><strong>Final meaning:</strong><p>${a.conclusion || a.result || "The activity helps verify the concept through observation and reasoning."}</p></div>
+                <div class="activity-explanation-section"><strong>What this activity demonstrates:</strong><p>${a.background}</p></div>
+                <div class="activity-explanation-section"><strong>What happens and why:</strong><p>${a.explanation}</p></div>
+                <div class="activity-explanation-section"><strong>What the observation means:</strong><p>${a.observation}</p></div>
+                <div class="activity-explanation-section"><strong>Final meaning:</strong><p>${a.conclusion||a.result}</p></div>
               </div>
-              ${a.interactive === "balancer" ? renderEquationBalancer() : ""}
+              ${a.interactive==='balancer'?renderEquationBalancer():''}
               <div class="activity-grid">
-                <div class="activity-item activity-wide"><span>📚 Background / Concept</span><p>${a.background || "The activity is based on the scientific concept explained in this chapter."}</p></div>
+                <div class="activity-item activity-wide"><span>📚 Background / Concept</span><p>${a.background}</p></div>
                 <div class="activity-item"><span>🎯 Objective</span><p>${a.objective}</p></div>
                 <div class="activity-item"><span>🧰 Materials</span><p>${a.materials}</p></div>
                 <div class="activity-item activity-wide"><span>🔬 Process — Step by Step</span><p>${a.process}</p></div>
                 <div class="activity-item activity-wide"><span>👀 Observation</span><p>${a.observation}</p></div>
                 <div class="activity-item activity-wide"><span>✅ Final Result</span><p>${a.result}</p></div>
-                <div class="activity-item activity-wide why-box"><span>🔎 Why does this happen?</span><p>${a.explanation || a.conclusion}</p></div>
+                <div class="activity-item activity-wide why-box"><span>🔎 Why does this happen?</span><p>${a.explanation}</p></div>
                 <div class="activity-item activity-wide"><span>📝 Conclusion</span><p>${a.conclusion}</p></div>
                 <div class="activity-item activity-wide precaution"><span>🛡️ Precautions</span><p>${a.precautions}</p></div>
               </div>
             </article>`;
-          }).join("")}
+          }).join('')}
         </div>
       </div>
     </div>`;
