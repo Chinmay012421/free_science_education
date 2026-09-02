@@ -812,40 +812,6 @@ body{
 }
 
 
-/* ================= REVISION BUTTON ================= */
-.hero-buttons .secondary{
-    text-decoration:none;
-}
-
-#formulaBankAnchor{
-    scroll-margin-top:90px;
-}
-
-@media(max-width:650px){
-    .hero-buttons .btn{
-        width:100%;
-        text-align:center;
-    }
-}
-
-function scrollToFormulaBank(event){
-    event.preventDefault();
-    const target=document.getElementById("formulaBankAnchor");
-    if(target){
-        target.scrollIntoView({behavior:"smooth",block:"center"});
-        setTimeout(()=>{
-            const button=target.querySelector(".formula-bank-btn");
-            if(button){
-                button.animate([
-                    {transform:"scale(1)"},
-                    {transform:"scale(1.03)"},
-                    {transform:"scale(1)"}
-                ],{duration:500,easing:"ease-out"});
-            }
-        },650);
-    }
-}
-
 /* ================= INTERACTIVE FORMULA BANK ================= */
 .formula-bank-trigger{margin:10px auto 30px;max-width:1250px;padding:0 22px}
 .formula-bank-btn{width:100%;padding:18px 24px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(135deg,#0a2442,#07182e);color:#fff;font-weight:800;font-size:18px;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:.3s}
@@ -862,6 +828,47 @@ function scrollToFormulaBank(event){
 .formula-chapters{padding:18px;border-right:1px solid var(--border);overflow-y:auto;background:#06172b;min-height:0;-webkit-overflow-scrolling:touch}.formula-chapter-btn{width:100%;text-align:left;padding:13px 14px;margin-bottom:9px;border:1px solid transparent;border-radius:12px;background:#081c35;color:#bcd0e3;transition:.2s}.formula-chapter-btn:hover,.formula-chapter-btn.active{background:#0c3156;color:#fff;border-color:rgba(32,217,255,.45)}
 .formula-results{padding:24px;overflow-y:auto}.formula-results h3{font-size:24px;margin-bottom:7px}.formula-results .formula-count{color:var(--muted);font-size:13px;margin-bottom:20px}.formula-card{background:linear-gradient(145deg,#061a31,#071f38);border:1px solid var(--border);border-radius:15px;padding:18px;margin-bottom:13px;transition:.25s}.formula-card:hover{transform:translateX(4px);border-color:rgba(32,217,255,.55)}.formula-card strong{display:block;color:#59c4ff;margin-bottom:8px}.formula-expression{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:16px;color:#f2f8ff;line-height:1.6;word-break:break-word}.formula-note{color:var(--muted);font-size:13px;margin-top:8px}
 @media(max-width:750px){.formula-modal-box{height:92vh}.formula-workspace{grid-template-columns:1fr;min-height:0}.formula-chapters{border-right:0;border-bottom:1px solid var(--border);max-height:210px;min-height:0}.formula-modal-head h2{font-size:23px}}
+
+
+/* ================= NCERT CHAPTER DIAGRAMS ================= */
+.topic-diagrams{margin:0 0 20px}.chapter-overview{background:linear-gradient(145deg,#071d35,#0a2745)!important;border-left:3px solid var(--ui-cyan)!important}.chapter-overview h3{margin-bottom:8px!important}.explanation-flow{display:flex;flex-direction:column;gap:0}.explanation-section{position:relative;padding:22px 22px 20px;margin:0 0 14px;background:linear-gradient(145deg,#061a31,#071f38);border:1px solid var(--ui-line);border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,.16);animation:chapterEntrance .45s ease both}.explanation-section h4{color:#fff;font-size:18px;margin:0 0 10px}.explanation-section p{margin:0;color:#c8dced;font-size:16px;line-height:1.78}.explanation-section .point-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;margin-right:9px;background:rgba(32,217,255,.12);border:1px solid rgba(32,217,255,.35);color:var(--ui-cyan);font-weight:800}.interleaved-diagram{margin:6px 0 20px}.interleaved-diagram .topic-diagram{margin:0}.chapter-subheading{color:#67d9ff!important;margin:24px 0 12px!important;font-size:18px!important}.chapter-summary{background:linear-gradient(145deg,#08233f,#0a2c4c)!important;border:1px solid rgba(32,217,255,.28)!important}.chapter-summary ul{margin:8px 0 0;padding-left:22px}.chapter-summary li{margin:7px 0}..topic-diagram{margin:20px 0;padding:16px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(145deg,#061a31,#071f38);text-align:center;overflow:hidden}.topic-diagram img{display:block;max-width:100%;max-height:520px;width:auto;height:auto;margin:0 auto;border-radius:10px;object-fit:contain;background:#fff}.topic-diagram figcaption{margin-top:10px;color:#bcd0e3;font-size:13px;line-height:1.5}.svg-diagram svg{display:block;width:100%;height:auto;min-height:280px;max-height:520px;border-radius:12px;background:linear-gradient(145deg,#041426,#0a2038)}.svg-diagram svg text{font-family:Inter,Arial,sans-serif}.diagram-label{display:block;color:#59c4ff;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;margin-bottom:8px}.diagram-loading{text-align:center;color:var(--muted);padding:25px}.diagram-error{text-align:center;color:#ffb4b4;padding:20px}
+
+/* ================= ACTIVITY WORKSPACE ================= */
+.activities-block{position:relative;overflow:hidden}
+.activity-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:8px}
+.activity-kicker{display:block;color:var(--ui-cyan);font-size:11px;font-weight:800;letter-spacing:2px;margin-bottom:4px}
+.activity-heading h3{margin:0!important}
+.activity-count{border:1px solid var(--ui-line);background:rgba(32,217,255,.07);color:#bfefff;border-radius:999px;padding:7px 11px;font-size:12px;white-space:nowrap}
+.activity-intro{margin:0 0 16px!important;color:#b9d4e9!important}
+.activity-list{display:grid;gap:12px}
+.activity-card{border:1px solid rgba(79,170,255,.25);border-radius:14px;background:linear-gradient(145deg,rgba(4,22,42,.9),rgba(7,31,56,.8));overflow:hidden}
+.activity-toggle{width:100%;border:0;background:transparent;color:#fff;display:grid;grid-template-columns:46px 1fr 28px;align-items:center;gap:10px;text-align:left;padding:14px 16px;cursor:pointer}
+.activity-toggle:hover{background:rgba(32,217,255,.05)}
+.activity-number{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#0c4f78,#0b2d4d);color:var(--ui-cyan);font-weight:800;font-size:12px}
+.activity-title{font-size:16px;font-weight:700;line-height:1.35}
+.activity-chevron{font-size:22px;color:var(--ui-cyan);transition:transform .25s ease;text-align:center}
+.activity-card.open .activity-chevron{transform:rotate(180deg)}
+.activity-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.activity-grid{padding:0 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.activity-item{padding:13px;border:1px solid rgba(79,170,255,.18);border-radius:11px;background:rgba(2,14,28,.55)}
+.activity-item span{display:block;color:#7edfff;font-size:12px;font-weight:800;letter-spacing:.4px;margin-bottom:6px}
+.activity-item p{margin:0;color:#c8dced;font-size:14px;line-height:1.62}
+.activity-wide{grid-column:1/-1}
+.activity-item.precaution{border-color:rgba(255,196,91,.25);background:rgba(255,196,91,.035)}
+@media(max-width:700px){
+ .activity-heading{align-items:flex-start}
+ .activity-grid{grid-template-columns:1fr}
+ .activity-wide{grid-column:auto}
+ .activity-toggle{grid-template-columns:40px 1fr 24px;padding:12px}
+ .activity-grid{padding:0 12px 12px}
+}
+
+/* ================= NCERT IMAGE DIAGRAM PRESENTATION ================= */
+.topic-diagram.ncert-diagram{margin:20px 0;padding:18px;background:#fff;border:1px solid rgba(65,165,255,.28);border-radius:16px;text-align:center;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.topic-diagram.ncert-diagram img{display:block;width:auto;max-width:100%;max-height:620px;height:auto;margin:0 auto;border-radius:6px;object-fit:contain;background:#fff}
+.topic-diagram.ncert-diagram .diagram-label{color:#126ed4;font-weight:800;font-size:13px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:12px}
+.topic-diagram.ncert-diagram figcaption{margin-top:12px;color:#29425d;font-size:13px;line-height:1.55}
+.topic-diagram.diagram-image-error{display:none}
 
 </style>
 </head>
@@ -915,10 +922,6 @@ with detailed explanations, definitions, formulas, examples,
 📚 Explore Chapters
 </a>
 
-<a class="btn secondary" href="#formulaBankAnchor" onclick="scrollToFormulaBank(event)">
-🔄 Revision
-</a>
-
 </div>
 
 </div>
@@ -964,24 +967,12 @@ with detailed explanations, definitions, formulas, examples,
 <h2>Class 10 Science Chapters</h2>
 
 <p>
-Select a subject or search for a chapter. Click a chapter
-to open its detailed learning material.
+Select a subject. Click a chapter to open its detailed learning material.
 </p>
 
 </div>
 
-<div class="search">
 
-<span class="search-icon">🔎</span>
-
-<input
-type="search"
-id="search"
-placeholder="Search chapter, topic or subject..."
-oninput="render()"
->
-
-</div>
 
 <div class="filters">
 
@@ -1070,7 +1061,7 @@ easier sections.
 </section>
 
 <!-- INTERACTIVE FORMULA BANK TAB -->
-<div class="formula-bank-trigger" id="formulaBankAnchor">
+<div class="formula-bank-trigger">
 <button class="formula-bank-btn" onclick="openFormulaBank()">📐 Formula Bank <span style="color:#67c8ff">• Physics • Chemistry • Biology</span></button>
 </div>
 
@@ -1136,6 +1127,105 @@ easier sections.
 /* =========================================================
    CHAPTER DATABASE
 ========================================================= */
+
+/* ================= NCERT TEXTBOOK DIAGRAMS =================
+   The custom SVG concept diagrams have been removed.
+   This website now loads the actual NCERT diagram image files
+   from the diagram folders already present in this repository.
+   Chapters 1–5 use Part 1, chapters 7–11 use Part 2.
+   Chapter 6 has no NCERT image folder in the supplied repository.
+========================================================= */
+
+const NCERT_REPO = "https://api.github.com/repos/Chinmay012421/scienceclass10-cbse/contents";
+
+const NCERT_CHAPTER_PATHS = {
+  "Chemical Reactions and Equations":
+    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/01_Chemical_Reactions_and_Equations",
+  "Acids, Bases and Salts":
+    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/02_Acids_Bases_and_Salts",
+  "Metals and Non-metals":
+    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/03_Metals_and_Non_metals",
+  "Carbon and Its Compounds":
+    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/04_Carbon_and_Its_Compounds",
+  "Life Processes":
+    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/05_Life_Processes",
+  "Control and Coordination": null,
+  "How Do Organisms Reproduce?":
+    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/07_How_do_Organisms_Reproduce",
+  "Heredity":
+    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/08_Heredity",
+  "Light – Reflection and Refraction":
+    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/09_Light_Reflection_and_Refraction",
+  "The Human Eye and the Colourful World":
+    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/10_Human_Eye_and_Colourful_World",
+  "Electricity":
+    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/11_Electricity"
+};
+
+const ncertDiagramCache = new Map();
+
+function figureNumber(filename){
+  const match = filename.match(/^Fig_(\d+)_(\d+)/i);
+  return match ? [Number(match[1]), Number(match[2])] : [999, 999];
+}
+
+function cleanDiagramName(filename){
+  return filename
+    .replace(/^Fig_\d+_\d+_/i, "")
+    .replace(/\.png$/i, "")
+    .replace(/_+/g, " ")
+    .trim();
+}
+
+async function getChapterDiagrams(chapter){
+  const folder = NCERT_CHAPTER_PATHS[chapter.title];
+  if(!folder) return [];
+  if(ncertDiagramCache.has(folder)) return ncertDiagramCache.get(folder);
+
+  try{
+    const response = await fetch(
+      `${NCERT_REPO}/${folder.split("/").map(encodeURIComponent).join("/")}?ref=main`,
+      {headers:{"Accept":"application/vnd.github+json"}}
+    );
+    if(!response.ok) throw new Error(`GitHub returned ${response.status}`);
+
+    const files = await response.json();
+    const diagrams = files
+      .filter(file => file.type === "file" && /\.png$/i.test(file.name) && /^Fig_\d+_\d+/i.test(file.name) && file.download_url)
+      .sort((a,b) => {
+        const [ac, af] = figureNumber(a.name);
+        const [bc, bf] = figureNumber(b.name);
+        return ac - bc || af - bf || a.name.localeCompare(b.name);
+      })
+      .map(file => {
+        const [chapterNo, figNo] = figureNumber(file.name);
+        return {
+          figureNo: `NCERT Fig. ${chapterNo}.${figNo}`,
+          caption: cleanDiagramName(file.name),
+          src: file.download_url
+        };
+      });
+
+    ncertDiagramCache.set(folder, diagrams);
+    return diagrams;
+  }catch(error){
+    console.error("Unable to load NCERT diagrams:", error);
+    return [];
+  }
+}
+
+function renderTopicDiagram(diagram){
+  if(!diagram || !diagram.src) return "";
+  const safeCaption = (diagram.caption || "NCERT textbook diagram").replace(/"/g,"&quot;");
+  return `
+    <figure class="topic-diagram ncert-diagram">
+      <div class="diagram-label">${diagram.figureNo || "NCERT Diagram"}</div>
+      <img src="${diagram.src}" alt="${safeCaption}" loading="lazy" decoding="async"
+        onerror="this.closest('figure').classList.add('diagram-image-error'); this.style.display='none';">
+      <figcaption>${diagram.caption || "NCERT textbook diagram"}</figcaption>
+    </figure>`;
+}
+
 
 const chapters = [
 
@@ -1592,7 +1682,7 @@ questions:[
 {
 id:9,
 subject:"biology",
-number:"09",
+number:"13",
 title:"Our Environment",
 description:"Explore ecosystems, food chains, trophic levels, energy transfer, ozone and waste.",
 
@@ -1649,7 +1739,7 @@ questions:[
 {
 id:10,
 subject:"physics",
-number:"10",
+number:"09",
 title:"Light – Reflection and Refraction",
 description:"Learn reflection, refraction, mirrors, lenses, ray diagrams and numerical formulas.",
 
@@ -1702,7 +1792,7 @@ questions:[
 {
 id:11,
 subject:"physics",
-number:"11",
+number:"10",
 title:"The Human Eye and the Colourful World",
 description:"Understand the human eye, accommodation, vision defects, dispersion and scattering.",
 
@@ -1754,7 +1844,7 @@ questions:[
 {
 id:12,
 subject:"physics",
-number:"12",
+number:"11",
 title:"Electricity",
 description:"Master electric current, potential difference, resistance, Ohm's law, circuits and power.",
 
@@ -1813,7 +1903,7 @@ questions:[
 {
 id:13,
 subject:"physics",
-number:"13",
+number:"12",
 title:"Magnetic Effects of Electric Current",
 description:"Study magnetic fields, electromagnets, motors, generators and electromagnetic induction.",
 
@@ -2007,11 +2097,7 @@ function render(){
 
     const grid = document.getElementById("chapterGrid");
 
-    const query = document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
+    const query = "";
 
     grid.innerHTML = "";
 
@@ -2033,7 +2119,7 @@ function render(){
             !query || searchable.includes(query);
 
         return subjectMatch && searchMatch;
-    });
+    }).sort((a,b) => Number(a.number) - Number(b.number));
 
     document
         .getElementById("noResults")
@@ -2116,101 +2202,218 @@ function toggleAnswer(button){
     const answer=button.nextElementSibling; const open=answer.classList.toggle("show"); button.classList.toggle("open",open);
 }
 
-function renderCompleteExplanation(chapter){
+function renderCompleteExplanation(chapter, diagrams){
+    const points = expandedExplanations[chapter.id] || chapter.concepts || [];
+    const count = diagrams.length;
+    let used = 0;
+    let flow = "";
+
+    points.forEach((item,index) => {
+        const heading = chapter.concepts[index] || `Core concept ${index + 1}`;
+        flow += `
+          <article class="explanation-section chapter-entrance">
+            <h4><span class="point-badge">${index + 1}</span>${heading}</h4>
+            <p>${item}</p>
+          </article>`;
+
+        if(count){
+            const target = Math.ceil(((index + 1) * count) / points.length);
+            while(used < target){
+                flow += `<div class="interleaved-diagram chapter-entrance">${renderTopicDiagram(diagrams[used])}</div>`;
+                used++;
+            }
+        }
+    });
+
     return `
-      <div class="content-block chapter-entrance">
-        <h3>📘 Complete Explanation</h3>
+      <div class="content-block chapter-overview chapter-entrance">
+        <h3>📘 Full Chapter Explanation</h3>
+        <p><strong>${chapter.title}</strong> — ${chapter.description}</p>
         <p>${chapter.intro}</p>
-        <h4>Core idea</h4>
-        <p>${chapter.concepts.join(" ")}</p>
-        <h4>How to understand this chapter</h4>
-        <p>The chapter can be studied through its key definitions, concepts, examples, applications and formulae below. These sections together cover the learning material stored for this chapter.</p>
+        <p>Read the explanation from top to bottom. The NCERT diagrams are placed directly beside the related learning points instead of being collected at the end, so the visual and written explanation stay connected.</p>
+      </div>
+      <div class="explanation-flow">
+        ${flow}
       </div>`;
 }
 
-function openChapter(id){
 
-    const chapter =
-        chapters.find(c => c.id === id);
+/* =========================================================
+   NCERT-STYLE ACTIVITY EXPLANATIONS
+   Each activity is organised as Objective → Materials → Process
+   → Observation → Final Result → Conclusion → Precautions.
+   Chemical/electrical activities are described for supervised
+   school-lab use; no quantities or unsafe procedures are given.
+========================================================= */
+const chapterActivities = {
+  "Chemical Reactions and Equations":[
+    {title:"Observing signs of a chemical reaction",objective:"To identify observable evidence that a chemical change may have occurred.",materials:"Teacher-approved reaction samples or demonstrations, observation sheet.",process:"Observe the demonstration carefully and compare the substances before and after the reaction. Look for changes in colour, temperature, state, formation of a precipitate, or evolution of gas.",observation:"One or more observable changes may appear, depending on the reaction being demonstrated.",result:"The observations provide evidence that new substances may have formed.",conclusion:"A chemical reaction can often be recognised through characteristic observable changes.",precautions:"Follow the teacher's instructions and do not touch or taste laboratory substances."},
+    {title:"Balancing a chemical equation",objective:"To understand why a chemical equation must contain equal numbers of atoms of each element on both sides.",materials:"Periodic-table reference and equation worksheet.",process:"Write the reactants and products correctly. Count atoms of each element on both sides and adjust coefficients until the counts match without changing chemical formulae.",observation:"The coefficients change, while the formulae of the substances remain unchanged.",result:"Equal numbers of atoms are present on both sides of the balanced equation.",conclusion:"Balancing represents conservation of atoms during a chemical reaction.",precautions:"Never change subscripts in a chemical formula merely to balance an equation."}
+  ],
+  "Acids, Bases and Salts":[
+    {title:"Testing acidic and basic nature with indicators",objective:"To compare the acidic or basic nature of different solutions using indicators.",materials:"Teacher-approved indicator samples and labelled solution samples.",process:"Add or use an appropriate indicator with each sample as demonstrated by the teacher. Compare the colour changes with the indicator chart.",observation:"Different samples produce characteristic indicator colours.",result:"The colour changes allow the samples to be classified as acidic, basic, or approximately neutral.",conclusion:"Indicators provide a convenient way to identify the nature of a solution.",precautions:"Use only teacher-provided samples and avoid direct contact with laboratory solutions."},
+    {title:"Comparing pH values",objective:"To understand that pH gives a numerical measure of the acidic or basic nature of a solution.",materials:"pH paper or universal indicator, reference colour chart, safe sample solutions.",process:"Test each sample with pH paper or indicator and compare the observed colour with the reference scale.",observation:"Samples show different positions on the pH scale.",result:"Lower pH indicates greater acidity, while higher pH indicates greater basicity; pH 7 is neutral at standard conditions.",conclusion:"The pH scale helps compare the acidic or basic strength of aqueous solutions.",precautions:"Use clean droppers or test materials for different samples and follow laboratory safety rules."}
+  ],
+  "Metals and Non-metals":[
+    {title:"Comparing physical properties of metals and non-metals",objective:"To compare properties such as lustre, hardness, malleability and conductivity using safe classroom samples.",materials:"Teacher-approved samples of metals and non-metals, observation table.",process:"Observe the samples and record the properties that can be safely tested or demonstrated by the teacher.",observation:"Metals commonly show lustre and good electrical/thermal conductivity, while non-metals generally show different physical properties.",result:"The samples can be distinguished using a combination of physical properties.",conclusion:"Physical properties provide useful clues for classifying metals and non-metals.",precautions:"Do not perform cutting, heating or electrical tests without teacher supervision."},
+    {title:"Studying corrosion",objective:"To understand the conditions that favour corrosion of iron.",materials:"Teacher-prepared rusting demonstration or sealed labelled samples showing different conditions.",process:"Compare iron samples kept under different environmental conditions as prepared by the teacher and record changes over time.",observation:"Rust formation is greater when iron is exposed to conditions that provide the necessary environmental factors for corrosion.",result:"The comparison shows that corrosion depends on the surroundings of the metal.",conclusion:"Corrosion is a gradual chemical change of a metal caused by interaction with its environment.",precautions:"Use only the teacher-prepared setup; do not handle unknown chemicals."}
+  ],
+  "Carbon and Its Compounds":[
+    {title:"Recognising saturated and unsaturated compounds",objective:"To understand the difference between carbon compounds containing only single bonds and those containing multiple bonds.",materials:"Structural formula cards or teacher-prepared molecular models.",process:"Arrange model atoms or inspect the structural formulae and identify whether carbon-carbon bonds are single, double or triple.",observation:"Some compounds contain only single carbon-carbon bonds, while others contain double or triple bonds.",result:"The compounds can be classified as saturated or unsaturated from their bonding pattern.",conclusion:"Bonding between carbon atoms determines important classes of carbon compounds.",precautions:"Use models or diagrams for classroom study rather than handling unknown chemicals."},
+    {title:"Studying the cleansing action of soap",objective:"To understand how soap helps remove oily dirt from surfaces.",materials:"Teacher-approved soap solution, water and a safe oily sample for demonstration.",process:"Observe how soap behaves when mixed with water and an oily substance. Compare the mixture with water alone.",observation:"Soap helps disperse oily material in water so that it can be removed more easily.",result:"The oily material becomes easier to wash away when soap is present.",conclusion:"Soap molecules have parts that interact differently with water and oily substances, enabling cleansing.",precautions:"Use a small teacher-approved demonstration and avoid contact with eyes."}
+  ],
+  "Life Processes":[
+    {title:"Demonstrating the need for light in photosynthesis",objective:"To understand that light is necessary for photosynthesis in green leaves.",materials:"Teacher-prepared plant demonstration and observation sheet.",process:"Observe a leaf or plant that has been arranged by the teacher so that different parts have experienced different light conditions, then compare the relevant observations.",observation:"The part exposed to suitable light shows evidence associated with photosynthetic activity when the teacher demonstrates the test.",result:"The comparison supports the role of light in photosynthesis.",conclusion:"Light is an essential condition for photosynthesis in green plants.",precautions:"Do not pluck or damage plants unnecessarily; use a teacher-prepared setup."},
+    {title:"Observing the role of transpiration",objective:"To understand that leaves lose water vapour through transpiration.",materials:"Healthy potted plant, transparent covering and observation sheet.",process:"A teacher covers a leafy part of a plant with a transparent covering and compares it with an uncovered control over time.",observation:"Moisture may collect inside the covering around the leafy part.",result:"The collected moisture indicates that water vapour has been released by the leaves.",conclusion:"Plants lose water vapour through transpiration, mainly from aerial parts such as leaves.",precautions:"Use a healthy plant and avoid leaving it covered for unnecessarily long periods."}
+  ],
+  "Control and Coordination":[
+    {title:"Observing a reflex response",objective:"To understand that some responses occur rapidly through reflex pathways.",materials:"Teacher-led classroom observation; no special equipment required.",process:"Observe a safe, voluntary classroom demonstration of a rapid response and discuss the sequence from stimulus to response.",observation:"A rapid response can occur without conscious planning of every movement.",result:"The response demonstrates the importance of a reflex pathway in quick protective actions.",conclusion:"Reflex actions provide rapid responses to certain stimuli through coordinated nervous-system pathways.",precautions:"Only safe, non-startling demonstrations should be used; never test reflexes by causing pain or injury."},
+    {title:"Observing phototropism",objective:"To understand how a plant shoot responds to the direction of light.",materials:"Young potted plant and a simple classroom light-direction setup prepared by the teacher.",process:"Place the plant so that light reaches it predominantly from one direction and observe its growth over time.",observation:"The shoot tends to grow towards the source of light.",result:"Directional growth of the shoot demonstrates a response to light.",conclusion:"Phototropism is a growth response in which plant shoots generally bend towards light.",precautions:"Provide adequate light and water and avoid damaging the plant."}
+  ],
+  "How Do Organisms Reproduce?":[
+    {title:"Studying asexual reproduction using diagrams/models",objective:"To identify common methods of asexual reproduction and compare their patterns.",materials:"NCERT diagrams, prepared models or teacher-provided images.",process:"Examine examples such as binary fission, budding, fragmentation, spore formation and vegetative propagation. Record the key feature of each method.",observation:"Different organisms use different mechanisms to produce new individuals without fusion of gametes.",result:"The examples can be grouped according to their mode of asexual reproduction.",conclusion:"Asexual reproduction generally involves a single parent and produces offspring with relatively little genetic variation.",precautions:"Use diagrams, models or prepared specimens; do not collect unknown biological material."},
+    {title:"Observing flower reproductive structures",objective:"To identify the structures of a flower involved in sexual reproduction.",materials:"Teacher-provided flower specimen or labelled flower model.",process:"Observe the sepals, petals, stamens and pistil/carpel and identify the anther, filament, stigma, style and ovary using a labelled diagram.",observation:"The flower contains distinct reproductive structures with specialised roles.",result:"The reproductive parts can be identified and their roles connected to pollination and fertilisation.",conclusion:"Flowers contain structures specialised for sexual reproduction in flowering plants.",precautions:"Handle specimens gently and follow the teacher's instructions."}
+  ],
+  "Heredity":[
+    {title:"Coin-toss model of inheritance",objective:"To model how combinations of parental factors can produce different offspring outcomes.",materials:"Two coins and a recording table.",process:"Assign one side of each coin to one possible allele and toss both coins repeatedly. Record the paired outcomes and group them into possible genotypes.",observation:"Repeated trials produce more than one possible combination of parental factors.",result:"Different combinations occur with different frequencies across many trials.",conclusion:"The model illustrates how random combinations of inherited factors can produce variation among offspring.",precautions:"Remember that the coin model is a simplified representation and not a complete biological model of inheritance."},
+    {title:"Studying inherited and acquired traits",objective:"To distinguish traits that have a genetic basis from changes acquired during an individual's lifetime.",materials:"Trait examples or classroom picture cards.",process:"Classify teacher-provided examples according to whether the trait is inherited or acquired, then discuss the reason for each classification.",observation:"Some characteristics are passed through genetic information, while others result from environment or experience.",result:"The examples can be separated into inherited and acquired categories.",conclusion:"Heredity explains transmission of genetic information, while not every characteristic seen in an individual is inherited.",precautions:"Use respectful, non-sensitive examples and avoid judging people's bodies or abilities."}
+  ],
+  "Our Environment":[
+    {title:"Constructing a simple food chain",objective:"To understand how energy and feeding relationships connect organisms in an ecosystem.",materials:"Organism picture cards or a classroom diagram.",process:"Arrange producer, herbivore and higher-level consumers in a logical feeding sequence and identify the trophic level of each organism.",observation:"Energy enters the food chain through producers and moves through successive trophic levels.",result:"A connected food chain shows feeding relationships and the direction of energy transfer.",conclusion:"Food chains represent how organisms obtain energy from one another within an ecosystem.",precautions:"Use examples from reliable educational sources and distinguish a food chain from a complete food web."},
+    {title:"Waste segregation survey",objective:"To understand why biodegradable and non-biodegradable wastes should be separated.",materials:"Clean classroom waste examples or picture cards and labelled categories.",process:"Sort the examples into biodegradable and non-biodegradable groups and discuss suitable disposal or recycling routes.",observation:"Different materials show different abilities to break down naturally.",result:"Segregation makes it easier to manage biodegradable waste and recover recyclable materials.",conclusion:"Proper waste segregation can reduce environmental impact and support responsible waste management.",precautions:"Use clean samples or pictures; never handle sharp, medical or unknown waste."}
+  ],
+  "Light – Reflection and Refraction":[
+    {title:"Verifying the laws of reflection",objective:"To observe the relationship between the angle of incidence and angle of reflection.",materials:"Plane mirror, ray box or safe light source, paper, protractor and ruler under teacher supervision.",process:"Set up a plane mirror on a marked line and trace incident and reflected rays. Measure the corresponding angles from the normal and compare them.",observation:"For repeated observations, the angle of reflection is approximately equal to the angle of incidence.",result:"The measured values support the first law of reflection and the geometrical relation between the rays and normal.",conclusion:"The laws of reflection describe how light reflects from a smooth surface.",precautions:"Never look directly into a bright light source; use the teacher-approved low-intensity setup."},
+    {title:"Observing refraction through a transparent medium",objective:"To observe the change in direction of light when it passes from one transparent medium to another.",materials:"Transparent block or water demonstration, safe light source and paper setup under teacher supervision.",process:"Observe the path of a light ray as it enters and leaves the transparent medium and compare it with the original direction.",observation:"The ray changes direction at the boundary between the media, except for special cases such as normal incidence.",result:"The change in direction demonstrates refraction.",conclusion:"Refraction occurs because light travels at different speeds in different transparent media.",precautions:"Use a safe classroom light source and do not stare into the beam."}
+  ],
+  "The Human Eye and the Colourful World":[
+    {title:"Observing the effect of a pupil on incoming light",objective:"To understand that the pupil controls the amount of light entering the eye.",materials:"Teacher-led observation using safe changes in ambient illumination.",process:"Compare pupil size in a dim environment and in a brighter environment without looking directly at intense light sources.",observation:"The pupil becomes relatively larger in dim conditions and smaller in brighter conditions.",result:"The amount of light entering the eye is regulated by changes in pupil size.",conclusion:"The iris controls the pupil and helps regulate light entering the eye.",precautions:"Never use lasers, intense lamps or direct sunlight for the demonstration."},
+    {title:"Demonstrating dispersion of white light",objective:"To observe the separation of white light into constituent colours.",materials:"Teacher-demonstrated prism and safe white-light source.",process:"Allow the teacher to direct white light through a prism and observe the emergent spread of colours on a screen.",observation:"A band of different colours appears.",result:"White light is separated into its constituent colours by dispersion.",conclusion:"Different colours are deviated by different amounts when passing through a prism.",precautions:"Use only a teacher-controlled light source and never view the Sun directly."}
+  ],
+  "Electricity":[
+    {title:"Studying the relationship between potential difference and current",objective:"To investigate the relationship between potential difference across a conductor and current through it.",materials:"Teacher-approved low-voltage circuit, resistor, ammeter, voltmeter and connecting wires.",process:"With the circuit arranged by the teacher, record current for several suitable potential differences while keeping relevant conditions constant. Plot or compare the readings.",observation:"For an ohmic conductor under suitable constant conditions, current increases approximately in proportion to potential difference.",result:"The V-I relationship is approximately linear for the chosen conductor over the measured range.",conclusion:"The observation supports Ohm's law, V = IR, under suitable conditions.",precautions:"Use only a low-voltage school circuit and never connect mains electricity to the activity."},
+    {title:"Comparing series and parallel circuits",objective:"To understand how current paths differ in series and parallel connections.",materials:"Teacher-approved low-voltage circuit components, cells, switches and lamps/resistors.",process:"Observe teacher-prepared series and parallel arrangements and compare the behaviour of the components when a branch is opened or closed.",observation:"Series circuits have a single path, while parallel circuits have separate branches.",result:"The two arrangements show different current paths and operating behaviour.",conclusion:"The arrangement of components affects how current flows through a circuit; household wiring uses parallel branches for independent operation.",precautions:"Use only low-voltage equipment and disconnect the supply before changing a circuit."}
+  ],
+  "Magnetic Effects of Electric Current":[
+    {title:"Observing the magnetic effect of electric current",objective:"To observe that a current-carrying conductor produces a magnetic field around it.",materials:"Teacher-approved low-voltage circuit and compass setup.",process:"With the teacher's circuit operating, observe the compass near the conductor and compare its direction when the current is switched on and off.",observation:"The compass needle shows a deflection when current flows.",result:"The deflection indicates the presence of a magnetic effect associated with electric current.",conclusion:"Electric current produces a magnetic field around a current-carrying conductor.",precautions:"Use a low-voltage setup and avoid short circuits or prolonged current flow."},
+    {title:"Understanding the working principle of an electric motor",objective:"To understand how a current-carrying coil can experience a force in a magnetic field.",materials:"Teacher demonstration/model of a simple motor.",process:"Observe the model as current is supplied to the coil in a magnetic field and identify the direction of force and rotation.",observation:"The coil experiences forces that can produce rotational motion.",result:"Electrical energy is converted into mechanical motion.",conclusion:"An electric motor works using the force experienced by a current-carrying conductor in a magnetic field.",precautions:"Use a teacher-prepared low-voltage motor model and do not dismantle powered equipment."}
+  ]
+};
 
+function renderActivities(chapter){
+  const activities = chapterActivities[chapter.title] || [];
+  if(!activities.length) return "";
+  return `
+    <div class="content-block activities-block chapter-entrance">
+      <div class="activity-heading">
+        <div>
+          <span class="activity-kicker">LEARN BY DOING</span>
+          <h3>🧪 Activities &amp; Experiments</h3>
+        </div>
+        <span class="activity-count">${activities.length} activities</span>
+      </div>
+      <p class="activity-intro">Each activity is explained through its <strong>objective, materials, process, observation, final result, conclusion and precautions</strong>, so you can understand not only what to do, but why the activity matters.</p>
+      <div class="activity-list">
+        ${activities.map((a,i)=>`
+          <article class="activity-card">
+            <button class="activity-toggle" onclick="toggleActivity(this)">
+              <span class="activity-number">${String(i+1).padStart(2,'0')}</span>
+              <span class="activity-title">${a.title}</span>
+              <span class="activity-chevron">⌄</span>
+            </button>
+            <div class="activity-body">
+              <div class="activity-grid">
+                <div class="activity-item"><span>🎯 Objective</span><p>${a.objective}</p></div>
+                <div class="activity-item"><span>🧰 Materials</span><p>${a.materials}</p></div>
+                <div class="activity-item activity-wide"><span>⚙️ Process</span><p>${a.process}</p></div>
+                <div class="activity-item"><span>👀 Observation</span><p>${a.observation}</p></div>
+                <div class="activity-item"><span>✅ Final Result</span><p>${a.result}</p></div>
+                <div class="activity-item activity-wide"><span>💡 Conclusion</span><p>${a.conclusion}</p></div>
+                <div class="activity-item activity-wide precaution"><span>🛡️ Precautions</span><p>${a.precautions}</p></div>
+              </div>
+            </div>
+          </article>`).join("")}
+      </div>
+    </div>`;
+}
+
+function toggleActivity(button){
+  const card = button.closest('.activity-card');
+  const body = card.querySelector('.activity-body');
+  const open = card.classList.toggle('open');
+  button.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(open){ body.style.maxHeight = body.scrollHeight + 'px'; }
+  else { body.style.maxHeight = '0px'; }
+}
+
+function renderChapterExtras(chapter){
+    return `
+      ${renderActivities(chapter)}
+      <div class="content-block chapter-entrance">
+        <h3>📖 Important Definitions</h3>
+        ${chapter.definitions.map(item => `
+          <div class="definition"><strong>${item[0]}:</strong> ${item[1]}</div>
+        `).join("")}
+      </div>
+
+      <div class="content-block chapter-entrance">
+        <h3>📐 Formulas / Equations</h3>
+        ${chapter.formulas.map(item => `<div class="formula">${item}</div>`).join("")}
+      </div>
+
+      <div class="content-block chapter-entrance">
+        <h3>🔬 Examples</h3>
+        ${chapter.examples.map(item => `<div class="example">${item}</div>`).join("")}
+      </div>
+
+      <div class="content-block chapter-entrance">
+        <h3>🌍 Applications</h3>
+        <ul>${chapter.applications.map(item => `<li>${item}</li>`).join("")}</ul>
+      </div>
+
+      <div class="content-block chapter-summary chapter-entrance">
+        <h3>🧠 Quick Chapter Summary</h3>
+        <ul>${chapter.concepts.map(item => `<li>${item}</li>`).join("")}</ul>
+      </div>
+
+      <div class="content-block chapter-entrance">
+        <h3>❓ Important Questions — Click to Reveal Answers</h3>
+        <ol>
+          ${chapter.questions.map(item => `
+            <li class="important-question">
+              <button class="question-button" onclick="toggleAnswer(this)">${item}</button>
+              <div class="answer-box">${answerQuestion(chapter,item)}</div>
+            </li>
+          `).join("")}
+        </ol>
+      </div>`;
+}
+
+async function openChapter(id){
+
+    const chapter = chapters.find(c => c.id === id);
     if(!chapter) return;
 
-    document.getElementById("modalSubject")
-        .textContent = chapter.subject + " • Interactive Explanation";
+    document.getElementById("modalSubject").textContent = chapter.subject + " • Interactive Explanation";
+    document.getElementById("modalTitle").textContent = chapter.title;
+    document.getElementById("modalContent").innerHTML = `
+      <div class="chapter-text complete-chapter">
+        <div class="content-block chapter-overview chapter-entrance">
+          <h3>🔬 Preparing your chapter...</h3>
+          <p>Loading the complete explanation and placing the correct NCERT diagrams next to the related concepts.</p>
+        </div>
+      </div>`;
 
-    document.getElementById("modalTitle")
-        .textContent = chapter.title;
-
-    document.getElementById("modalContent")
-        .innerHTML = `
-        <div class="chapter-text complete-chapter">
-            ${renderCompleteExplanation(chapter)}
-
-            <div class="content-block chapter-entrance">
-                <h3>📖 Important Definitions</h3>
-                ${chapter.definitions.map(item => `
-                    <div class="definition">
-                        <strong>${item[0]}:</strong> ${item[1]}
-                    </div>
-                `).join("")}
-            </div>
-
-            <div class="content-block chapter-entrance">
-                <h3>🧠 Detailed Explanation — Every Chapter Point</h3>
-                <div class="expanded-concepts">
-                    ${(expandedExplanations[chapter.id] || []).map((item,index) => `
-                        <article class="expanded-point">
-                            <div class="expanded-number">${index + 1}</div>
-                            <div>
-                                <h4>${chapter.concepts[index] || "Key concept"}</h4>
-                                <p>${item}</p>
-                            </div>
-                        </article>
-                    `).join("")}
-                </div>
-            </div>
-
-            <div class="content-block chapter-entrance">
-                <h3>📐 Formulas / Equations</h3>
-                ${chapter.formulas.map(item => `
-                    <div class="formula">${item}</div>
-                `).join("")}
-            </div>
-
-            <div class="content-block chapter-entrance">
-                <h3>🔬 Examples</h3>
-                ${chapter.examples.map(item => `
-                    <div class="example">${item}</div>
-                `).join("")}
-            </div>
-
-            <div class="content-block chapter-entrance">
-                <h3>🌍 Applications</h3>
-                <ul>
-                    ${chapter.applications.map(item => `<li>${item}</li>`).join("")}
-                </ul>
-            </div>
-
-            <div class="content-block chapter-entrance">
-                <h3>❓ Important Questions — Click to Reveal Answers</h3>
-                <ol>
-                    ${chapter.questions.map(item => `
-                        <li class="important-question">
-                            <button class="question-button" onclick="toggleAnswer(this)">
-                                ${item}
-                            </button>
-                            <div class="answer-box">${answerQuestion(chapter,item)}</div>
-                        </li>
-                    `).join("")}
-                </ol>
-            </div>
-        </div>`;
-
-    document
-        .getElementById("modal")
-        .classList.add("show");
-
+    document.getElementById("modal").classList.add("show");
     document.body.style.overflow = "hidden";
+
+    const diagrams = await getChapterDiagrams(chapter);
+
+    document.getElementById("modalContent").innerHTML = `
+      <div class="chapter-text complete-chapter">
+        ${renderCompleteExplanation(chapter, diagrams)}
+        ${renderChapterExtras(chapter)}
+      </div>`;
 }
 
 /* =========================================================
