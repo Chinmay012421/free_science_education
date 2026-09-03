@@ -2560,13 +2560,16 @@ function renderEquationBalancer(){
 }
 
 function parseFormula(formula){
-  const tokens = formula.match(/[A-Z][a-z]?|\d+|\(|\)/g) || [];
+  // Support both normal digits (H2O) and NCERT-style Unicode subscripts (H₂O).
+  const subscriptMap={"₀":"0","₁":"1","₂":"2","₃":"3","₄":"4","₅":"5","₆":"6","₇":"7","₈":"8","₉":"9"};
+  formula=String(formula).replace(/[₀₁₂₃₄₅₆₇₈₉]/g,ch=>subscriptMap[ch]);
+  const tokens=formula.match(/[A-Z][a-z]?|\d+|\(|\)/g)||[];
   const stack=[{}];
   for(let i=0;i<tokens.length;){
     const t=tokens[i];
     if(t==='('){stack.push({});i++;continue;}
     if(t===')'){
-      const group=stack.pop(); i++;
+      const group=stack.pop()||{}; i++;
       let mult=1;
       if(i<tokens.length && /^\d+$/.test(tokens[i])){mult=Number(tokens[i]);i++;}
       Object.entries(group).forEach(([el,n])=>stack[stack.length-1][el]=(stack[stack.length-1][el]||0)+n*mult);
@@ -2617,12 +2620,23 @@ function updateBalanceCounts(){
 function checkBalanceEquation(){
   updateBalanceCounts();
   const q=balanceQuestions[Number(document.getElementById('balanceQuestion')?.value)||0];
-  const inputs=[...document.querySelectorAll('#balanceEquation .balance-coef')].map(x=>Number(x.value)||1);
-  const correct=q.answer.every((n,i)=>inputs[i]===n) && inputs.length===q.answer.length;
+  const inputs=[...document.querySelectorAll('#balanceEquation .balance-coef')].map(x=>Math.max(1,Number(x.value)||1));
   const counts={};
-  [...q.left,...q.right].forEach((formula,i)=>Object.entries(parseFormula(formula)).forEach(([el,n])=>{if(!counts[el])counts[el]=[0,0];counts[el][i<q.left.length?0:1]+=inputs[i]*n;}));
+  [...q.left,...q.right].forEach((formula,i)=>Object.entries(parseFormula(formula)).forEach(([el,n])=>{
+    if(!counts[el])counts[el]=[0,0];
+    counts[el][i<q.left.length?0:1]+=inputs[i]*n;
+  }));
   const balanced=Object.values(counts).every(v=>v[0]===v[1]);
-  showBalanceFeedback(balanced && correct?'🎉 Correct! The equation is balanced using the smallest whole-number coefficients.':'Not yet. Check the atom-count boxes and adjust the coefficients. Remember: never change the subscripts.');
+  if(!balanced){
+    showBalanceFeedback('❌ Not balanced yet. Check the atom-count boxes and adjust the coefficients. Remember: never change the subscripts.');
+    return;
+  }
+  const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+  const divisor=inputs.reduce((a,b)=>gcd(a,b));
+  const smallest=divisor===1;
+  showBalanceFeedback(smallest
+    ?'🎉 Correct! The equation is balanced using the smallest whole-number coefficients.'
+    :'✅ Balanced! Your coefficients give equal atom counts on both sides. You can simplify them to the smallest whole-number ratio.');
 }
 
 function showBalanceHint(){
