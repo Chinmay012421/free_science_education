@@ -94,6 +94,22 @@ a{
     font-weight:800;
 }
 
+
+.brand-name{
+    display:inline-flex;
+    align-items:baseline;
+    gap:5px;
+    white-space:nowrap;
+}
+
+.brand-by{
+    font-size:16px;
+    font-weight:800;
+    letter-spacing:.5px;
+    opacity:.95;
+    margin-left:3px;
+}
+
 .logo-icon{
     width:43px;
     height:43px;
@@ -588,7 +604,7 @@ footer p{
     }
 }
 
-@media(max-width:650px){
+@media(max-width:650px){.brand-by{font-size:14px}.brand-name{font-size:18px}
 
     .nav-links{
         display:none;
@@ -812,6 +828,14 @@ body{
 }
 
 
+
+/* ================= REVISION HUB ================= */
+.revision-hub{max-width:1250px;margin:28px auto 10px;padding:0 22px}
+.revision-hub-head{text-align:center;margin-bottom:18px}.revision-hub-head .revision-kicker{display:block;color:var(--ui-cyan);font-size:12px;font-weight:900;letter-spacing:2px;margin-bottom:5px}.revision-hub-head h2{margin:0;font-size:30px;color:#fff}.revision-hub-head p{margin:7px auto 0;max-width:720px;color:var(--muted);line-height:1.6}
+.revision-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.revision-card{border:1px solid rgba(79,170,255,.25);border-radius:16px;background:linear-gradient(145deg,#061a31,#071f38);padding:17px;text-align:left;color:#fff;cursor:pointer;transition:.25s;box-shadow:0 10px 26px rgba(0,0,0,.15);min-height:132px}.revision-card:hover{transform:translateY(-4px);border-color:rgba(32,217,255,.65);box-shadow:0 16px 35px rgba(0,0,0,.25)}.revision-card .revision-icon{font-size:27px;display:block;margin-bottom:9px}.revision-card strong{display:block;font-size:15px;margin-bottom:5px}.revision-card small{display:block;color:#a9c6dc;line-height:1.45}.revision-score-strip{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:16px 0 4px}.revision-mini-stat{padding:7px 12px;border:1px solid var(--border);border-radius:999px;background:rgba(32,217,255,.06);color:#bfefff;font-size:12px}.revision-mini-stat b{color:#fff}.revision-modal{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(1,8,18,.86);backdrop-filter:blur(9px)}.revision-modal.show{display:flex}.revision-modal-box{width:min(1050px,100%);max-height:90vh;overflow:auto;background:#071a31;border:1px solid var(--border);border-radius:24px;padding:25px;box-shadow:0 30px 90px rgba(0,0,0,.7)}.revision-modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:18px}.revision-modal-head h2{margin:0;color:#fff}.revision-close{border:0;background:#0c2949;color:#fff;border:1px solid var(--border);border-radius:10px;width:40px;height:40px;font-size:23px;cursor:pointer}.revision-select{width:100%;padding:12px 14px;border-radius:11px;background:#081f39;color:#fff;border:1px solid var(--border);margin-bottom:16px}.revision-content-card{padding:16px;border:1px solid rgba(79,170,255,.2);border-radius:14px;background:rgba(2,14,28,.55);margin-bottom:12px}.revision-content-card h3{margin:0 0 9px;color:#67d9ff}.revision-content-card ul{margin:7px 0 0;padding-left:22px}.revision-content-card li{margin:7px 0;color:#c8dced;line-height:1.55}.revision-question{padding:15px;border:1px solid rgba(79,170,255,.2);border-radius:13px;margin-bottom:10px;background:linear-gradient(145deg,#061a31,#071f38)}.revision-question strong{display:block;color:#fff;margin-bottom:6px}.revision-answer{display:none;color:#bfefff;margin-top:8px;padding-top:8px;border-top:1px solid rgba(79,170,255,.16)}.revision-question.revealed .revision-answer{display:block}.revision-action{border:1px solid var(--border);border-radius:10px;background:#0b2948;color:#fff;padding:9px 13px;font-weight:700;cursor:pointer;margin-top:8px}.revision-action:hover{border-color:#20d9ff}.flashcard-wrap{text-align:center;padding:10px}.flashcard{min-height:210px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;border-radius:20px;border:1px solid rgba(32,217,255,.35);background:linear-gradient(145deg,#082542,#06182d);cursor:pointer}.flashcard .fc-label{font-size:11px;letter-spacing:2px;color:#67d9ff;font-weight:900;margin-bottom:14px}.flashcard .fc-text{font-size:24px;font-weight:800;line-height:1.45;max-width:800px}.flashcard .fc-hint{margin-top:12px;color:#91b2c9;font-size:13px}.flashcard-controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}.timer-display{text-align:center;font-size:64px;font-weight:900;letter-spacing:2px;margin:24px 0;color:#fff;font-variant-numeric:tabular-nums}.timer-presets,.timer-controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}.timer-progress{height:9px;border-radius:999px;background:#03101f;overflow:hidden;border:1px solid var(--border);margin:16px 0}.timer-progress span{display:block;height:100%;width:0;background:#20d9ff;transition:width .25s}.diagram-revision-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.diagram-revision-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px;border:1px solid rgba(79,170,255,.2);border-radius:12px;background:#061a31}.diagram-revision-item strong{font-size:14px}.mistake-list{display:grid;gap:10px}.mistake-item{padding:14px;border-left:3px solid #20d9ff;border-radius:10px;background:rgba(32,217,255,.06);color:#c8dced;line-height:1.55}.revision-bottom-note{text-align:center;color:var(--muted);font-size:12px;margin:13px 0 0}
+@media(max-width:1000px){.revision-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.revision-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.revision-card{min-height:120px;padding:14px}.revision-hub-head h2{font-size:25px}.revision-modal-box{padding:18px}.diagram-revision-list{grid-template-columns:1fr}.flashcard .fc-text{font-size:19px}.timer-display{font-size:48px}}
+
 /* ================= INTERACTIVE FORMULA BANK ================= */
 .formula-bank-trigger{margin:10px auto 30px;max-width:1250px;padding:0 22px}
 .formula-bank-btn{width:100%;padding:18px 24px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(135deg,#0a2442,#07182e);color:#fff;font-weight:800;font-size:18px;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:.3s}
@@ -895,7 +919,7 @@ body{
 
 
 /* ================= CHAPTER ACTIVITIES BUTTON ================= */
-.complete-activity-index{margin:0 0 22px;padding:20px;border:1px solid rgba(32,217,255,.18);border-radius:18px;background:linear-gradient(180deg,rgba(13,41,73,.82),rgba(7,23,44,.72));}.complete-activity-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:20px;font-weight:800;margin-bottom:6px}.complete-activity-heading span{font-size:12px;padding:5px 9px;border-radius:999px;background:rgba(32,217,255,.12);color:var(--cyan);border:1px solid rgba(32,217,255,.22);white-space:nowrap}.complete-activity-note{color:var(--muted);font-size:13px;margin-bottom:14px}.complete-activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}.complete-activity-card{padding:14px;border:1px solid var(--border);border-radius:14px;background:rgba(4,11,23,.45)}.complete-activity-number{font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--cyan);text-transform:uppercase;margin-bottom:4px}.complete-activity-card h4{font-size:15px;margin-bottom:5px}.complete-activity-card p{font-size:12.5px;color:var(--muted);line-height:1.55}@media(max-width:650px){.complete-activity-heading{align-items:flex-start;flex-direction:column}.complete-activity-grid{grid-template-columns:1fr}}
+.complete-activity-index{margin:0 0 22px;padding:20px;border:1px solid rgba(32,217,255,.18);border-radius:18px;background:linear-gradient(180deg,rgba(13,41,73,.82),rgba(7,23,44,.72));}.complete-activity-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:20px;font-weight:800;margin-bottom:6px}.complete-activity-heading span{font-size:12px;padding:5px 9px;border-radius:999px;background:rgba(32,217,255,.12);color:var(--cyan);border:1px solid rgba(32,217,255,.22);white-space:nowrap}.complete-activity-note{color:var(--muted);font-size:13px;margin-bottom:14px}.complete-activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}.complete-activity-card{padding:14px;border:1px solid var(--border);border-radius:14px;background:rgba(4,11,23,.45)}.complete-activity-number{font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--cyan);text-transform:uppercase;margin-bottom:4px}.complete-activity-card h4{font-size:15px;margin-bottom:5px}.complete-activity-card p{font-size:12.5px;color:var(--muted);line-height:1.55}@media(max-width:650px){.brand-by{font-size:14px}.brand-name{font-size:18px}.complete-activity-heading{align-items:flex-start;flex-direction:column}.complete-activity-grid{grid-template-columns:1fr}}
 .activities-main-button{width:100%;display:flex;align-items:center;justify-content:space-between;padding:17px 20px;margin-top:14px;border:1px solid rgba(32,217,255,.35);border-radius:14px;background:linear-gradient(135deg,#0a3155,#08213c);color:#fff;font-weight:800;font-size:17px;cursor:pointer;transition:.25s}
 .activities-main-button:hover,.activities-main-button.open{border-color:var(--ui-cyan);background:linear-gradient(135deg,#0d4774,#0a2948);transform:translateY(-1px)}
 .activities-main-chevron{font-size:24px;color:var(--ui-cyan);transition:transform .25s ease}.activities-main-button.open .activities-main-chevron{transform:rotate(180deg)}
@@ -927,6 +951,29 @@ body{
 .balance-challenge label{font-size:13px;color:var(--muted)}
 .balance-select{padding:9px 11px;border-radius:9px;border:1px solid rgba(32,217,255,.3);background:#06152b;color:#fff}
 
+
+/* ================= SCIENCE10 UPGRADE PACK ================= */
+.dashboard-section{max-width:1250px;margin:0 auto;padding:25px 22px 45px}
+.dashboard-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.dashboard-card{background:linear-gradient(145deg,#071f39,#061426);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.dashboard-card h3{margin-bottom:8px;color:#fff}.dashboard-muted{color:var(--muted);font-size:14px}
+.progress-track{height:12px;background:#061020;border-radius:20px;overflow:hidden;margin:14px 0 8px;border:1px solid rgba(255,255,255,.08)}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .35s ease}
+.dashboard-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.dash-stat{padding:12px;border-radius:12px;background:rgba(255,255,255,.035);text-align:center}.dash-stat strong{display:block;font-size:22px;color:#fff}.dash-stat span{font-size:11px;color:var(--muted)}
+.dashboard-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.dash-btn{border:1px solid var(--border);border-radius:12px;padding:12px;background:#08213c;color:#fff;font-weight:800}.dash-btn:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.roadmap-step{padding:13px;border-radius:12px;background:rgba(22,131,255,.07);border:1px solid rgba(65,165,255,.16)}.roadmap-step strong{display:block;color:#fff;font-size:13px}.roadmap-step span{color:var(--muted);font-size:11px}.roadmap-step.done{border-color:rgba(46,204,113,.5);background:rgba(46,204,113,.08)}
+.global-search{max-width:850px;margin:0 auto 25px;position:relative}.global-search input{width:100%;padding:16px 18px 16px 48px;background:#081c35;color:#fff;border:1px solid var(--border);border-radius:15px;outline:none}.global-search-icon{position:absolute;left:17px;top:50%;transform:translateY(-50%)}
+.subject-card-Chemistry:hover{box-shadow:0 20px 50px rgba(22,131,255,.20)}.subject-card-Biology:hover{box-shadow:0 20px 50px rgba(46,204,113,.16)}.subject-card-Physics:hover{box-shadow:0 20px 50px rgba(255,180,70,.15)}
+.chapter-progress{margin-top:12px}.chapter-progress small{color:var(--muted)}.chapter-mini-track{height:6px;background:#031020;border-radius:10px;overflow:hidden;margin-top:5px}.chapter-mini-fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.chapter-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.chapter-action-btn{border:1px solid var(--border);background:#08213c;color:#fff;border-radius:10px;padding:9px 12px;font-weight:800}.chapter-action-btn:hover{border-color:var(--cyan)}
+.activity-complete{margin-left:auto;border:1px solid rgba(46,204,113,.35);background:rgba(46,204,113,.08);color:#9bf2b8;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:800}.activity-complete.done{background:rgba(46,204,113,.2)}
+.quiz-modal,.lab-modal,.achievement-modal{position:fixed;inset:0;z-index:4000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.84);backdrop-filter:blur(10px)}.quiz-modal.show,.lab-modal.show,.achievement-modal.show{display:flex}.upgrade-modal-box{width:min(850px,100%);max-height:90vh;overflow:auto;background:#071a31;border:1px solid var(--border);border-radius:22px;padding:26px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.quiz-option{display:block;width:100%;text-align:left;margin:9px 0;padding:13px 15px;border:1px solid var(--border);border-radius:11px;background:#081f39;color:#fff}.quiz-option:hover{border-color:var(--cyan)}.quiz-option.correct{border-color:#42e58b;background:rgba(46,204,113,.12)}.quiz-option.wrong{border-color:#ff7777;background:rgba(255,100,100,.1)}.quiz-result{padding:13px;border-radius:12px;background:rgba(32,217,255,.07);margin-top:14px;color:#cfe7f8}.quiz-next{margin-top:12px}
+.lab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.lab-card{padding:17px;border:1px solid var(--border);border-radius:15px;background:#081f39}.lab-card button{margin-top:10px}.lab-output{margin-top:15px;padding:15px;border-radius:12px;background:#041020;color:#cfe7f8;min-height:70px}
+.achievement-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.achievement{padding:14px;border:1px solid var(--border);border-radius:13px;background:#081f39}.achievement.unlocked{border-color:#20d9ff;background:rgba(32,217,255,.08)}.achievement span{font-size:25px}.achievement strong{display:block}.achievement small{color:var(--muted)}
+.game-mode{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;margin-top:12px;border-radius:12px;background:rgba(22,131,255,.07);border:1px solid rgba(32,217,255,.18)}
+@media(max-width:850px){.dashboard-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:repeat(2,1fr)}.chapter-grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.brand-by{font-size:14px}.brand-name{font-size:18px}.dashboard-section{padding-left:14px;padding-right:14px}.dashboard-stats,.dashboard-actions,.achievement-grid,.lab-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr}.chapter-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.upgrade-modal-box{padding:18px}.hero{padding-top:120px}.stats-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 
@@ -939,14 +986,14 @@ body{
 
 <a href="#home" class="logo">
 <span class="logo-icon">⚗</span>
-Science<span class="gradient">10</span>
+<span class="brand-name">Science <span class="gradient">10</span> <span class="brand-by">by CHINMAY</span></span>
 </a>
 
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
 <ul class="nav-links" id="navLinks">
 <li><a href="#home" onclick="closeMenu()">Home</a></li>
-<li><a href="#chapters" onclick="closeMenu()">Chapters</a></li>
+<li><a href="#dashboard" onclick="closeMenu()">Dashboard</a></li><li><a href="#chapters" onclick="closeMenu()">Chapters</a></li><li><a href="#searchHub" onclick="closeMenu()">Search</a></li>
 <li><a href="#features" onclick="closeMenu()">Features</a></li>
 </ul>
 
@@ -975,9 +1022,7 @@ with detailed explanations, definitions, formulas, examples,
 
 <div class="hero-buttons">
 
-<a class="btn primary" href="#chapters">
-📚 Explore Chapters
-</a>
+<a class="btn primary" href="#chapters">📚 Explore Chapters</a><a class="btn secondary" href="#dashboard">📊 My Dashboard</a><a class="btn secondary" href="#revisionSection">📖 Revision</a>
 
 </div>
 
@@ -1012,6 +1057,31 @@ with detailed explanations, definitions, formulas, examples,
 
 </div>
 </div>
+
+
+<!-- UPGRADED SCIENCE DASHBOARD -->
+<section class="dashboard-section" id="dashboard">
+  <div class="heading"><span>YOUR LEARNING HQ</span><h2>Science Dashboard</h2><p>Track chapters, activities and quiz progress as you learn.</p></div>
+  <div class="dashboard-grid">
+    <div class="dashboard-card">
+      <h3>📊 Overall Progress</h3><p class="dashboard-muted" id="progressMessage">Start exploring chapters to build your progress.</p>
+      <div class="progress-track"><div class="progress-fill" id="overallProgressFill"></div></div>
+      <strong id="overallProgressText">0% complete</strong>
+      <div class="dashboard-stats"><div class="dash-stat"><strong id="chaptersDone">0</strong><span>Chapters studied</span></div><div class="dash-stat"><strong id="activitiesDone">0</strong><span>Activities done</span></div><div class="dash-stat"><strong id="quizScore">0</strong><span>Quiz points</span></div></div>
+      <div class="dashboard-actions"><button class="dash-btn" onclick="openAchievements()">🏆 Achievements</button><button class="dash-btn" onclick="openScienceLab()">🧪 Science Lab</button></div>
+    </div>
+    <div class="dashboard-card">
+      <h3>🗺️ Chapter Roadmap</h3><p class="dashboard-muted">A simple path through the 13 chapters.</p>
+      <div class="roadmap" id="roadmap"></div>
+    </div>
+  </div>
+</section>
+
+<section id="searchHub">
+  <div class="heading"><span>FIND ANYTHING</span><h2>🔎 Global Science Search</h2><p>Search chapters, concepts, formulas and examples instantly.</p></div>
+  <div class="global-search"><span class="global-search-icon">🔎</span><input id="globalSearchInput" type="search" placeholder="Search a chapter, concept, formula or topic…" oninput="globalScienceSearch(this.value)"></div>
+  <div class="no-results" id="globalSearchResults"></div>
+</section>
 
 <!-- CHAPTER SECTION -->
 
@@ -1118,8 +1188,36 @@ easier sections.
 </section>
 
 <!-- INTERACTIVE FORMULA BANK TAB -->
-<div class="formula-bank-trigger">
-<button class="formula-bank-btn" onclick="openFormulaBank()">📐 Formula Bank <span style="color:#67c8ff">• Physics • Chemistry • Biology</span></button>
+<div class="revision-hub" id="revisionSection">
+  <div class="revision-hub-head">
+    <span class="revision-kicker">SMART EXAM PREP</span>
+    <h2>REVISON</h2>
+    <p>Everything you need for fast Class 10 Science revision — concepts, questions, diagrams, flashcards and timed practice.</p>
+  </div>
+  <div class="revision-grid">
+    <button class="revision-card" onclick="openRevisionTool('quick')"><span class="revision-icon">⚡</span><strong>Quick Revision</strong><small>Chapter-wise key concepts, definitions and formulas.</small></button>
+    <button class="revision-card" onclick="openChemicalBalancingPractice()"><span class="revision-icon">⚗️</span><strong>Chemical Equations</strong><small>Balance reactions and practise important equations.</small></button>
+    <button class="revision-card" onclick="openRevisionTool('questions')"><span class="revision-icon">📝</span><strong>Important Questions</strong><small>High-value NCERT-style questions with answers.</small></button>
+    <button class="revision-card" onclick="openRevisionTool('flashcards')"><span class="revision-icon">🃏</span><strong>Flashcards</strong><small>Flip through definitions and key facts.</small></button>
+    <button class="revision-card" onclick="openRevisionTool('diagrams')"><span class="revision-icon">🔬</span><strong>Important Diagrams</strong><small>Jump directly to chapter diagrams for practice.</small></button>
+    <button class="revision-card" onclick="openRevisionTool('mistakes')"><span class="revision-icon">🎯</span><strong>Common Exam Mistakes</strong><small>Quick reminders for formulas, units and concepts.</small></button>
+    <button class="revision-card" onclick="openRevisionTool('timer')"><span class="revision-icon">⏱️</span><strong>Revision Timer</strong><small>5, 10, 20 or 30-minute focused sessions.</small></button>
+    <button class="revision-card" onclick="openRevisionTool('score')"><span class="revision-icon">🏆</span><strong>Revision Score</strong><small>Track your flashcards, questions and revision sessions.</small></button>
+    <button class="revision-card" onclick="openFormulaBank()"><span class="revision-icon">📐</span><strong>Formula Bank</strong><small>Physics, Chemistry and Biology formulas and equations.</small></button>
+  </div>
+  <div class="revision-score-strip">
+    <span class="revision-mini-stat">Flashcards: <b id="revisionFlashStat">0</b></span>
+    <span class="revision-mini-stat">Questions: <b id="revisionQuestionStat">0</b></span>
+    <span class="revision-mini-stat">Sessions: <b id="revisionSessionStat">0</b></span>
+  </div>
+  <p class="revision-bottom-note">Use Quick Revision first, then test yourself with Questions or Flashcards.</p>
+</div>
+
+<div class="revision-modal" id="revisionModal" aria-hidden="true">
+  <div class="revision-modal-box">
+    <div class="revision-modal-head"><div><div class="subject">SMART REVISION</div><h2 id="revisionModalTitle">Revision</h2></div><button class="revision-close" onclick="closeRevisionTool()">×</button></div>
+    <div id="revisionModalMount"></div>
+  </div>
 </div>
 
 <!-- FORMULA BANK MODAL -->
@@ -1155,6 +1253,14 @@ easier sections.
     <div id="chemicalPracticeMount"></div>
   </div>
 </div>
+
+
+<!-- QUIZ MODAL -->
+<div class="quiz-modal" id="quizModal"><div class="upgrade-modal-box"><div class="modal-head"><div><div class="subject">KNOWLEDGE CHECK</div><h2 id="quizTitle">Chapter Quiz</h2></div><button class="close" onclick="closeUpgradeModal('quizModal')">×</button></div><div id="quizMount"></div></div></div>
+<!-- SCIENCE LAB -->
+<div class="lab-modal" id="labModal"><div class="upgrade-modal-box"><div class="modal-head"><div><div class="subject">VIRTUAL SCIENCE LAB</div><h2>🧪 Science Lab</h2></div><button class="close" onclick="closeUpgradeModal('labModal')">×</button></div><p class="dashboard-muted">Safe concept simulations for quick revision — no real chemicals or equipment required.</p><div class="lab-grid"><div class="lab-card"><strong>🔦 Reflection</strong><br><button class="chapter-action-btn" onclick="labAction('reflection')">Run simulation</button></div><div class="lab-card"><strong>💎 Refraction</strong><br><button class="chapter-action-btn" onclick="labAction('refraction')">Run simulation</button></div><div class="lab-card"><strong>⚡ Electricity</strong><br><button class="chapter-action-btn" onclick="labAction('electricity')">Run simulation</button></div><div class="lab-card"><strong>🌿 Photosynthesis</strong><br><button class="chapter-action-btn" onclick="labAction('photosynthesis')">Run simulation</button></div></div><div class="lab-output" id="labOutput">Choose a simulation above.</div></div></div>
+<!-- ACHIEVEMENTS -->
+<div class="achievement-modal" id="achievementModal"><div class="upgrade-modal-box"><div class="modal-head"><div><div class="subject">YOUR MILESTONES</div><h2>🏆 Achievements</h2></div><button class="close" onclick="closeUpgradeModal('achievementModal')">×</button></div><div id="achievementMount"></div></div></div>
 
 <!-- FOOTER -->
 
@@ -2201,7 +2307,7 @@ function render(){
 
         const card = document.createElement("article");
 
-        card.className = "chapter";
+        card.className = "chapter subject-card-" + chapter.subject;
 
         card.onclick = () => openChapter(chapter.id);
 
@@ -2219,13 +2325,9 @@ function render(){
                 ${chapter.title}
             </h3>
 
-            <p>
-                ${chapter.description}
-            </p>
-
-            <span class="open">
-                Open detailed chapter →
-            </span>
+            <p>${chapter.description}</p>
+            <div class="chapter-progress"><small id="card-progress-${chapter.id}">0% progress</small><div class="chapter-mini-track"><div class="chapter-mini-fill" id="card-fill-${chapter.id}"></div></div></div>
+            <span class="open">Open detailed chapter →</span>
         `;
 
         card.style.animation =
@@ -2518,7 +2620,7 @@ function renderActivities(chapter, diagrams=[]){
           ${activities.map((a,i)=>{
             const diagram=a.diagram ? diagrams.find(d=>d.src===a.diagram || d.figureNo===a.diagram) : findActivityDiagram(a,diagrams);
             return `<article class="activity-card">
-              <div class="activity-title-row"><span class="activity-number">${a._code||String(i+1).padStart(2,'0')}</span><span class="activity-title">${a.title}</span></div>
+              <div class="activity-title-row"><span class="activity-number">${a._code||String(i+1).padStart(2,'0')}</span><span class="activity-title">${a.title}</span><button class="activity-complete" onclick="toggleActivityComplete(event,'${chapter.id}','${a._code||i}',this)">○ Complete</button></div>
               ${diagram?`<figure class="activity-diagram"><div class="activity-diagram-label">${diagram.figureNo||'Activity Diagram'}</div><img src="${diagram.src}" alt="${(diagram.caption||a.title).replace(/"/g,'&quot;')}" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('diagram-image-error');this.style.display='none';"><figcaption>${diagram.caption||a.title}</figcaption></figure>`:''}
               <div class="activity-explanation">
                 <div class="activity-explanation-title">💡 Full Explanation of the Activity</div>
@@ -2607,10 +2709,22 @@ function renderEquationBalancer(questionSet=balanceQuestions){
         <button class="balance-btn secondary" type="button" onclick="showBalanceHint()">Show Hint</button>
         <button class="balance-btn secondary" type="button" onclick="showBalanceAnswer()">Show Answer</button>
         <button class="balance-btn secondary" type="button" onclick="resetBalanceEquation()">Reset</button>
+        <button class="balance-btn secondary" type="button" onclick="startBalanceGame()">🎮 Game Mode</button>
       </div>
       <div class="balance-feedback" id="balanceFeedback"></div>
     </div>`;
 }
+
+let balanceGameTimer=null,balanceGameSeconds=60,balanceGameScore=0;
+function startBalanceGame(){
+  const select=document.getElementById('balanceQuestion'); if(!select)return;
+  balanceGameSeconds=60; balanceGameScore=0; loadBalanceQuestion(0);
+  const feedback=document.getElementById('balanceFeedback');
+  if(feedback){feedback.className='balance-feedback show';feedback.textContent='🎮 Game Mode started! Balance as many equations as you can in 60 seconds.';}
+  clearInterval(balanceGameTimer);
+  balanceGameTimer=setInterval(()=>{balanceGameSeconds--;const f=document.getElementById('balanceFeedback');if(f)f.textContent='🎮 Game Mode • Time left: '+balanceGameSeconds+'s • Score: '+balanceGameScore;if(balanceGameSeconds<=0){clearInterval(balanceGameTimer);if(f){f.className='balance-feedback show good';f.textContent='🏁 Time! Game score: '+balanceGameScore;}}},1000);
+}
+function checkBalanceEquationGame(){return checkBalanceEquation();}
 
 function parseFormula(formula){
   // Support both normal digits (H2O) and NCERT-style Unicode subscripts (H₂O).
@@ -2687,9 +2801,15 @@ function checkBalanceEquation(){
   const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
   const divisor=inputs.reduce((a,b)=>gcd(a,b));
   const smallest=divisor===1;
-  showBalanceFeedback(smallest
-    ?'🎉 Correct! The equation is balanced using the smallest whole-number coefficients.'
-    :'✅ Balanced! Your coefficients give equal atom counts on both sides. You can simplify them to the smallest whole-number ratio.');
+  if(balanceGameTimer && balanceGameSeconds>0){
+    balanceGameScore++;
+    showBalanceFeedback('🎯 Game point! '+(smallest?'Perfect smallest ratio. ':'Balanced! ')+ 'Score: '+balanceGameScore);
+    setTimeout(()=>{if(balanceGameTimer && balanceGameSeconds>0){const sel=document.getElementById('balanceQuestion');if(sel){sel.selectedIndex=(sel.selectedIndex+1)%sel.options.length;loadBalanceQuestion(sel.value);}}},650);
+  }else{
+    showBalanceFeedback(smallest
+      ?'🎉 Correct! The equation is balanced using the smallest whole-number coefficients.'
+      :'✅ Balanced! Your coefficients give equal atom counts on both sides. You can simplify them to the smallest whole-number ratio.');
+  }
 }
 
 function showBalanceHint(){
@@ -2740,6 +2860,7 @@ function renderChapterBalancer(chapter){
 
 function renderChapterExtras(chapter, diagrams=[]){
     return `
+      <div class="chapter-actions"><button class="chapter-action-btn" onclick="openChapterQuiz(${chapter.id})">📝 Chapter Quiz</button><button class="chapter-action-btn" onclick="markChapterComplete(${chapter.id})">✅ Mark Chapter Complete</button></div>
       ${renderActivities(chapter, diagrams)}
       ${renderChapterBalancer(chapter)}
       <div class="content-block chapter-entrance">
@@ -2783,30 +2904,18 @@ function renderChapterExtras(chapter, diagrams=[]){
 }
 
 async function openChapter(id){
-
-    const chapter = chapters.find(c => c.id === id);
-    if(!chapter) return;
-
+    const chapter = chapters.find(c => c.id === id); if(!chapter) return;
+    markChapterVisited(id);
     document.getElementById("modalSubject").textContent = chapter.subject + " • Interactive Explanation";
     document.getElementById("modalTitle").textContent = chapter.title;
-    document.getElementById("modalContent").innerHTML = `
-      <div class="chapter-text complete-chapter">
-        <div class="content-block chapter-overview chapter-entrance">
-          <h3>🔬 Preparing your chapter...</h3>
-          <p>Loading the complete explanation and placing the correct NCERT diagrams next to the related concepts.</p>
-        </div>
-      </div>`;
-
-    document.getElementById("modal").classList.add("show");
-    document.body.style.overflow = "hidden";
-
-    const diagrams = await getChapterDiagrams(chapter);
-
-    document.getElementById("modalContent").innerHTML = `
-      <div class="chapter-text complete-chapter">
-        ${renderCompleteExplanation(chapter, diagrams)}
-        ${renderChapterExtras(chapter, diagrams)}
-      </div>`;
+    document.getElementById("modalContent").innerHTML = `<div class="chapter-text complete-chapter">${renderCompleteExplanation(chapter, [])}${renderChapterExtras(chapter, [])}</div>`;
+    document.getElementById("modal").classList.add("show"); document.body.style.overflow="hidden";
+    startChapterReadingTracker(id);
+    try{
+      const diagrams=await getChapterDiagrams(chapter);
+      if(diagrams && diagrams.length) { document.getElementById("modalContent").innerHTML=`<div class="chapter-text complete-chapter">${renderCompleteExplanation(chapter,diagrams)}${renderChapterExtras(chapter,diagrams)}</div>`; startChapterReadingTracker(id); }
+    }catch(e){ console.warn("Diagram loading skipped:",e); }
+    refreshUpgradeUI();
 }
 
 /* =========================================================
@@ -2814,6 +2923,9 @@ async function openChapter(id){
 ========================================================= */
 
 function closeModal(){
+    if(window.__scienceReadTimer) clearTimeout(window.__scienceReadTimer);
+    const mc=document.querySelector("#modal .modal-box");
+    if(mc && window.__scienceReadScrollHandler) mc.removeEventListener("scroll",window.__scienceReadScrollHandler);
 
     document
         .getElementById("modal")
@@ -2867,6 +2979,174 @@ function closeMenu(){
         .classList.remove("open");
 
 }
+
+
+/* =========================================================
+   SCIENCE10 PROGRESS + QUIZZES + LAB + ACHIEVEMENTS
+========================================================= */
+const SCIENCE_PROGRESS_KEY='science10_progress_v3';
+function getProgress(){try{return JSON.parse(localStorage.getItem(SCIENCE_PROGRESS_KEY))||{chapters:{},activities:{},quizzes:{}}}catch(e){return {chapters:{},activities:{},quizzes:{}}}}
+function saveProgress(p){localStorage.setItem(SCIENCE_PROGRESS_KEY,JSON.stringify(p));refreshUpgradeUI()}
+function markChapterVisited(id){
+ const p=getProgress();
+ p.chapters[id]=p.chapters[id]||{visited:true,complete:false,readProgress:0};
+ p.chapters[id].visited=true;
+ if(typeof p.chapters[id].readProgress!=='number') p.chapters[id].readProgress=0;
+ saveProgress(p);
+}
+
+function markChapterComplete(id){
+ const p=getProgress();
+ p.chapters[id]=p.chapters[id]||{};
+ p.chapters[id].visited=true;
+ p.chapters[id].complete=true;
+ p.chapters[id].readProgress=100;
+ saveProgress(p);
+ alert('Chapter marked complete! Keep going 🚀');
+}
+
+function toggleActivityComplete(e,cid,code,btn){
+ e.stopPropagation();
+ const p=getProgress();
+ const k=cid+'_'+code;
+ p.activities[k]=!p.activities[k];
+ btn.classList.toggle('done',p.activities[k]);
+ btn.textContent=p.activities[k]?'✓ Done':'○ Complete';
+ saveProgress(p);
+}
+
+function markChapterRead(id){
+ const p=getProgress();
+ p.chapters[id]=p.chapters[id]||{};
+ p.chapters[id].visited=true;
+ p.chapters[id].read=true;
+ p.chapters[id].readProgress=100;
+ saveProgress(p);
+}
+
+function updateChapterReadingProgress(id, ratio){
+ const p=getProgress();
+ p.chapters[id]=p.chapters[id]||{visited:true,complete:false,readProgress:0};
+ const current=Number(p.chapters[id].readProgress)||0;
+ const next=Math.max(current, Math.min(100, Math.round(ratio*100)));
+ p.chapters[id].visited=true;
+ p.chapters[id].readProgress=next;
+ p.chapters[id].read=next>=100;
+ saveProgress(p);
+}
+
+function startChapterReadingTracker(id){
+ const modalBox=document.querySelector('#modal .modal-box');
+ if(!modalBox) return;
+
+ if(window.__scienceReadTimer) clearTimeout(window.__scienceReadTimer);
+ if(window.__scienceReadScrollHandler) modalBox.removeEventListener('scroll',window.__scienceReadScrollHandler);
+
+ const checkRead=()=>{
+   const scrollable=Math.max(1, modalBox.scrollHeight-modalBox.clientHeight);
+   const ratio=Math.max(0, Math.min(1, modalBox.scrollTop/scrollable));
+   updateChapterReadingProgress(id,ratio);
+
+   if(ratio>=0.98){
+     markChapterRead(id);
+     if(window.__scienceReadScrollHandler) modalBox.removeEventListener('scroll',window.__scienceReadScrollHandler);
+     if(window.__scienceReadTimer) clearTimeout(window.__scienceReadTimer);
+   }
+ };
+
+ window.__scienceReadScrollHandler=checkRead;
+ modalBox.addEventListener('scroll',checkRead,{passive:true});
+
+ // Do not award a fixed percentage just for waiting. Reading progress is based
+ // on how far the chapter has actually been scrolled/read.
+ checkRead();
+}
+
+function refreshUpgradeUI(){
+ const p=getProgress(), chapterCount=chapters.length;
+ const complete=Object.values(p.chapters).filter(x=>x&&x.complete).length;
+ const visited=Object.values(p.chapters).filter(x=>x&&x.visited).length;
+ const read=Object.values(p.chapters).filter(x=>x&&x.read).length;
+ const acts=Object.values(p.activities).filter(Boolean).length;
+ const quiz=Object.values(p.quizzes).reduce((a,b)=>a+(b||0),0);
+
+ // Accurate chapter progress:
+ // reading = up to 70%, completed activities = up to 20%, best quiz score = up to 10%.
+ // Simply opening a chapter gives 0% reading progress; it never gives a fake 35%.
+ const pctValues=chapters.map(c=>{
+   const st=p.chapters[c.id]||{};
+   if(st.complete) return 100;
+
+   const readPct=Math.max(0,Math.min(100,Number(st.readProgress)||0));
+   let cp=Math.round(readPct*0.70);
+
+   const activityKeys=Object.keys(p.activities).filter(k=>k.startsWith(c.id+'_') && p.activities[k]);
+   const totalActs=(typeof getAllDetailedActivities==='function')?getAllDetailedActivities(c).length:0;
+   if(totalActs) cp+=Math.round((activityKeys.length/totalActs)*20);
+
+   const qs=p.quizzes[c.id]||0;
+   const qTotal=(quizBank[c.id]||[]).length;
+   if(qTotal && qs>0) cp+=Math.min(10,Math.round((qs/qTotal)*10));
+
+   return Math.min(100,cp);
+ });
+ const pct=Math.round(pctValues.reduce((a,b)=>a+b,0)/Math.max(1,chapterCount));
+
+ const f=document.getElementById('overallProgressFill');
+ if(f)f.style.width=pct+'%';
+ const t=document.getElementById('overallProgressText');
+ if(t)t.textContent=pct+'% complete';
+ const cd=document.getElementById('chaptersDone');if(cd)cd.textContent=complete;
+ const ad=document.getElementById('activitiesDone');if(ad)ad.textContent=acts;
+ const qs=document.getElementById('quizScore');if(qs)qs.textContent=quiz;
+ const msg=document.getElementById('progressMessage');
+ if(msg)msg.textContent=complete
+   ? 'Great work! You have completed '+complete+' chapter'+(complete===1?'':'s')+'.'
+   : read
+     ? 'Nice! '+read+' chapter'+(read===1?' has':'s have')+' been read. Keep learning.'
+     : 'Open a chapter and read through it to build your progress.';
+
+ chapters.forEach((c,i)=>{
+   const el=document.getElementById('card-progress-'+c.id),fill=document.getElementById('card-fill-'+c.id);
+   const cp=pctValues[i]||0;
+   if(el)el.textContent=cp+'% progress';
+   if(fill)fill.style.width=cp+'%';
+ });
+ const road=document.getElementById('roadmap');
+ if(road)road.innerHTML=chapters.map(c=>{
+   const st=p.chapters[c.id]||{}, cp=pctValues[chapters.indexOf(c)]||0;
+   return `<div class="roadmap-step ${st.complete?'done':''}"><strong>${st.complete?'✓ ':''}Ch ${c.number}</strong><span>${c.title}</span><small>${cp}%</small></div>`;
+ }).join('');
+}
+
+function globalScienceSearch(q){const box=document.getElementById('globalSearchResults');if(!box)return;q=q.trim().toLowerCase();if(!q){box.classList.remove('show');box.innerHTML='';return}const hits=chapters.filter(c=>(c.title+' '+c.subject+' '+c.description+' '+c.intro+' '+c.concepts.join(' ')+' '+c.formulas.join(' ')+' '+c.examples.join(' ')).toLowerCase().includes(q)).slice(0,8);box.innerHTML=hits.length?hits.map(c=>`<button class="chapter-action-btn" style="display:block;width:100%;text-align:left;margin:7px 0" onclick="openChapter(${c.id})">${c.number}. ${c.title} <small style="color:var(--muted)">— ${c.subject}</small></button>`).join(''):'<p style="color:var(--muted);text-align:center">No matching chapter found.</p>';box.classList.add('show')}
+
+const quizBank={
+  1:[['Which law requires equal numbers of atoms on both sides of a chemical equation?',['Law of conservation of mass','Law of reflection','Ohm’s law','Archimedes’ principle'],0],['A reaction in which a substance gains oxygen is generally called…',['Reduction','Oxidation','Neutralisation','Displacement'],1],['A balanced equation changes…',['Subscripts only','Coefficients, not formula subscripts','Element symbols','Atomic numbers'],1]],
+  2:[['A solution with pH 2 is…',['Strongly acidic','Neutral','Basic','Always a salt'],0],['Acid + base generally gives…',['Salt and water','Only hydrogen','Metal and oxygen','Carbon only'],0],['Baking soda is…',['NaCl','NaHCO₃','CaCO₃','HCl'],1]],
+  3:[['Metals generally form…',['Positive ions','Negative ions only','No ions','Molecules of water'],0],['Which metal is highly reactive among these?',['Potassium','Copper','Silver','Gold'],0],['Ionic compounds usually have…',['High melting points','No melting point','Very low boiling points only','No ions'],0]],
+  4:[['The functional group of alcohols is…',['–OH','–COOH','–CHO','–CO–'],0],['Methane has the formula…',['CH₄','C₂H₆','CO₂','CH₃COOH'],0],['Ethanoic acid reacts with sodium hydrogen carbonate to release…',['O₂','CO₂','H₂','N₂'],1]],
+  5:[['The main site of photosynthesis in a leaf is…',['Chloroplasts','Nucleus','Kidney','Neuron'],0],['Exchange of gases in lungs occurs mainly through…',['Alveoli','Nephrons','Villi','Stomata'],0],['The basic filtration unit of the kidney is…',['Neuron','Nephron','Alveolus','Villus'],1]],
+  6:[['The structural and functional unit of the nervous system is…',['Neuron','Nephron','Alveolus','Platelet'],0],['Auxin mainly promotes…',['Plant growth responses','Blood clotting','Digestion','Respiration only'],0],['The hormone that helps regulate blood sugar is…',['Insulin','Adrenaline','Thyroxine','Oestrogen'],0]],
+  7:[['Asexual reproduction generally involves…',['One parent','Two parents only','Three parents','No cells'],0],['Binary fission is common in…',['Amoeba','Human beings','Mango trees','Frogs'],0],['Pollination is transfer of pollen from…',['Anther to stigma','Root to leaf','Ovule to seed','Fruit to root'],0]],
+  8:[['The units of heredity are called…',['Genes','Nephrons','Alveoli','Villi'],0],['Mendel worked mainly with…',['Pea plants','Mango trees','Bacteria','Ferns'],0],['A dominant trait is expressed when…',['Its allele is present in the relevant genotype','It is always harmful','It is absent','Only in bacteria'],0]],
+  9:[['A convex lens generally…',['Converges light','Blocks light','Produces no refraction','Always diverges light'],0],['The SI unit of focal length is…',['metre','dioptre','ohm','volt'],0],['Mirror formula is…',['1/f=1/v+1/u','V=IR','P=VI','Q=It'],0]],
+  10:[['Myopia is corrected using a…',['Concave lens','Convex lens','Plane mirror','Prism only'],0],['The ability of the eye lens to change focal length is…',['Accommodation','Dispersion','Reflection','Scattering'],0],['The blue colour of the sky is mainly due to…',['Scattering of shorter wavelengths','Reflection from oceans','Total internal reflection','Magnetism'],0]],
+  11:[['Ohm’s law is…',['V=IR','P=VI only','Q=It only','1/f=1/v+1/u'],0],['Resistance is measured in…',['ohm','volt','ampere','watt'],0],['Electrical power can be written as…',['VI','IR only','Q/t only','1/f'],0]],
+  12:[['The magnetic field around a straight current-carrying conductor is…',['Circular','Always triangular','Absent','Only vertical'],0],['The direction of magnetic field around a conductor can be found using…',['Right-hand thumb rule','Pythagoras theorem','Mirror formula','Ohm’s law'],0],['An electric motor converts electrical energy mainly into…',['Mechanical energy','Chemical energy','Nuclear energy','Sound only'],0]],
+  13:[['Organisms that break down dead matter are…',['Decomposers','Producers only','Consumers only','Predators only'],0],['A food chain shows…',['Transfer of food/energy between organisms','Only rainfall','Only reproduction','Only respiration'],0],['The ozone layer helps protect Earth from…',['Harmful ultraviolet radiation','Visible light','Sound','Gravity'],0]]
+};
+let activeQuiz={chapterId:null,index:0,score:0,answered:false};
+function openChapterQuiz(id){const c=chapters.find(x=>x.id===id);if(!c)return;activeQuiz={chapterId:id,index:0,score:0,answered:false};document.getElementById('quizTitle').textContent='📝 '+c.title+' Quiz';document.getElementById('quizModal').classList.add('show');document.body.style.overflow='hidden';renderQuizQuestion()}
+function renderQuizQuestion(){const qs=quizBank[activeQuiz.chapterId]||[];const mount=document.getElementById('quizMount');if(!qs.length){mount.innerHTML='<p>No quiz has been added for this chapter yet.</p>';return}const q=qs[activeQuiz.index];activeQuiz.answered=false;mount.innerHTML=`<div class="quiz-result">Question ${activeQuiz.index+1} of ${qs.length}</div><h3 style="margin:16px 0">${q[0]}</h3>${q[1].map((o,i)=>`<button class="quiz-option" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}<div id="quizFeedback"></div>`}
+function answerQuiz(i){if(activeQuiz.answered)return;activeQuiz.answered=true;const qs=quizBank[activeQuiz.chapterId],q=qs[activeQuiz.index],opts=document.querySelectorAll('.quiz-option');opts.forEach((b,n)=>{if(n===q[2])b.classList.add('correct');if(n===i&&n!==q[2])b.classList.add('wrong')});const correct=i===q[2];if(correct)activeQuiz.score++;document.getElementById('quizFeedback').innerHTML=`<div class="quiz-result">${correct?'✅ Correct!':'❌ Not quite.'} ${activeQuiz.index===qs.length-1?`Score: ${activeQuiz.score}/${qs.length}. <button class="chapter-action-btn quiz-next" onclick="finishQuiz()">Finish Quiz</button>`:`<button class="chapter-action-btn quiz-next" onclick="nextQuizQuestion()">Next Question →</button>`}</div>`}
+function nextQuizQuestion(){activeQuiz.index++;renderQuizQuestion()}
+function finishQuiz(){const p=getProgress();p.quizzes[activeQuiz.chapterId]=Math.max(p.quizzes[activeQuiz.chapterId]||0,activeQuiz.score);saveProgress(p);closeUpgradeModal('quizModal');alert('Quiz complete! Score: '+activeQuiz.score+'/'+(quizBank[activeQuiz.chapterId]||[]).length)}
+function closeUpgradeModal(id){document.getElementById(id).classList.remove('show');if(!document.querySelector('.modal.show,.formula-modal.show,.practice-modal.show,.quiz-modal.show,.lab-modal.show,.achievement-modal.show'))document.body.style.overflow=''}
+function openScienceLab(){document.getElementById('labModal').classList.add('show');document.body.style.overflow='hidden'}
+function labAction(type){const o=document.getElementById('labOutput');const data={reflection:'🔦 Light reflection simulator: Move the object position mentally relative to the mirror and observe how image position changes according to the mirror rules.',refraction:'💎 Refraction simulator: When light enters a different medium obliquely, its speed changes and the ray bends. A parallel-sided slab produces lateral displacement.',electricity:'⚡ Circuit simulator: In a simple series circuit, increasing resistance while keeping voltage fixed decreases current according to I = V/R.',photosynthesis:'🌿 Photosynthesis simulator: Plants use light energy to convert carbon dioxide and water into glucose, releasing oxygen.'};o.textContent=data[type]||'Choose a lab simulation.'}
+function openAchievements(){const p=getProgress(),complete=Object.values(p.chapters).filter(x=>x?.complete).length,acts=Object.values(p.activities).filter(Boolean).length,qs=Object.values(p.quizzes).filter(x=>x>0).length;const list=[['🚀','First Step','Visit your first chapter',Object.keys(p.chapters).length>=1],['📚','Chapter Champion','Complete 3 chapters',complete>=3],['🧪','Lab Learner','Complete 5 activities',acts>=5],['📝','Quiz Starter','Finish a quiz',qs>=1],['🏆','Science Master','Complete all 13 chapters',complete>=13]];document.getElementById('achievementMount').innerHTML='<div class="achievement-grid">'+list.map(x=>`<div class="achievement ${x[3]?'unlocked':''}"><span>${x[0]}</span><strong>${x[1]} ${x[3]?'✓':''}</strong><small>${x[2]}</small></div>`).join('')+'</div>';document.getElementById('achievementModal').classList.add('show');document.body.style.overflow='hidden'}
+function closeAllUpgradeModals(){['quizModal','labModal','achievementModal'].forEach(id=>document.getElementById(id)?.classList.remove('show'));if(!document.querySelector('.modal.show,.formula-modal.show,.practice-modal.show'))document.body.style.overflow=''}
 
 /* =========================================================
    INITIALISE
@@ -3200,6 +3480,61 @@ document.getElementById('chemicalPracticeModal').addEventListener('click',functi
 
 
 window.addEventListener('load',()=>loadBalanceQuestion(0));
+
+/* ================= REVISION HUB LOGIC ================= */
+const REVISION_KEY='science10_revision_v1';
+let revisionFlashIndex=0, revisionFlashChapter=1, revisionFlashRevealed=false;
+let revisionTimerSeconds=600, revisionTimerTotal=600, revisionTimerId=null;
+function getRevisionStats(){try{return JSON.parse(localStorage.getItem(REVISION_KEY))||{flashcards:0,questions:0,sessions:0}}catch(e){return {flashcards:0,questions:0,sessions:0}}}
+function saveRevisionStats(st){try{localStorage.setItem(REVISION_KEY,JSON.stringify(st))}catch(e){} refreshRevisionStats()}
+function refreshRevisionStats(){const s=getRevisionStats();['revisionFlashStat','revisionQuestionStat','revisionSessionStat'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=[s.flashcards,s.questions,s.sessions][i]})}
+function revisionChapterSelect(){return `<select class="revision-select" id="revisionChapterSelect" onchange="renderRevisionTool()">${chapters.map(c=>`<option value="${c.id}">${c.number}. ${c.title}</option>`).join('')}</select>`}
+function openRevisionTool(tool){
+  const modal=document.getElementById('revisionModal'),mount=document.getElementById('revisionModalMount');if(!modal||!mount)return;
+  modal.dataset.tool=tool;modal.classList.add('show');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+  const titles={quick:'⚡ Quick Revision',questions:'📝 Important Questions',flashcards:'🃏 Flashcards',diagrams:'🔬 Important Diagrams',mistakes:'🎯 Common Exam Mistakes',timer:'⏱️ Revision Timer',score:'🏆 Revision Score'};
+  document.getElementById('revisionModalTitle').textContent=titles[tool]||'Revision';
+  if(tool==='flashcards') {revisionFlashChapter=1;revisionFlashIndex=0;revisionFlashRevealed=false;}
+  if(tool==='timer' && !revisionTimerId){revisionTimerSeconds=revisionTimerTotal=600;}
+  renderRevisionTool();refreshRevisionStats();
+}
+function closeRevisionTool(){const m=document.getElementById('revisionModal');if(!m)return;m.classList.remove('show');m.setAttribute('aria-hidden','true');if(!document.querySelector('.modal.show,.formula-modal.show,.practice-modal.show,.quiz-modal.show,.lab-modal.show,.achievement-modal.show'))document.body.style.overflow='';}
+function selectedRevisionChapter(){return chapters.find(c=>c.id===Number(document.getElementById('revisionChapterSelect')?.value||1))||chapters[0]}
+function renderRevisionTool(){const tool=document.getElementById('revisionModal')?.dataset.tool,mount=document.getElementById('revisionModalMount');if(!mount)return;
+  if(tool==='quick'){const c=selectedRevisionChapter();mount.innerHTML=`${revisionChapterSelect()}<div class="revision-content-card"><h3>${c.title}</h3><p>${c.intro}</p></div><div class="revision-content-card"><h3>Key Definitions</h3><ul>${c.definitions.slice(0,8).map(x=>`<li><b>${x[0]}:</b> ${x[1]}</li>`).join('')}</ul></div><div class="revision-content-card"><h3>Must Remember</h3><ul>${c.concepts.slice(0,8).map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="revision-content-card"><h3>Formulas / Equations</h3><ul>${c.formulas.map(x=>`<li>${x}</li>`).join('')}</ul></div><button class="revision-action" onclick="revisionMarkSession()">✓ Mark this revision session</button>`;return;}
+  if(tool==='questions'){const c=selectedRevisionChapter();mount.innerHTML=`${revisionChapterSelect()}<div>${c.questions.map((q,i)=>`<div class="revision-question" id="rq${i}"><strong>${i+1}. ${q}</strong><button class="revision-action" onclick="document.getElementById('rq${i}').classList.toggle('revealed');revisionCountQuestion()">Show answer idea</button><div class="revision-answer">Review the relevant concept, definition, formula or example in the <b>${c.title}</b> chapter before writing your final answer.</div></div>`).join('')}</div>`;return;}
+  if(tool==='flashcards'){renderFlashcards();return;}
+  if(tool==='diagrams'){mount.innerHTML=`<p style="color:var(--muted);margin-top:0">Choose a chapter to open its diagrams and labeled learning material.</p><div class="diagram-revision-list">${chapters.map(c=>`<div class="diagram-revision-item"><strong>${c.number}. ${c.title}</strong><button class="revision-action" style="margin:0" onclick="closeRevisionTool();openChapter(${c.id})">Open</button></div>`).join('')}</div>`;return;}
+  if(tool==='mistakes'){const mistakes=[
+    ['Physics','Write the sign convention first, then substitute values. Keep SI units consistent and check whether the answer is physically reasonable.'],
+    ['Electricity','Do not mix up current (I), potential difference (V), resistance (R) and power (P). Recheck the formula before calculating.'],
+    ['Light','Use the correct mirror/lens sign convention and distinguish focal length from power.'],
+    ['Chemistry','Balance equations using coefficients only. Never change the subscripts inside chemical formulae.'],
+    ['Acids, Bases and Salts','Do not confuse pH with concentration alone; remember the acidic/basic/neutral ranges and common indicators.'],
+    ['Biology','Use precise terms such as gene, chromosome, hormone, neuron and nephron instead of vague descriptions.'],
+    ['Diagrams','Label neatly with clear lines and use the exact scientific terms asked for in the question.'],
+    ['Exam presentation','For numerical answers show formula, substitution, calculation and unit. For theory answers use point-wise steps when appropriate.']
+  ];mount.innerHTML=`<div class="mistake-list">${mistakes.map(x=>`<div class="mistake-item"><b>${x[0]}:</b> ${x[1]}</div>`).join('')}</div>`;return;}
+  if(tool==='timer'){renderRevisionTimer();return;}
+  if(tool==='score'){const s=getRevisionStats(),p=getProgress();const completed=Object.values(p.chapters).filter(x=>x?.complete).length;mount.innerHTML=`<div class="revision-content-card"><h3>Your Revision Stats</h3><ul><li>Flashcards reviewed: <b>${s.flashcards}</b></li><li>Question answer reveals: <b>${s.questions}</b></li><li>Revision sessions marked: <b>${s.sessions}</b></li><li>Chapters completed: <b>${completed}/${chapters.length}</b></li></ul></div><div class="revision-content-card"><h3>Best Routine</h3><p>1. Quick Revision → 2. Important Questions → 3. Flashcards → 4. Diagrams → 5. Formula Bank.</p></div>`;return;}
+}
+function revisionMarkSession(){const s=getRevisionStats();s.sessions++;saveRevisionStats(s);alert('Revision session saved! Keep going!');}
+function revisionCountQuestion(){const s=getRevisionStats();s.questions++;saveRevisionStats(s)}
+function flashcardItems(){const c=chapters.find(x=>x.id===revisionFlashChapter)||chapters[0];return c.definitions.map(x=>({q:x[0],a:x[1]})).concat(c.concepts.slice(0,5).map((x,i)=>({q:'Key concept '+(i+1),a:x})));}
+function renderFlashcards(){const mount=document.getElementById('revisionModalMount'),items=flashcardItems(),item=items[revisionFlashIndex%items.length];mount.innerHTML=`<select class="revision-select" id="revisionChapterSelect" onchange="revisionChapterChangedForFlashcards()">${chapters.map(c=>`<option value="${c.id}">${c.number}. ${c.title}</option>`).join('')}</select><div class="flashcard-wrap"><div class="flashcard" onclick="flipRevisionFlashcard()"><div class="fc-label">${revisionFlashRevealed?'ANSWER':'FLASHCARD'}</div><div class="fc-text">${revisionFlashRevealed?item.a:item.q}</div><div class="fc-hint">${revisionFlashRevealed?'Click to hide answer':'Click the card to reveal the answer'}</div></div><div class="flashcard-controls"><button class="revision-action" onclick="previousRevisionFlashcard()">← Previous</button><button class="revision-action" onclick="flipRevisionFlashcard()">${revisionFlashRevealed?'Hide Answer':'Reveal Answer'}</button><button class="revision-action" onclick="nextRevisionFlashcard()">Next →</button></div><p class="revision-bottom-note">Card ${revisionFlashIndex%items.length+1} of ${items.length}</p></div>`;const sel=document.getElementById('revisionChapterSelect');if(sel)sel.value=revisionFlashChapter;}
+function flipRevisionFlashcard(){revisionFlashRevealed=!revisionFlashRevealed;const s=getRevisionStats();if(revisionFlashRevealed)s.flashcards++;saveRevisionStats(s);renderFlashcards()}
+function nextRevisionFlashcard(){const items=flashcardItems();revisionFlashIndex=(revisionFlashIndex+1)%items.length;revisionFlashRevealed=false;renderFlashcards()}
+function previousRevisionFlashcard(){const items=flashcardItems();revisionFlashIndex=(revisionFlashIndex-1+items.length)%items.length;revisionFlashRevealed=false;renderFlashcards()}
+function revisionChapterChangedForFlashcards(){revisionFlashChapter=Number(document.getElementById('revisionChapterSelect').value);revisionFlashIndex=0;revisionFlashRevealed=false;renderFlashcards()}
+function renderRevisionTimer(){const mount=document.getElementById('revisionModalMount');mount.innerHTML=`<div class="timer-presets"><button class="revision-action" onclick="setRevisionTimer(5)">5 min</button><button class="revision-action" onclick="setRevisionTimer(10)">10 min</button><button class="revision-action" onclick="setRevisionTimer(20)">20 min</button><button class="revision-action" onclick="setRevisionTimer(30)">30 min</button></div><div class="timer-display" id="revisionTimerDisplay">${formatRevisionTime(revisionTimerSeconds)}</div><div class="timer-progress"><span id="revisionTimerProgress"></span></div><div class="timer-controls"><button class="revision-action" onclick="toggleRevisionTimer()" id="revisionTimerToggle">▶ Start</button><button class="revision-action" onclick="resetRevisionTimer()">↺ Reset</button></div><p style="text-align:center;color:var(--muted);margin-top:15px">Use this time for formulas, diagrams, questions or flashcards.</p>`;updateRevisionTimerUI();}
+function formatRevisionTime(sec){const m=Math.floor(sec/60).toString().padStart(2,'0'),s=(sec%60).toString().padStart(2,'0');return m+':'+s}
+function updateRevisionTimerUI(){const d=document.getElementById('revisionTimerDisplay'),bar=document.getElementById('revisionTimerProgress'),btn=document.getElementById('revisionTimerToggle');if(d)d.textContent=formatRevisionTime(revisionTimerSeconds);if(bar)bar.style.width=Math.max(0,Math.min(100,((revisionTimerTotal-revisionTimerSeconds)/revisionTimerTotal)*100))+'%';if(btn)btn.textContent=revisionTimerId?'⏸ Pause':'▶ Start'}
+function setRevisionTimer(min){if(revisionTimerId){clearInterval(revisionTimerId);revisionTimerId=null}revisionTimerSeconds=revisionTimerTotal=min*60;renderRevisionTimer()}
+function toggleRevisionTimer(){if(revisionTimerId){clearInterval(revisionTimerId);revisionTimerId=null;updateRevisionTimerUI();return}if(revisionTimerSeconds<=0)revisionTimerSeconds=revisionTimerTotal;revisionTimerId=setInterval(()=>{revisionTimerSeconds--;if(revisionTimerSeconds<=0){clearInterval(revisionTimerId);revisionTimerId=null;revisionTimerSeconds=0;const s=getRevisionStats();s.sessions++;saveRevisionStats(s);alert('Revision timer complete! Great job.')}updateRevisionTimerUI()},1000);updateRevisionTimerUI()}
+function resetRevisionTimer(){if(revisionTimerId){clearInterval(revisionTimerId);revisionTimerId=null}revisionTimerSeconds=revisionTimerTotal;updateRevisionTimerUI()}
+
+document.getElementById('revisionModal')?.addEventListener('click',function(e){if(e.target===this)closeRevisionTool()});
+
 </script>
 
 </body>
