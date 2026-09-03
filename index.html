@@ -818,6 +818,14 @@ body{
 .formula-bank-btn:hover{transform:translateY(-3px);border-color:rgba(65,165,255,.65);box-shadow:0 18px 45px rgba(0,0,0,.3)}
 .formula-modal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.82);backdrop-filter:blur(10px)}
 .formula-modal.show{display:flex}
+.chemical-practice-trigger{display:none;justify-content:center;padding:16px 22px 22px;border-top:1px solid var(--border);background:rgba(5,20,38,.72)}
+.chemical-practice-trigger.show{display:flex}
+.chemical-practice-btn{width:100%;max-width:620px;padding:14px 20px;border:1px solid rgba(32,217,255,.45);border-radius:14px;background:linear-gradient(135deg,rgba(11,65,101,.95),rgba(6,37,65,.95));color:#fff;font-weight:800;font-size:15px;cursor:pointer;transition:.2s;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.chemical-practice-btn:hover{transform:translateY(-1px);border-color:#20d9ff;box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.practice-modal{position:fixed;inset:0;z-index:10050;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(1,8,18,.82);backdrop-filter:blur(7px)}
+.practice-modal.show{display:flex}
+.practice-modal-box{width:min(980px,100%);max-height:92vh;overflow-y:auto;background:#071a31;border:1px solid var(--border);border-radius:24px;box-shadow:0 30px 90px rgba(0,0,0,.7);padding:22px}
+.practice-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:10px}.practice-modal-head h2{margin:0;color:#fff}.practice-close{border:0;background:transparent;color:#9fdcff;font-size:30px;cursor:pointer;line-height:1}
 .formula-modal-box{width:min(1050px,100%);height:min(90vh,850px);max-height:90vh;overflow:hidden;display:flex;flex-direction:column;background:#071a31;border:1px solid var(--border);border-radius:24px;box-shadow:0 30px 90px rgba(0,0,0,.65);animation:formulaPop .3s ease}
 @keyframes formulaPop{from{opacity:0;transform:translateY(25px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 .formula-modal-head{display:flex;flex:0 0 auto;justify-content:space-between;align-items:center;padding:25px 28px;border-bottom:1px solid var(--border)}
@@ -1130,6 +1138,21 @@ easier sections.
       <div class="formula-chapters" id="formulaChapters"></div>
       <div class="formula-results" id="formulaResults"></div>
     </div>
+    <div class="chemical-practice-trigger">
+      <button class="chemical-practice-btn" type="button" onclick="openChemicalBalancingPractice()">⚗️ Chemical Equation Balancing Practice</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHEMICAL EQUATION BALANCING PRACTICE MODAL -->
+<div class="practice-modal" id="chemicalPracticeModal" aria-hidden="true">
+  <div class="practice-modal-box">
+    <div class="practice-modal-head">
+      <div><div class="subject">PRACTICE MODE</div><h2>⚗️ Chemical Equation Balancing Practice</h2></div>
+      <button class="practice-close" type="button" onclick="closeChemicalBalancingPractice()">×</button>
+    </div>
+    <p class="activity-intro">Choose an equation, change only the coefficients, and use the live atom counts to balance it.</p>
+    <div id="chemicalPracticeMount"></div>
   </div>
 </div>
 
@@ -2504,7 +2527,6 @@ function renderActivities(chapter, diagrams=[]){
                 <div class="activity-explanation-section"><strong>What the observation means:</strong><p>${a.observation}</p></div>
                 <div class="activity-explanation-section"><strong>Final meaning:</strong><p>${a.conclusion||a.result}</p></div>
               </div>
-              ${a.interactive==='balancer'?renderEquationBalancer():''}
               <div class="activity-grid">
                 <div class="activity-item activity-wide"><span>📚 Background / Concept</span><p>${a.background}</p></div>
                 <div class="activity-item"><span>🎯 Objective</span><p>${a.objective}</p></div>
@@ -2524,6 +2546,39 @@ function renderActivities(chapter, diagrams=[]){
 }
 
 
+const chapterBalanceQuestions = {
+  "Chemical Reactions and Equations": [
+    {left:["H₂","O₂"],right:["H₂O"],answer:[2,1,2],elements:["H","O"],label:"Hydrogen + oxygen → water"},
+    {left:["Fe","H₂O"],right:["Fe₃O₄","H₂"],answer:[3,4,1,4],elements:["Fe","H","O"],label:"Iron + steam → iron oxide + hydrogen"},
+    {left:["Na","H₂O"],right:["NaOH","H₂"],answer:[2,2,2,1],elements:["Na","H","O"],label:"Sodium + water → sodium hydroxide + hydrogen"},
+    {left:["Al","O₂"],right:["Al₂O₃"],answer:[4,3,2],elements:["Al","O"],label:"Aluminium + oxygen → aluminium oxide"},
+    {left:["Ca(OH)₂","CO₂"],right:["CaCO₃","H₂O"],answer:[1,1,1,1],elements:["Ca","C","O","H"],label:"Calcium hydroxide + carbon dioxide → calcium carbonate + water"}
+  ],
+  "Acids, Bases and Salts": [
+    {left:["Zn","HCl"],right:["ZnCl₂","H₂"],answer:[1,2,1,1],elements:["Zn","H","Cl"],label:"Zinc + hydrochloric acid → zinc chloride + hydrogen"},
+    {left:["NaOH","HCl"],right:["NaCl","H₂O"],answer:[1,1,1,1],elements:["Na","O","H","Cl"],label:"Sodium hydroxide + hydrochloric acid → sodium chloride + water"},
+    {left:["CaCO₃","HCl"],right:["CaCl₂","H₂O","CO₂"],answer:[1,2,1,1,1],elements:["Ca","C","O","H","Cl"],label:"Calcium carbonate + hydrochloric acid → calcium chloride + water + carbon dioxide"},
+    {left:["Na₂CO₃","HCl"],right:["NaCl","H₂O","CO₂"],answer:[1,2,2,1,1],elements:["Na","C","O","H","Cl"],label:"Sodium carbonate + hydrochloric acid → sodium chloride + water + carbon dioxide"}
+  ],
+  "Metals and Non-metals": [
+    {left:["Mg","O₂"],right:["MgO"],answer:[2,1,2],elements:["Mg","O"],label:"Magnesium + oxygen → magnesium oxide"},
+    {left:["Zn","H₂SO₄"],right:["ZnSO₄","H₂"],answer:[1,1,1,1],elements:["Zn","H","S","O"],label:"Zinc + sulphuric acid → zinc sulphate + hydrogen"},
+    {left:["Fe","CuSO₄"],right:["FeSO₄","Cu"],answer:[1,1,1,1],elements:["Fe","Cu","S","O"],label:"Iron + copper sulphate → iron sulphate + copper"},
+    {left:["Al","O₂"],right:["Al₂O₃"],answer:[4,3,2],elements:["Al","O"],label:"Aluminium + oxygen → aluminium oxide"}
+  ],
+  "Carbon and Its Compounds": [
+    {left:["CH₄","O₂"],right:["CO₂","H₂O"],answer:[1,2,1,2],elements:["C","H","O"],label:"Methane + oxygen → carbon dioxide + water"},
+    {left:["C₂H₅OH","O₂"],right:["CO₂","H₂O"],answer:[1,3,2,3],elements:["C","H","O"],label:"Ethanol + oxygen → carbon dioxide + water"},
+    {left:["CH₃COOH","Na₂CO₃"],right:["CH₃COONa","H₂O","CO₂"],answer:[2,1,2,1,1],elements:["C","H","O","Na"],label:"Ethanoic acid + sodium carbonate → sodium ethanoate + water + carbon dioxide"},
+    {left:["CH₃COOH","C₂H₅OH"],right:["CH₃COOC₂H₅","H₂O"],answer:[1,1,1,1],elements:["C","H","O"],label:"Ethanoic acid + ethanol → ester + water"}
+  ],
+  "Life Processes": [
+    {left:["CO₂","H₂O"],right:["C₆H₁₂O₆","O₂"],answer:[6,6,1,6],elements:["C","H","O"],label:"Photosynthesis"},
+    {left:["C₆H₁₂O₆","O₂"],right:["CO₂","H₂O"],answer:[1,6,6,6],elements:["C","H","O"],label:"Aerobic respiration"},
+    {left:["C₆H₁₂O₆"],right:["C₂H₅OH","CO₂"],answer:[1,2,2],elements:["C","H","O"],label:"Alcoholic fermentation"}
+  ]
+};
+
 const balanceQuestions = [
   {left:["H₂","O₂"],right:["H₂O"],answer:[2,1,2], elements:["H","O"]},
   {left:["Fe","H₂O"],right:["Fe₃O₄","H₂"],answer:[3,4,1,4], elements:["Fe","H","O"]},
@@ -2532,7 +2587,9 @@ const balanceQuestions = [
   {left:["Ca(OH)₂","CO₂"],right:["CaCO₃","H₂O"],answer:[1,1,1,1], elements:["Ca","C","O","H"]}
 ];
 
-function renderEquationBalancer(){
+function renderEquationBalancer(questionSet=balanceQuestions){
+  const safeQuestions = questionSet && questionSet.length ? questionSet : balanceQuestions;
+  window.activeBalanceQuestions = safeQuestions;
   return `
     <div class="balance-interactive" data-balance-root>
       <h4>⚗️ Interactive: Balance the Chemical Equation</h4>
@@ -2540,11 +2597,7 @@ function renderEquationBalancer(){
       <div class="balance-challenge">
         <label for="balanceQuestion">Choose a challenge:</label>
         <select id="balanceQuestion" class="balance-select" onchange="loadBalanceQuestion(this.value)">
-          <option value="0">1. Hydrogen + oxygen → water</option>
-          <option value="1">2. Iron + steam → iron oxide + hydrogen</option>
-          <option value="2">3. Sodium + water → sodium hydroxide + hydrogen</option>
-          <option value="3">4. Aluminium + oxygen → aluminium oxide</option>
-          <option value="4">5. Calcium hydroxide + carbon dioxide → calcium carbonate + water</option>
+          ${safeQuestions.map((q,i)=>`<option value="${i}">${i+1}. ${q.label || q.left.join(" + ") + " → " + q.right.join(" + ")}</option>`).join("")}
         </select>
       </div>
       <div class="balance-equation" id="balanceEquation"></div>
@@ -2585,7 +2638,7 @@ function parseFormula(formula){
 }
 
 function loadBalanceQuestion(index){
-  const q=balanceQuestions[Number(index)||0];
+  const q=(window.activeBalanceQuestions||balanceQuestions)[Number(index)||0];
   const eq=document.getElementById('balanceEquation');
   const feedback=document.getElementById('balanceFeedback');
   if(!eq) return;
@@ -2601,7 +2654,7 @@ function loadBalanceQuestion(index){
 
 function updateBalanceCounts(){
   const select=document.getElementById('balanceQuestion');
-  const q=balanceQuestions[Number(select?.value)||0];
+  const q=(window.activeBalanceQuestions||balanceQuestions)[Number(select?.value)||0];
   const inputs=[...document.querySelectorAll('#balanceEquation .balance-coef')];
   if(!q || !inputs.length) return;
   const counts={};
@@ -2619,7 +2672,7 @@ function updateBalanceCounts(){
 
 function checkBalanceEquation(){
   updateBalanceCounts();
-  const q=balanceQuestions[Number(document.getElementById('balanceQuestion')?.value)||0];
+  const q=(window.activeBalanceQuestions||balanceQuestions)[Number(document.getElementById('balanceQuestion')?.value)||0];
   const inputs=[...document.querySelectorAll('#balanceEquation .balance-coef')].map(x=>Math.max(1,Number(x.value)||1));
   const counts={};
   [...q.left,...q.right].forEach((formula,i)=>Object.entries(parseFormula(formula)).forEach(([el,n])=>{
@@ -2640,7 +2693,7 @@ function checkBalanceEquation(){
 }
 
 function showBalanceHint(){
-  const q=balanceQuestions[Number(document.getElementById('balanceQuestion')?.value)||0];
+  const q=(window.activeBalanceQuestions||balanceQuestions)[Number(document.getElementById('balanceQuestion')?.value)||0];
   const counts={};
   [...q.left,...q.right].forEach((formula,i)=>Object.entries(parseFormula(formula)).forEach(([el,n])=>{if(!counts[el])counts[el]=[0,0];counts[el][i<q.left.length?0:1]+=n;}));
   const first=Object.entries(counts).find(([,v])=>v[0]!==v[1]);
@@ -2648,7 +2701,7 @@ function showBalanceHint(){
 }
 
 function showBalanceAnswer(){
-  const q=balanceQuestions[Number(document.getElementById('balanceQuestion')?.value)||0];
+  const q=(window.activeBalanceQuestions||balanceQuestions)[Number(document.getElementById('balanceQuestion')?.value)||0];
   document.querySelectorAll('#balanceEquation .balance-coef').forEach((input,i)=>input.value=q.answer[i]);
   updateBalanceCounts();
   showBalanceFeedback('✅ Answer filled in. Now check the atom counts to see why it is balanced.');
@@ -2671,9 +2724,24 @@ function toggleChapterActivities(button){
   }
 }
 
+function renderChapterBalancer(chapter){
+  const questions=chapterBalanceQuestions[chapter.title];
+  if(!questions || !questions.length) return '';
+  return `
+    <div class="content-block chapter-entrance chapter-balancer-block">
+      <div class="activity-heading">
+        <div><span class="activity-kicker">PRACTISE BY DOING</span><h3>⚗️ Interactive Equation Balancing</h3></div>
+        <span class="activity-count">${questions.length} challenges</span>
+      </div>
+      <p class="activity-intro">Balance chemical equations from this chapter. Change only the coefficients and use the live atom counts to check your answer.</p>
+      ${renderEquationBalancer(questions)}
+    </div>`;
+}
+
 function renderChapterExtras(chapter, diagrams=[]){
     return `
       ${renderActivities(chapter, diagrams)}
+      ${renderChapterBalancer(chapter)}
       <div class="content-block chapter-entrance">
         <h3>📖 Important Definitions</h3>
         ${chapter.definitions.map(item => `
@@ -2982,6 +3050,8 @@ function closeFormulaBank(){
 
 function selectFormulaSubject(subject,button){
   currentFormulaSubject=subject;
+  const practiceTrigger=document.querySelector('.chemical-practice-trigger');
+  if(practiceTrigger) practiceTrigger.classList.toggle('show',subject==='chemistry');
   document.querySelectorAll('.formula-subject-btn').forEach(b=>b.classList.remove('active'));
   if(button) button.classList.add('active');
   const list=document.getElementById('formulaChapters');
@@ -3009,12 +3079,123 @@ function renderFormulaChapter(id){
   `;
 }
 
+function openChemicalBalancingPractice(){
+  closeFormulaBank();
+  const modal=document.getElementById('chemicalPracticeModal');
+  const mount=document.getElementById('chemicalPracticeMount');
+  if(!modal||!mount) return;
+  const all=[];
+  Object.entries(chapterBalanceQuestions||{}).forEach(([chapter,questions])=>{
+    (questions||[]).forEach(q=>all.push({...q,label:`${chapter}: ${q.label||q.left.join(' + ') + ' → ' + q.right.join(' + ')}`}));
+  });
+  const questions=all.length?all:balanceQuestions;
+  mount.innerHTML=`<div class="balance-interactive" data-practice-balance-root>
+    <div class="balance-challenge">
+      <label for="practiceBalanceQuestion">Choose a challenge:</label>
+      <select id="practiceBalanceQuestion" class="balance-select" onchange="loadChemicalPracticeQuestion(this.value)">
+        ${questions.map((q,i)=>`<option value="${i}">${i+1}. ${q.label || q.left.join(' + ') + ' → ' + q.right.join(' + ')}</option>`).join('')}
+      </select>
+    </div>
+    <div class="balance-equation" id="practiceBalanceEquation"></div>
+    <div class="balance-atoms" id="practiceBalanceAtoms"></div>
+    <div class="balance-actions">
+      <button class="balance-btn" type="button" onclick="checkChemicalPracticeBalance()">Check Balance</button>
+      <button class="balance-btn secondary" type="button" onclick="hintChemicalPracticeBalance()">Show Hint</button>
+      <button class="balance-btn secondary" type="button" onclick="answerChemicalPracticeBalance()">Show Answer</button>
+      <button class="balance-btn secondary" type="button" onclick="resetChemicalPracticeBalance()">Reset</button>
+    </div>
+    <div class="balance-feedback" id="practiceBalanceFeedback"></div>
+  </div>`;
+  window.chemicalPracticeQuestions=questions;
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  loadChemicalPracticeQuestion(0);
+}
+
+function closeChemicalBalancingPractice(){
+  const modal=document.getElementById('chemicalPracticeModal');
+  if(modal){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');}
+  if(!document.getElementById('formulaModal').classList.contains('show') && !document.getElementById('modal').classList.contains('show')) document.body.style.overflow='';
+}
+
+function practiceQuestion(){
+  return (window.chemicalPracticeQuestions||balanceQuestions)[Number(document.getElementById('practiceBalanceQuestion')?.value)||0];
+}
+
+function loadChemicalPracticeQuestion(index){
+  const q=(window.chemicalPracticeQuestions||balanceQuestions)[Number(index)||0];
+  const eq=document.getElementById('practiceBalanceEquation');
+  const feedback=document.getElementById('practiceBalanceFeedback');
+  if(!q||!eq)return;
+  eq.innerHTML=[...q.left,...q.right].map((f,i)=>{
+    const sideBreak=i===q.left.length?' <span class="balance-arrow">→</span> ':'';
+    const sep=(i>0&&i!==q.left.length)?' <span class="balance-plus">+</span> ':'';
+    return sep+sideBreak+`<span class="balance-part"><input class="balance-coef practice-balance-coef" data-index="${i}" value="1" min="1" inputmode="numeric" oninput="updateChemicalPracticeCounts()"><span class="balance-formula">${f}</span></span>`;
+  }).join('');
+  if(feedback){feedback.className='balance-feedback';feedback.textContent='';}
+  updateChemicalPracticeCounts();
+}
+
+function updateChemicalPracticeCounts(){
+  const q=practiceQuestion();
+  const inputs=[...document.querySelectorAll('#practiceBalanceEquation .practice-balance-coef')];
+  if(!q||!inputs.length)return;
+  const counts={};
+  [...q.left,...q.right].forEach((formula,i)=>Object.entries(parseFormula(formula)).forEach(([el,n])=>{
+    if(!counts[el])counts[el]=[0,0];
+    counts[el][i<q.left.length?0:1]+=Math.max(1,Number(inputs[i].value)||1)*n;
+  }));
+  const box=document.getElementById('practiceBalanceAtoms');
+  if(box)box.innerHTML=Object.entries(counts).map(([el,v])=>`<div class="balance-atom"><strong>${el}</strong>Reactants: ${v[0]}<br>Products: ${v[1]}</div>`).join('');
+}
+
+function chemicalPracticeFeedback(message,good=false){
+  const box=document.getElementById('practiceBalanceFeedback');
+  if(!box)return; box.innerHTML=message;box.className='balance-feedback show '+(good?'good':'bad');
+}
+
+function checkChemicalPracticeBalance(){
+  updateChemicalPracticeCounts();
+  const q=practiceQuestion();
+  const inputs=[...document.querySelectorAll('#practiceBalanceEquation .practice-balance-coef')].map(x=>Math.max(1,Number(x.value)||1));
+  if(!q)return;
+  const counts={};
+  [...q.left,...q.right].forEach((formula,i)=>Object.entries(parseFormula(formula)).forEach(([el,n])=>{
+    if(!counts[el])counts[el]=[0,0]; counts[el][i<q.left.length?0:1]+=inputs[i]*n;
+  }));
+  const balanced=Object.values(counts).every(v=>v[0]===v[1]);
+  if(!balanced){chemicalPracticeFeedback('❌ Not balanced yet. Compare the atom counts and adjust the coefficients.');return;}
+  const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a); const divisor=inputs.reduce((a,b)=>gcd(a,b));
+  chemicalPracticeFeedback(divisor===1?'🎉 Correct! The equation is balanced using the smallest whole-number coefficients.':'✅ Balanced! You can simplify the coefficients to the smallest whole-number ratio.',true);
+}
+
+function hintChemicalPracticeBalance(){
+  const q=practiceQuestion(); if(!q)return;
+  const counts={}; [...q.left,...q.right].forEach((formula,i)=>Object.entries(parseFormula(formula)).forEach(([el,n])=>{if(!counts[el])counts[el]=[0,0];counts[el][i<q.left.length?0:1]+=n;}));
+  const first=Object.entries(counts).find(([,v])=>v[0]!==v[1]);
+  chemicalPracticeFeedback(first?`💡 Hint: Start with <b>${first[0]}</b>. The current uncoefficiented count is ${first[1][0]} on the reactant side and ${first[1][1]} on the product side.`:'The equation is already balanced.',!first);
+}
+
+function answerChemicalPracticeBalance(){
+  const q=practiceQuestion(); if(!q)return;
+  document.querySelectorAll('#practiceBalanceEquation .practice-balance-coef').forEach((input,i)=>input.value=q.answer[i]);
+  updateChemicalPracticeCounts(); chemicalPracticeFeedback('✅ Answer filled in. Now compare the atom counts.');
+}
+
+function resetChemicalPracticeBalance(){loadChemicalPracticeQuestion(document.getElementById('practiceBalanceQuestion')?.value||0);}
+
 document.getElementById('formulaModal').addEventListener('click',function(e){
   if(e.target===this) closeFormulaBank();
 });
 
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape' && document.getElementById('formulaModal').classList.contains('show')) closeFormulaBank();
+  if(e.key==='Escape' && document.getElementById('chemicalPracticeModal').classList.contains('show')) closeChemicalBalancingPractice();
+});
+
+document.getElementById('chemicalPracticeModal').addEventListener('click',function(e){
+  if(e.target===this) closeChemicalBalancingPractice();
 });
 
 
