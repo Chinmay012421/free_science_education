@@ -974,6 +974,13 @@ body{
 .game-mode{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;margin-top:12px;border-radius:12px;background:rgba(22,131,255,.07);border:1px solid rgba(32,217,255,.18)}
 @media(max-width:850px){.dashboard-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:repeat(2,1fr)}.chapter-grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:650px){.brand-by{font-size:14px}.brand-name{font-size:18px}.dashboard-section{padding-left:14px;padding-right:14px}.dashboard-stats,.dashboard-actions,.achievement-grid,.lab-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr}.chapter-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.upgrade-modal-box{padding:18px}.hero{padding-top:120px}.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* AUTH / CLOUD PROGRESS */
+.nav-auth-wrap{display:flex;align-items:center;gap:8px;margin-left:12px}.admin-db-btn{border-color:rgba(255,193,7,.5)}
+.auth-btn{border:1px solid rgba(32,217,255,.45);background:linear-gradient(145deg,#0b2948,#08213b);color:#fff;border-radius:10px;padding:9px 13px;font-weight:800;cursor:pointer;white-space:nowrap}.auth-btn:hover{border-color:#20d9ff;transform:translateY(-1px)}
+.auth-modal{position:fixed;inset:0;z-index:7000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(1,8,18,.88);backdrop-filter:blur(10px)}.auth-modal.show{display:flex}.auth-box{width:min(460px,100%);background:#071a31;border:1px solid var(--border);border-radius:22px;padding:25px;box-shadow:0 30px 90px rgba(0,0,0,.7)}.auth-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.auth-head h2{margin:0;color:#fff}.auth-close{border:1px solid var(--border);background:#0c2949;color:#fff;border-radius:10px;width:40px;height:40px;font-size:22px;cursor:pointer}.auth-tabs{display:flex;gap:8px;margin:18px 0}.auth-tab{flex:1;border:1px solid var(--border);background:#0a213b;color:#bfefff;padding:10px;border-radius:10px;cursor:pointer;font-weight:800}.auth-tab.active{background:#0c4165;border-color:#20d9ff;color:#fff}.auth-field{margin:12px 0}.auth-field label{display:block;color:#a9c6dc;font-size:12px;margin-bottom:6px}.auth-field input{width:100%;padding:12px 13px;border-radius:10px;border:1px solid var(--border);background:#041426;color:#fff;outline:none}.auth-field input:focus{border-color:#20d9ff}.auth-submit{width:100%;margin-top:8px;padding:12px;border:0;border-radius:10px;background:linear-gradient(90deg,#1683ff,#20d9ff);color:#02101e;font-weight:900;cursor:pointer}.auth-msg{margin-top:12px;font-size:13px;line-height:1.45;color:#bfefff}.auth-user{display:flex;align-items:center;gap:8px;color:#c8dced;font-size:12px}.auth-user b{color:#fff}.cloud-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;border:1px solid rgba(32,217,255,.25);background:rgba(32,217,255,.06);font-size:11px;color:#bfefff}
+@media(max-width:800px){.auth-user{display:none}.auth-btn{padding:8px 10px;font-size:12px}.nav-inner{gap:8px}.nav-auth-wrap{margin-left:auto}.nav-links{display:none}.nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;background:#06152b;padding:18px;flex-direction:column;gap:14px;border-bottom:1px solid var(--border)}}
+
 </style>
 </head>
 
@@ -996,6 +1003,12 @@ body{
 <li><a href="#dashboard" onclick="closeMenu()">Dashboard</a></li><li><a href="#chapters" onclick="closeMenu()">Chapters</a></li><li><a href="#searchHub" onclick="closeMenu()">Search</a></li>
 <li><a href="#features" onclick="closeMenu()">Features</a></li>
 </ul>
+
+<div class="nav-auth-wrap">
+  <div id="authStatus" class="auth-user"><span class="cloud-badge">☁ Local</span></div>
+  <button class="auth-btn admin-db-btn" id="adminDbBtn" onclick="openAdminDatabase()" style="display:none">🗄️ Database</button>
+  <button class="auth-btn" id="authNavBtn" onclick="openAuthModal()">Login</button>
+</div>
 
 </div>
 </nav>
@@ -1300,6 +1313,32 @@ easier sections.
 
 </div>
 
+
+<!-- ADMIN DATABASE -->
+<div class="auth-modal" id="adminDbModal" onclick="if(event.target===this)closeAdminDatabase()">
+  <div class="auth-box" style="width:min(1050px,100%)">
+    <div class="auth-head">
+      <div><div class="subject">ADMIN ONLY</div><h2>🗄️ Student Progress Database</h2></div>
+      <button class="auth-close" onclick="closeAdminDatabase()">×</button>
+    </div>
+    <div id="adminDbMsg" class="auth-msg">Loading student progress...</div>
+    <div id="adminDbTable" style="margin-top:16px;overflow:auto;max-height:60vh"></div>
+  </div>
+</div>
+
+<!-- LOGIN / CLOUD DATABASE -->
+<div class="auth-modal" id="authModal" onclick="if(event.target===this)closeAuthModal()">
+  <div class="auth-box">
+    <div class="auth-head"><div><div class="subject">STUDENT ACCOUNT</div><h2 id="authTitle">Login to Science 10</h2></div><button class="auth-close" onclick="closeAuthModal()">×</button></div>
+    <div class="auth-tabs"><button class="auth-tab active" id="loginTab" onclick="setAuthMode('login')">Login</button><button class="auth-tab" id="signupTab" onclick="setAuthMode('signup')">Create Account</button></div>
+    <div class="auth-field"><label>Email</label><input id="authEmail" type="email" autocomplete="email" placeholder="student@example.com"></div>
+    <div class="auth-field"><label>Password</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div>
+    <button class="auth-submit" id="authSubmit" onclick="submitAuth()">Login</button>
+    <div class="auth-msg" id="authMsg">Cloud progress is saved separately for your account. Your existing browser progress stays available too.</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 
 /* =========================================================
@@ -2984,9 +3023,133 @@ function closeMenu(){
 /* =========================================================
    SCIENCE10 PROGRESS + QUIZZES + LAB + ACHIEVEMENTS
 ========================================================= */
+/* =========================================================
+   STUDENT LOGIN + SUPABASE CLOUD DATABASE
+   Add your Supabase Project URL and anon key below.
+========================================================= */
+const SUPABASE_URL='YOUR_SUPABASE_PROJECT_URL';
+const SUPABASE_ANON_KEY='YOUR_SUPABASE_ANON_KEY';
+let supabaseClient=null;
+let authMode='login';
+let cloudSaveTimer=null;
+let cloudSyncBusy=false;
+
+function supabaseReady(){return !!(window.supabase && SUPABASE_URL.startsWith('http') && !SUPABASE_URL.includes('YOUR_') && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes('YOUR_'));}
+function initSupabase(){
+ if(!supabaseReady()){updateAuthUI(null);return;}
+ try{supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}
+ catch(e){console.error('Supabase initialization failed',e);updateAuthUI(null);return;}
+ supabaseClient.auth.getSession().then(({data})=>{updateAuthUI(data.session);if(data.session)syncProgressFromCloud();});
+ supabaseClient.auth.onAuthStateChange((_event,session)=>{updateAuthUI(session);if(session)syncProgressFromCloud();});
+}
+function openAuthModal(){document.getElementById('authModal').classList.add('show');document.getElementById('authEmail').focus();}
+function closeAuthModal(){document.getElementById('authModal').classList.remove('show');}
+function setAuthMode(mode){authMode=mode;document.getElementById('loginTab').classList.toggle('active',mode==='login');document.getElementById('signupTab').classList.toggle('active',mode==='signup');document.getElementById('authTitle').textContent=mode==='login'?'Login to Science 10':'Create Science 10 Account';document.getElementById('authSubmit').textContent=mode==='login'?'Login':'Create Account';document.getElementById('authMsg').textContent=mode==='login'?'Cloud progress is saved separately for your account.':'Create an account to keep your chapter progress in the cloud on different devices.';}
+function authMessage(text){document.getElementById('authMsg').textContent=text;}
+const ADMIN_EMAIL='chinmay017069@gmail.com';
+
+function isAdminSession(session){
+  return !!(session && session.user && (session.user.email||'').toLowerCase()===ADMIN_EMAIL.toLowerCase());
+}
+function openAdminDatabase(){
+  if(!isAdminSession(window.__scienceSession)){alert('Admin access only.');return;}
+  document.getElementById('adminDbModal').classList.add('show');
+  loadAdminDatabase();
+}
+function closeAdminDatabase(){document.getElementById('adminDbModal').classList.remove('show');}
+async function loadAdminDatabase(){
+  const msg=document.getElementById('adminDbMsg'), mount=document.getElementById('adminDbTable');
+  msg.textContent='Loading student progress...'; mount.innerHTML='';
+  if(!supabaseClient||!isAdminSession(window.__scienceSession)){msg.textContent='Admin access denied.';return;}
+  try{
+    const {data,error}=await supabaseClient.rpc('get_all_science_progress');
+    if(error) throw error;
+    if(!data||!data.length){msg.textContent='No student progress records found yet.';return;}
+    const rows=data.map(r=>{
+      const p=r.progress||{}, ch=p.chapters||{}, acts=p.activities||{}, quizzes=p.quizzes||{};
+      const chaptersCompleted=Object.values(ch).filter(x=>x&&x.complete).length;
+      const chaptersRead=Object.values(ch).filter(x=>x&&x.read).length;
+      const activityDone=Object.values(acts).filter(Boolean).length;
+      const quizCount=Object.keys(quizzes).length;
+      return `<tr><td>${escapeHTML(r.email||'')}</td><td>${chaptersCompleted}/13</td><td>${chaptersRead}/13</td><td>${activityDone}</td><td>${quizCount}</td><td>${escapeHTML(r.updated_at?new Date(r.updated_at).toLocaleString():'')}</td></tr>`;
+    }).join('');
+    mount.innerHTML=`<table style="width:100%;border-collapse:collapse;min-width:760px"><thead><tr><th style="text-align:left;padding:10px;border-bottom:1px solid var(--border)">Student</th><th style="padding:10px;border-bottom:1px solid var(--border)">Completed</th><th style="padding:10px;border-bottom:1px solid var(--border)">Read</th><th style="padding:10px;border-bottom:1px solid var(--border)">Activities</th><th style="padding:10px;border-bottom:1px solid var(--border)">Quizzes</th><th style="padding:10px;border-bottom:1px solid var(--border)">Last Sync</th></tr></thead><tbody>${rows}</tbody></table>`;
+    msg.textContent=`${data.length} student record${data.length===1?'':'s'} found.`;
+  }catch(err){console.error(err);msg.textContent='Could not load the database. Make sure the admin SQL function from supabase_schema.sql has been installed.';}
+}
+
+async function submitAuth(){
+ if(!supabaseReady()){authMessage('Database is not connected yet. Add your Supabase Project URL and anon key in the HTML configuration section.');return;}
+ const email=document.getElementById('authEmail').value.trim();
+ const password=document.getElementById('authPassword').value;
+ if(!email||!password){authMessage('Please enter both email and password.');return;}
+ if(password.length<6){authMessage('Password must be at least 6 characters.');return;}
+ const btn=document.getElementById('authSubmit');btn.disabled=true;btn.textContent='Please wait...';
+ try{
+  let result;
+  if(authMode==='signup') result=await supabaseClient.auth.signUp({email,password});
+  else result=await supabaseClient.auth.signInWithPassword({email,password});
+  if(result.error) throw result.error;
+  if(authMode==='signup' && !result.data.session){authMessage('Account created. Check your email if confirmation is enabled, then log in.');}
+  else {authMessage('Login successful. Syncing your progress...');setTimeout(closeAuthModal,700);}
+ }catch(err){authMessage(err.message||'Authentication failed.');}
+ finally{btn.disabled=false;btn.textContent=authMode==='login'?'Login':'Create Account';}
+}
+async function logoutStudent(){if(supabaseClient)await supabaseClient.auth.signOut();updateAuthUI(null);}
+function updateAuthUI(session){
+ window.__scienceSession=session||null;
+ const btn=document.getElementById('authNavBtn'),status=document.getElementById('authStatus'),adminBtn=document.getElementById('adminDbBtn');
+ if(!btn||!status)return;
+ if(adminBtn)adminBtn.style.display=isAdminSession(session)?'inline-flex':'none';
+ if(session&&session.user){
+  const email=session.user.email||'Student';
+  btn.textContent='Logout';btn.onclick=logoutStudent;
+  status.innerHTML='<span class="cloud-badge">☁ Cloud Sync</span><b>'+escapeHTML(email)+'</b>';
+ }else{
+  btn.textContent='Login';btn.onclick=openAuthModal;
+  status.innerHTML='<span class="cloud-badge">☁ Local</span>';
+ }
+}
+function escapeHTML(v){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+function queueCloudProgressSave(p){
+ if(!supabaseClient)return;
+ clearTimeout(cloudSaveTimer);cloudSaveTimer=setTimeout(()=>saveProgressToCloud(p),700);
+}
+async function saveProgressToCloud(p){
+ if(!supabaseClient||cloudSyncBusy)return;
+ try{
+  const {data:{session}}=await supabaseClient.auth.getSession();
+  if(!session)return;
+  cloudSyncBusy=true;
+  const {error}=await supabaseClient.from('science_progress').upsert({user_id:session.user.id,progress:p,updated_at:new Date().toISOString()},{onConflict:'user_id'});
+  if(error)console.error('Cloud progress save failed:',error);
+ }catch(e){console.error('Cloud progress save failed:',e)}
+ finally{cloudSyncBusy=false;}
+}
+async function syncProgressFromCloud(){
+ if(!supabaseClient)return;
+ try{
+  const {data:{session}}=await supabaseClient.auth.getSession();
+  if(!session)return;
+  const {data,error}=await supabaseClient.from('science_progress').select('progress,updated_at').eq('user_id',session.user.id).maybeSingle();
+  if(error){console.error('Cloud progress load failed:',error);return;}
+  const local=getProgress();
+  if(data&&data.progress){
+   localStorage.setItem(SCIENCE_PROGRESS_KEY,JSON.stringify(data.progress));
+   refreshUpgradeUI();
+  }else if(local&&Object.keys(local).length){
+   await saveProgressToCloud(local);
+  }
+ }catch(e){console.error('Cloud progress sync failed:',e)}
+}
+
 const SCIENCE_PROGRESS_KEY='science10_progress_v3';
 function getProgress(){try{return JSON.parse(localStorage.getItem(SCIENCE_PROGRESS_KEY))||{chapters:{},activities:{},quizzes:{}}}catch(e){return {chapters:{},activities:{},quizzes:{}}}}
-function saveProgress(p){localStorage.setItem(SCIENCE_PROGRESS_KEY,JSON.stringify(p));refreshUpgradeUI()}
+function saveProgress(p){
+ localStorage.setItem(SCIENCE_PROGRESS_KEY,JSON.stringify(p));
+ refreshUpgradeUI();
+ queueCloudProgressSave(p);
+}
 function markChapterVisited(id){
  const p=getProgress();
  p.chapters[id]=p.chapters[id]||{visited:true,complete:false,readProgress:0};
@@ -3534,6 +3697,8 @@ function toggleRevisionTimer(){if(revisionTimerId){clearInterval(revisionTimerId
 function resetRevisionTimer(){if(revisionTimerId){clearInterval(revisionTimerId);revisionTimerId=null}revisionTimerSeconds=revisionTimerTotal;updateRevisionTimerUI()}
 
 document.getElementById('revisionModal')?.addEventListener('click',function(e){if(e.target===this)closeRevisionTool()});
+
+initSupabase();
 
 </script>
 
