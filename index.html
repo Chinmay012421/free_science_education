@@ -1176,6 +1176,17 @@ body{
 .secret-badge{display:inline-block;margin-bottom:10px;padding:5px 10px;border-radius:999px;background:rgba(32,217,255,.1);border:1px solid rgba(32,217,255,.25);color:#20d9ff;font-size:12px;font-weight:700;letter-spacing:.7px}
 @media(max-width:700px){.secret-grid{grid-template-columns:1fr}.secret-chapter-box{padding:20px}.secret-chapter-head h2{font-size:23px}}
 
+
+/* ================= COMPETITION EDITION FEATURES ================= */
+.competition-hub{max-width:1250px;margin:35px auto 10px;padding:65px 22px 80px}
+.competition-head{text-align:center;margin-bottom:34px}.competition-kicker{display:block;color:#20d9ff;font-size:12px;font-weight:900;letter-spacing:2px;margin-bottom:6px}.competition-head h2{font-size:42px;margin:8px 0}.competition-head p{color:var(--muted);max-width:800px;margin:auto}
+.competition-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.competition-card{position:relative;text-align:left;border:1px solid rgba(79,170,255,.25);border-radius:20px;background:linear-gradient(145deg,#061a31,#071f38);padding:22px;min-height:185px;color:#fff;cursor:pointer;transition:.25s;overflow:hidden}.competition-card:before{content:"";position:absolute;inset:-40% auto auto -15%;width:130px;height:130px;background:rgba(32,217,255,.09);border-radius:50%;filter:blur(4px)}.competition-card:hover{transform:translateY(-5px);border-color:rgba(32,217,255,.6);box-shadow:0 18px 45px rgba(0,0,0,.28)}.competition-icon{font-size:34px;display:block;margin-bottom:10px}.competition-card strong{display:block;font-size:18px;margin-bottom:7px}.competition-card small{display:block;color:var(--muted);line-height:1.55}.competition-tag{display:inline-block;margin-top:13px;padding:5px 9px;border-radius:999px;background:rgba(22,131,255,.12);border:1px solid rgba(32,217,255,.2);font-size:11px;font-weight:800;color:#72caff}
+.competition-modal{position:fixed;inset:0;z-index:11000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.84);backdrop-filter:blur(10px)}.competition-modal.show{display:flex}.competition-box{width:min(1080px,96vw);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#06172b,#0a203b);border:1px solid rgba(32,217,255,.35);border-radius:24px;box-shadow:0 30px 90px rgba(0,0,0,.7);padding:24px}.competition-modal-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:15px;margin-bottom:20px}.competition-modal-head h2{margin:0;font-size:28px}.competition-close{border:1px solid var(--border);background:#0d2949;color:#fff;border-radius:10px;padding:7px 13px;font-size:24px;line-height:1;cursor:pointer}.competition-content-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.competition-panel{background:rgba(4,11,23,.48);border:1px solid var(--border);border-radius:17px;padding:18px}.competition-panel h3{margin-bottom:10px;color:#59c4ff}.competition-panel p,.competition-panel li{color:var(--muted);line-height:1.65}.competition-panel ul{padding-left:20px}.competition-input,.competition-select{width:100%;padding:12px 14px;background:#071a31;border:1px solid var(--border);border-radius:11px;color:#fff;outline:none;margin:7px 0 10px}.competition-input:focus,.competition-select:focus{border-color:#20d9ff}.competition-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.competition-action{border:1px solid rgba(32,217,255,.35);background:#0b2c4d;color:#fff;border-radius:11px;padding:10px 14px;font-weight:800;cursor:pointer;transition:.2s}.competition-action:hover{transform:translateY(-2px);border-color:#20d9ff}.competition-output{margin-top:14px;padding:15px;border-radius:13px;background:#06162a;border:1px solid var(--border);color:#e9f5ff;min-height:60px}.progress-big{font-size:42px;font-weight:900;color:#59c4ff}.progress-track{height:13px;border-radius:999px;background:#06101f;overflow:hidden;border:1px solid var(--border);margin:10px 0}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#1683ff,#20d9ff);transition:.5s}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.metric-box{padding:15px;text-align:center;background:#071a31;border:1px solid var(--border);border-radius:14px}.metric-box b{display:block;font-size:25px;color:#59c4ff}.metric-box span{font-size:12px;color:var(--muted)}.map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.map-subject{padding:14px;border:1px solid var(--border);border-radius:16px;background:#071a31}.map-subject h3{margin-bottom:10px}.map-node{width:100%;text-align:left;padding:10px 12px;margin:5px 0;border:1px solid rgba(65,165,255,.18);border-radius:10px;background:#0a2442;color:#dff4ff;cursor:pointer}.map-node:hover{border-color:#20d9ff;transform:translateX(2px)}.teach-topic{font-size:19px;color:#fff;margin:10px 0}.rubric{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.rubric div{padding:12px;border-radius:12px;background:#071a31;border:1px solid var(--border);color:var(--muted)}
+.simulator-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.sim-tab{padding:9px 13px;border-radius:999px;border:1px solid var(--border);background:#071a31;color:var(--muted);cursor:pointer;font-weight:700}.sim-tab.active,.sim-tab:hover{background:#126ed4;color:#fff;border-color:#20d9ff}.sim-control{margin:15px 0}.sim-control label{display:flex;justify-content:space-between;color:#dceeff;font-weight:700}.sim-control input[type=range]{width:100%;accent-color:#20d9ff}.sim-visual{min-height:180px;display:grid;place-items:center;background:#04101f;border:1px solid var(--border);border-radius:16px;margin-top:15px;overflow:hidden}.circuit-visual{display:flex;align-items:center;gap:12px;font-size:34px}.circuit-wire{height:5px;width:80px;background:#20d9ff;border-radius:5px}.lens-visual{position:relative;width:90%;height:150px}.lens-line{position:absolute;left:50%;top:10px;bottom:10px;width:5px;background:#59c4ff;border-radius:50%}.lens-object{position:absolute;bottom:45px;width:5px;background:#fff}.lens-ray{position:absolute;height:2px;background:#20d9ff;transform-origin:left center}.eco-bar{width:min(600px,90%);height:24px;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:#071a31}.eco-fill{height:100%;width:50%;background:linear-gradient(90deg,#1683ff,#20d9ff);transition:.4s}
+.tutor-answer{white-space:pre-wrap;line-height:1.7;color:#eaf7ff}.tutor-suggestions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.tutor-chip{border:1px solid var(--border);background:#071a31;color:#bfe7ff;border-radius:999px;padding:7px 10px;cursor:pointer}.adaptive-option{display:block;width:100%;text-align:left;padding:12px 14px;margin:8px 0;border-radius:12px;border:1px solid var(--border);background:#071a31;color:#fff;cursor:pointer}.adaptive-option:hover{border-color:#20d9ff}.adaptive-option.correct{border-color:#2de18b;background:rgba(45,225,139,.12)}.adaptive-option.wrong{border-color:#ff7272;background:rgba(255,114,114,.1)}
+@media(max-width:900px){.competition-grid{grid-template-columns:repeat(2,1fr)}.map-grid{grid-template-columns:1fr 1fr}.competition-content-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.competition-hub{padding:45px 15px 55px}.competition-head h2{font-size:29px}.competition-grid{grid-template-columns:1fr}.map-grid{grid-template-columns:1fr}.rubric{grid-template-columns:1fr}.competition-box{padding:17px}.competition-modal-head h2{font-size:22px}}
+
 </style>
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ889NLBFJ"></script>
@@ -1185,6 +1196,102 @@ body{
   gtag('js', new Date());
   gtag('config', 'G-BQ889NLBFJ');
 </script>
+<style>
+/* COMPETITION UI REPAIR */
+.competition-modal{display:none!important;position:fixed;inset:0;z-index:5000;align-items:center;justify-content:center;padding:18px;background:rgba(1,7,16,.88);backdrop-filter:blur(12px)}
+.competition-modal.open{display:flex!important}
+.competition-box{width:min(920px,100%);max-height:90vh;overflow:auto;background:linear-gradient(180deg,#081a31,#061326);border:1px solid rgba(65,165,255,.28);border-radius:22px;padding:22px;box-shadow:0 28px 100px rgba(0,0,0,.6)}
+.competition-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:16px}
+.competition-modal-head h2{margin:4px 0 0;font-size:28px}
+.competition-close{border:1px solid var(--border);background:#0a203b;color:#fff;width:40px;height:40px;border-radius:12px;font-size:26px;line-height:1}
+.competition-close:hover{border-color:var(--cyan);transform:translateY(-1px)}
+.competition-panel{background:rgba(4,12,25,.5);border:1px solid var(--border);border-radius:18px;padding:18px}
+.competition-input,.competition-select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--border);background:#041426;color:#fff;outline:none}
+.competition-input:focus,.competition-select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(32,217,255,.08)}
+.competition-actions{display:flex;gap:10px;flex-wrap:wrap;margin:13px 0}
+.competition-action{padding:11px 15px;border:1px solid rgba(32,217,255,.25);border-radius:11px;background:#0a2847;color:#fff;font-weight:800;cursor:pointer}
+.competition-action:hover{border-color:var(--cyan);background:#0c355a}
+.tutor-suggestions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tutor-chip{padding:8px 11px;border-radius:999px;border:1px solid var(--border);background:#071b32;color:#cfe7f8;cursor:pointer;font-size:12px}
+.tutor-chip:hover{border-color:var(--cyan);color:#fff}
+.tutor-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.tutor-topic-grid button{padding:10px;text-align:left;border:1px solid var(--border);border-radius:11px;background:#071a31;color:#d9efff;cursor:pointer;font-size:12px}
+.tutor-topic-grid button:hover{border-color:var(--cyan);background:#0a2542}
+.tutor-answer{min-height:120px}
+.quiz-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:12px}
+.quiz-meta span{padding:6px 9px;border:1px solid var(--border);border-radius:999px;background:rgba(32,217,255,.05)}
+.adaptive-options{display:grid;gap:9px;margin-top:15px}
+.adaptive-options button{width:100%;text-align:left;padding:14px 15px;border:1px solid var(--border);border-radius:13px;background:#071a31;color:#fff;cursor:pointer;transition:.18s}
+.adaptive-options button:hover:not(:disabled){border-color:var(--cyan);transform:translateY(-1px)}
+.adaptive-options button:disabled{cursor:default;opacity:.9}
+.adaptive-options button.correct{border-color:#2de18b;background:rgba(45,225,139,.12)}
+.adaptive-options button.wrong{border-color:#ff7272;background:rgba(255,114,114,.1)}
+.adaptive-progress{height:8px;background:#041020;border-radius:999px;overflow:hidden;margin:10px 0 18px;border:1px solid var(--border)}
+.adaptive-progress span{display:block;height:100%;background:linear-gradient(90deg,#1683ff,#20d9ff);transition:.25s}
+.simulator-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sim-tab{border:1px solid var(--border);background:#071a31;color:#cfe7f8;padding:10px 13px;border-radius:11px;cursor:pointer;font-weight:800}
+.sim-tab.active,.sim-tab:hover{border-color:var(--cyan);background:#0b3152;color:#fff}
+.sim-card{background:linear-gradient(180deg,rgba(10,32,59,.82),rgba(4,16,32,.82));border:1px solid var(--border);border-radius:18px;padding:20px}
+.sim-card h3{color:#59c4ff;margin-bottom:7px}
+.sim-card p{color:var(--muted);line-height:1.65}
+.sim-card label{display:block;color:#dceeff;font-weight:700;margin:14px 0}
+.sim-card input[type=range]{width:100%;accent-color:#20d9ff;display:block;margin-top:8px}
+.sim-card output{float:right;color:#59c4ff;font-weight:800;margin-top:-26px}
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.sim-readout{display:flex;justify-content:space-between;align-items:center;margin:16px 0;padding:16px;background:#06162a;border:1px solid var(--border);border-radius:14px}
+.sim-readout strong{font-size:25px;color:#59c4ff}
+.sim-circuit{display:flex;align-items:center;justify-content:center;gap:10px;font-size:34px;padding:22px;border-radius:15px;background:#04101f;border:1px solid var(--border);margin:14px 0}
+.sim-circuit .wire{height:5px;width:80px;background:#20d9ff;border-radius:5px;box-shadow:0 0 12px rgba(32,217,255,.4)}
+.lens-stage{position:relative;height:190px;margin:18px 0;background:#04101f;border:1px solid var(--border);border-radius:15px;overflow:hidden}
+.lens-stage:after{content:'';position:absolute;left:5%;right:5%;top:50%;height:1px;background:rgba(89,196,255,.35)}
+.lens-stage .lens-line{position:absolute;left:50%;top:18px;bottom:18px;width:4px;background:#59c4ff;border-radius:50%;box-shadow:0 0 14px rgba(89,196,255,.35)}
+.lens-stage .lens-shape{position:absolute;left:calc(50% - 25px);top:45px;font-size:76px;color:#59c4ff;z-index:2}
+.lens-stage .lens-object,.lens-stage .lens-image{position:absolute;bottom:64px;font-size:34px;color:#fff;transition:.25s;z-index:3}
+.eco-bars{display:grid;gap:11px;margin:18px 0}
+.eco-bars div{display:grid;grid-template-columns:145px 1fr;align-items:center;gap:10px;color:#cfe7f8}
+.eco-bars b{display:block;height:25px;min-width:3%;max-width:100%;border-radius:999px;background:linear-gradient(90deg,#1683ff,#20d9ff);padding-left:9px;color:#fff;font-size:11px;line-height:25px;white-space:nowrap;overflow:hidden}
+.sim-observation{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.sim-observation div{padding:12px;border:1px solid var(--border);border-radius:12px;background:#06162a;text-align:center}.sim-observation b{display:block;color:#59c4ff;font-size:18px}
+.map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.map-step{padding:14px;border:1px solid var(--border);border-radius:14px;background:#071a31}.map-step b{display:block;color:#59c4ff}.map-step small{color:var(--muted)}
+.rubric{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}.rubric>div{padding:12px;border:1px solid var(--border);border-radius:12px;background:#06162a;color:#cfe7f8}.rubric b{color:#59c4ff}
+@media(max-width:700px){.tutor-topic-grid,.map-grid,.sim-observation,.rubric{grid-template-columns:1fr}.sim-grid{grid-template-columns:1fr}.eco-bars div{grid-template-columns:1fr}.sim-circuit{font-size:25px}.sim-circuit .wire{width:38px}.competition-box{padding:15px}.competition-modal-head h2{font-size:22px}}
+
+/* CLEAN UI REPAIR — Adaptive Quiz + Science Simulators */
+.quiz-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:14px}
+.adaptive-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.adaptive-options button{width:100%;min-height:54px;text-align:left;padding:13px 15px;border:1px solid var(--border);border-radius:13px;background:#071a31;color:#eaf6ff;cursor:pointer;transition:.18s}
+.adaptive-options button:hover:not(:disabled){transform:translateY(-1px);border-color:var(--cyan);background:#0b2948}
+.adaptive-options button:disabled{cursor:default;opacity:.95}
+.adaptive-options button.correct{border-color:#2de18b;background:rgba(45,225,139,.12)}
+.adaptive-options button.wrong{border-color:#ff7272;background:rgba(255,114,114,.10)}
+.sim-card{background:rgba(4,11,23,.48);border:1px solid var(--border);border-radius:18px;padding:20px}
+.sim-card h3{color:#59c4ff;margin-bottom:7px}
+.sim-card p{color:var(--muted);line-height:1.65}
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.sim-card label{display:block;color:#dceeff;font-weight:700;padding:12px;background:#06162a;border:1px solid var(--border);border-radius:13px}
+.sim-card label output{float:right;color:#59c4ff;font-weight:900}
+.sim-card input[type=range]{width:100%;margin-top:12px;accent-color:#20d9ff}
+.sim-readout{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:15px 0;padding:15px 16px;background:#06162a;border:1px solid var(--border);border-radius:14px;color:#cfe7f8}
+.sim-readout strong{font-size:25px;color:#59c4ff}
+.sim-circuit{display:flex;align-items:center;justify-content:center;gap:12px;font-size:34px;padding:22px;background:#04101f;border:1px solid var(--border);border-radius:15px}
+.sim-circuit .wire{height:5px;width:80px;background:#20d9ff;border-radius:5px}
+.lens-stage{position:relative;height:190px;margin:16px 0;background:#04101f;border:1px solid var(--border);border-radius:15px;overflow:hidden}
+.lens-stage .lens-line{position:absolute;left:50%;top:18px;bottom:18px;width:5px;background:#59c4ff;border-radius:50%}
+.lens-stage .lens-shape{position:absolute;left:calc(50% - 18px);top:51px;font-size:82px;color:#59c4ff;line-height:1}
+.lens-stage .lens-object,.lens-stage .lens-image{position:absolute;bottom:53px;font-size:38px;color:#fff;transition:.25s}
+.eco-bars{display:grid;gap:11px;margin:18px 0}
+.eco-bars div{display:grid;grid-template-columns:155px 1fr;align-items:center;gap:10px;color:#cfe7f8}
+.eco-bars b{display:block;height:25px;min-width:4%;border-radius:999px;background:linear-gradient(90deg,#1683ff,#20d9ff);padding-left:9px;color:#fff;font-size:11px;line-height:25px;white-space:nowrap;transition:.3s}
+.tutor-topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:9px;max-height:180px;overflow:auto;padding-right:3px}
+.tutor-topic-grid button{padding:8px 9px;border:1px solid var(--border);border-radius:10px;background:#071a31;color:#cfe7f8;font-size:12px;cursor:pointer}
+.tutor-topic-grid button:hover{border-color:var(--cyan);color:#fff}
+@media(max-width:700px){.adaptive-options,.sim-grid{grid-template-columns:1fr}.tutor-topic-grid{grid-template-columns:repeat(2,1fr)}.sim-circuit{font-size:27px}.sim-circuit .wire{width:42px}.eco-bars div{grid-template-columns:1fr}}
+</style>
+
+<style id="adaptive-quiz-removed">
+/* Adaptive Quiz removed */
+#adaptiveQuizModal { display:none !important; }
+</style>
 </head>
 
 <body>
@@ -1415,6 +1522,41 @@ easier sections.
     <div id="revisionModalMount"></div>
   </div>
 </div>
+
+
+<!-- ================= COMPETITION EDITION HUB ================= -->
+<section class="competition-hub" id="competitionHub">
+  <div class="competition-head">
+    <span class="competition-kicker">SCIENCE10 COMPETITION EDITION</span>
+    <h2>🚀 Learn • Experiment • Discover</h2>
+    <p>A hands-on science learning zone designed to turn revision into experiments, challenges, explanations and real-world discovery.</p>
+  </div>
+  <div class="competition-grid">
+    <button class="competition-card" onclick="openScienceLab()"><span class="competition-icon">🧪</span><strong>Virtual Science Lab</strong><small>Run safe interactive simulations for electricity, lenses, pH and ecosystems.</small><span class="competition-tag">INTERACTIVE LAB</span></button>
+    <button class="competition-card" onclick="openSmartTutor()"><span class="competition-icon">🤖</span><strong>Smart Science Tutor</strong><small>Ask Class 10 science questions and get instant chapter-level explanations and examples.</small><span class="competition-tag">SMART LEARNING</span></button>
+    <button class="competition-card" onclick="openScienceSimulator()"><span class="competition-icon">🔬</span><strong>Science Simulators</strong><small>Change variables and observe relationships in electricity, lenses and ecosystems.</small><span class="competition-tag">DISCOVER</span></button>
+    <button class="competition-card" onclick="openLearningMap()"><span class="competition-icon">🗺️</span><strong>Science Learning Map</strong><small>Explore all 13 chapters as a visual learning journey through Chemistry, Biology and Physics.</small><span class="competition-tag">13 CHAPTERS</span></button>
+    <button class="competition-card" onclick="openTeachMode()"><span class="competition-icon">🎤</span><strong>Explain Like a Teacher</strong><small>Choose a concept, explain it yourself and check your explanation against a simple rubric.</small><span class="competition-tag">ACTIVE LEARNING</span></button>
+    <button class="competition-card" onclick="openRealLife()"><span class="competition-icon">🌍</span><strong>Science in Real Life</strong><small>Discover where Class 10 concepts appear in technology, health, homes and the environment.</small><span class="competition-tag">REAL WORLD</span></button>
+    <button class="competition-card" onclick="openCompetitionProgress()"><span class="competition-icon">📊</span><strong>My Science Dashboard</strong><small>See chapters, quizzes, activities, diagrams and revision progress in one place.</small><span class="competition-tag">YOUR PROGRESS</span></button>
+    <button class="competition-card" onclick="openAchievements()"><span class="competition-icon">🏆</span><strong>Science Champion</strong><small>Unlock milestones as you explore chapters, activities, quizzes and revision tools.</small><span class="competition-tag">ACHIEVEMENTS</span></button>
+  </div>
+</section>
+
+<!-- COMPETITION MODALS -->
+<div class="competition-modal" id="smartTutorModal"><div class="competition-box"><div class="competition-modal-head"><div><div class="subject">SMART LEARNING</div><h2>🤖 Smart Science Tutor</h2></div><button class="competition-close" onclick="closeCompetitionModal('smartTutorModal')">×</button></div><div class="competition-panel"><p>Ask a Class 10 Science question. This built-in tutor uses the site's science knowledge base, so it works without an external API or database.</p><input class="competition-input" id="tutorInput" placeholder="Example: Why does the sky appear blue?"><div class="tutor-suggestions"><button class="tutor-chip" onclick="setTutorQuestion('Why does the sky appear blue?')">Blue sky</button><button class="tutor-chip" onclick="setTutorQuestion('How does Ohm’s law work?')">Ohm's law</button><button class="tutor-chip" onclick="setTutorQuestion('How does photosynthesis happen?')">Photosynthesis</button><button class="tutor-chip" onclick="setTutorQuestion('Why do we see a rainbow?')">Rainbow</button></div><div class="competition-actions"><button class="competition-action" onclick="answerSmartTutor()">✨ Explain</button><button class="competition-action" onclick="document.getElementById('tutorInput').value='';document.getElementById('tutorOutput').innerHTML=''">Clear</button></div><div class="competition-output tutor-answer" id="tutorOutput">Your explanation will appear here.</div></div></div></div>
+
+<div class="competition-modal" id="adaptiveQuizModal"><div class="competition-box"><div class="competition-modal-head"><div><div class="subject">SMART QUIZ</div><h2>🧠 Adaptive Science Quiz</h2></div><button class="competition-close" onclick="closeCompetitionModal('adaptiveQuizModal')">×</button></div><div id="adaptiveQuizMount"></div></div></div>
+
+<div class="competition-modal" id="simulatorModal"><div class="competition-box"><div class="competition-modal-head"><div><div class="subject">DISCOVERY MODE</div><h2>🔬 Science Simulators</h2></div><button class="competition-close" onclick="closeCompetitionModal('simulatorModal')">×</button></div><div class="simulator-tabs"><button class="sim-tab active" onclick="selectScienceSimulator('electricity',this)">⚡ Electricity</button><button class="sim-tab" onclick="selectScienceSimulator('lens',this)">🔦 Lens</button><button class="sim-tab" onclick="selectScienceSimulator('ecosystem',this)">🌱 Ecosystem</button></div><div id="simulatorMount"></div></div></div>
+
+<div class="competition-modal" id="mapModal"><div class="competition-box"><div class="competition-modal-head"><div><div class="subject">LEARNING JOURNEY</div><h2>🗺️ Science Learning Map</h2></div><button class="competition-close" onclick="closeCompetitionModal('mapModal')">×</button></div><div class="map-grid" id="learningMapMount"></div></div></div>
+
+<div class="competition-modal" id="teachModal"><div class="competition-box"><div class="competition-modal-head"><div><div class="subject">ACTIVE LEARNING</div><h2>🎤 Explain Like a Teacher</h2></div><button class="competition-close" onclick="closeCompetitionModal('teachModal')">×</button></div><div class="competition-panel"><select class="competition-select" id="teachChapterSelect" onchange="loadTeachTopic()"></select><div class="teach-topic" id="teachTopic"></div><textarea class="competition-input" id="teachAnswer" rows="7" placeholder="Explain the concept in your own words..."></textarea><div class="competition-actions"><button class="competition-action" onclick="checkTeachExplanation()">🎯 Check My Explanation</button><button class="competition-action" onclick="loadTeachTopic()">🔄 New Topic</button></div><div class="competition-output" id="teachOutput">Your self-check will appear here.</div><div class="rubric"><div><b>1. Concept</b><br>Did you state the main idea?</div><div><b>2. Reason</b><br>Did you explain why/how?</div><div><b>3. Example</b><br>Did you connect it to an example?</div></div></div></div></div>
+
+<div class="competition-modal" id="realLifeModal"><div class="competition-box"><div class="competition-modal-head"><div><div class="subject">SCIENCE AROUND US</div><h2>🌍 Science in Real Life</h2></div><button class="competition-close" onclick="closeCompetitionModal('realLifeModal')">×</button></div><div class="competition-panel"><select class="competition-select" id="realLifeSelect" onchange="renderRealLife()"></select><div class="competition-output" id="realLifeOutput"></div></div></div></div>
+
+<div class="competition-modal" id="progressCompetitionModal"><div class="competition-box"><div class="competition-modal-head"><div><div class="subject">YOUR LEARNING</div><h2>📊 My Science Dashboard</h2></div><button class="competition-close" onclick="closeCompetitionModal('progressCompetitionModal')">×</button></div><div id="competitionProgressMount"></div></div></div>
 
 <!-- FORMULA BANK MODAL -->
 <div class="formula-modal" id="formulaModal">
@@ -3822,6 +3964,336 @@ document.getElementById('secretChapterModal')?.addEventListener('click',function
     </div>
   </div>
 </div>
+
+<script>
+/* SCIENCE10 COMPETITION UPGRADE — expanded tutor, randomized adaptive quiz, richer simulators */
+(function(){
+'use strict';
+const tutorDB=[
+['chemical reaction','A chemical reaction forms one or more new substances. Common signs include a colour change, gas evolution, temperature change or formation of a precipitate.','Chemical Reactions and Equations'],
+['oxidation','Oxidation can involve addition of oxygen, removal of hydrogen, loss of electrons or an increase in oxidation state.','Chemical Reactions and Equations'],
+['reduction','Reduction can involve removal of oxygen, addition of hydrogen, gain of electrons or a decrease in oxidation state.','Chemical Reactions and Equations'],
+['rancidity','Rancidity is the oxidation of fats and oils that produces unpleasant taste and smell. Refrigeration, airtight storage and antioxidants help slow it.','Chemical Reactions and Equations'],
+['ph','pH is a scale used to indicate how acidic or basic an aqueous solution is. Lower pH means greater acidity, while higher pH means greater basicity.','Acids, Bases and Salts'],
+['acid','Acids produce hydrogen ions in aqueous solution and generally turn blue litmus red. Their pH is below 7 at ordinary school-level conditions.','Acids, Bases and Salts'],
+['base','Bases produce hydroxide ions in aqueous solution and generally turn red litmus blue. Their pH is above 7 at ordinary school-level conditions.','Acids, Bases and Salts'],
+['baking soda','Baking soda is sodium hydrogen carbonate, NaHCO₃. It is used in baking and is also involved in the preparation of some antacids.','Acids, Bases and Salts'],
+['plaster of paris','Plaster of Paris is calcium sulphate hemihydrate, CaSO₄·½H₂O. It sets into gypsum when mixed with water.','Acids, Bases and Salts'],
+['reactivity series','The reactivity series arranges metals roughly from more reactive to less reactive. A more reactive metal can displace a less reactive metal from its salt solution.','Metals and Non-metals'],
+['ionic bond','An ionic bond results from electrostatic attraction between oppositely charged ions, usually formed after electron transfer between atoms.','Metals and Non-metals'],
+['corrosion','Corrosion is the gradual deterioration of a metal due to reactions with substances in the environment. Painting, oiling, galvanising and alloying can help prevent it.','Metals and Non-metals'],
+['carbon','Carbon forms four covalent bonds and can bond with itself to form chains, branches and rings. This property is called catenation.','Carbon and Its Compounds'],
+['catenation','Catenation is the ability of an element, especially carbon, to form covalent bonds with atoms of the same element to make chains or rings.','Carbon and Its Compounds'],
+['homologous series','A homologous series is a family of organic compounds with the same functional group and general formula, where successive members differ by –CH₂–.','Carbon and Its Compounds'],
+['ethanol','Ethanol is an alcohol with formula C₂H₅OH. It is a useful solvent and fuel, and its oxidation can produce ethanoic acid.','Carbon and Its Compounds'],
+['soap','Soap molecules have a water-attracting ionic end and a hydrocarbon end that interacts with oily dirt. They help form micelles in water.','Carbon and Its Compounds'],
+['photosynthesis','Photosynthesis uses light energy to convert carbon dioxide and water into glucose, with oxygen released as a by-product. Chlorophyll captures light energy.','Life Processes'],
+['stomata','Stomata are tiny pores, mainly on leaf surfaces, that regulate gas exchange and water loss. Their opening is controlled by guard cells.','Life Processes'],
+['digestion','Digestion breaks complex food substances into simpler substances that can be absorbed and used by the body. It involves mechanical and chemical processes.','Life Processes'],
+['respiration','Respiration releases energy from food. Aerobic respiration uses oxygen and generally releases more energy than anaerobic pathways.','Life Processes'],
+['nephron','The nephron is the functional unit of the kidney. Filtration, selective reabsorption and secretion contribute to urine formation.','Life Processes'],
+['heart','The human heart is a muscular organ with four chambers. It keeps oxygenated and deoxygenated blood largely separated and drives double circulation.','Life Processes'],
+['neuron','A neuron is a specialised nerve cell that receives and transmits information. Dendrites receive signals and the axon carries impulses away from the cell body.','Control and Coordination'],
+['reflex action','A reflex action is a rapid, automatic response to a stimulus, often coordinated through a reflex arc so that the response can occur quickly.','Control and Coordination'],
+['plant hormone','Plant hormones coordinate growth and responses. Auxin, gibberellin, cytokinin, abscisic acid and ethylene have different roles.','Control and Coordination'],
+['auxin','Auxin promotes cell growth and is involved in phototropic responses. Unequal auxin distribution can cause a shoot to bend toward light.','Control and Coordination'],
+['reproduction','Reproduction produces new individuals and helps maintain continuity of a species. It may be asexual or sexual.','How Do Organisms Reproduce?'],
+['binary fission','In binary fission, one parent cell divides to form two daughter cells. Amoeba is a common Class 10 example.','How Do Organisms Reproduce?'],
+['pollination','Pollination is the transfer of pollen grains from anther to stigma. It may occur within the same flower or between flowers.','How Do Organisms Reproduce?'],
+['fertilisation','Fertilisation is the fusion of male and female gametes to form a zygote. In humans it normally occurs in the fallopian tube.','How Do Organisms Reproduce?'],
+['menstrual cycle','The menstrual cycle involves cyclic changes in the female reproductive system. If fertilisation does not occur, the uterine lining is shed during menstruation.','How Do Organisms Reproduce?'],
+['heredity','Heredity is the transmission of traits from parents to offspring through genetic information.','Heredity'],
+['gene','A gene is a unit of heredity associated with a particular trait or function and is represented by a specific DNA sequence.','Heredity'],
+['dominant','A dominant allele can determine the phenotype when present with a contrasting recessive allele in a heterozygous condition.','Heredity'],
+['mendel','Gregor Mendel studied inheritance using pea plants and formulated basic principles of inheritance from his experiments.','Heredity'],
+['food chain','A food chain shows transfer of food and energy from one organism to another through feeding relationships. Energy decreases at successive trophic levels.','Our Environment'],
+['10 percent law','At each trophic level, only a small fraction of energy is transferred to the next level; the Class 10 NCERT treatment commonly represents this as about 10 percent.','Our Environment'],
+['ozone','The ozone layer absorbs much of the harmful ultraviolet radiation from the Sun. Certain chemicals can damage ozone in the atmosphere.','Our Environment'],
+['biodegradable','A biodegradable substance can be broken down by microorganisms through natural biological processes.','Our Environment'],
+['reflection','Reflection is the bouncing back of light from a surface. The angle of incidence equals the angle of reflection when measured from the normal.','Light – Reflection and Refraction'],
+['refraction','Refraction is the change in direction of light when it passes obliquely from one transparent medium to another because its speed changes.','Light – Reflection and Refraction'],
+['lens','A convex lens is thicker at the centre and can converge parallel rays. A concave lens is thinner at the centre and diverges parallel rays.','Light – Reflection and Refraction'],
+['mirror formula','For spherical mirrors, the mirror formula is 1/f = 1/v + 1/u, using the appropriate sign convention.','Light – Reflection and Refraction'],
+['magnification','For a spherical mirror, magnification m = hᵢ/hₒ = −v/u under the Cartesian sign convention.','Light – Reflection and Refraction'],
+['human eye','The human eye forms an image on the retina. The iris controls the amount of light entering through the pupil, while the eye lens focuses light.','The Human Eye and the Colourful World'],
+['myopia','Myopia is short-sightedness: distant objects are not focused clearly on the retina. It is corrected using a suitable concave lens.','The Human Eye and the Colourful World'],
+['hypermetropia','Hypermetropia is long-sightedness: nearby objects are not focused clearly on the retina. It is corrected using a suitable convex lens.','The Human Eye and the Colourful World'],
+['rainbow','A rainbow involves refraction, dispersion and internal reflection of sunlight in water droplets. Different wavelengths are deviated by different amounts.','The Human Eye and the Colourful World'],
+['ohm','Ohm’s law states that, at constant temperature, current through a conductor is directly proportional to the potential difference across it: V = IR.','Electricity'],
+['resistance','Resistance opposes the flow of electric charge. For a uniform conductor, R = ρL/A, so resistance increases with length and decreases with cross-sectional area.','Electricity'],
+['electric power','Electric power is the rate of electrical energy transfer. Useful forms include P = VI, P = I²R and P = V²/R.','Electricity'],
+['series','In a series circuit, the same current flows through each component and the equivalent resistance is the sum of the individual resistances.','Electricity'],
+['parallel','In a parallel circuit, the potential difference across each branch is the same, while current divides among the branches.','Electricity'],
+['magnetic field','A magnetic field is the region around a magnet or current-carrying conductor where magnetic effects can be detected. Field lines indicate its direction and relative strength.','Magnetic Effects of Electric Current'],
+['right hand thumb','The right-hand thumb rule relates the direction of current in a straight conductor to the direction of the magnetic field around it.','Magnetic Effects of Electric Current'],
+['fleming','Fleming’s left-hand rule gives the direction of force on a current-carrying conductor placed in a magnetic field.','Magnetic Effects of Electric Current'],
+['electromagnetic induction','Electromagnetic induction is the production of induced current when the magnetic flux linked with a circuit changes.','Magnetic Effects of Electric Current'],
+['generator','An electric generator converts mechanical energy into electrical energy using electromagnetic induction.','Magnetic Effects of Electric Current']
+];
+const quizDB=[
+['What is the pH of a neutral solution at 25°C?',['5','7','9','14'],'B','Acids, Bases and Salts'],
+['Which gas is usually evolved when an active metal reacts with a dilute acid?',['Oxygen','Hydrogen','Nitrogen','Chlorine'],'B','Acids, Bases and Salts'],
+['Which property allows carbon to form long chains?',['Malleability','Catenation','Sonority','Conductivity'],'B','Carbon and Its Compounds'],
+['Which organ is the main site of absorption of digested food?',['Stomach','Small intestine','Large intestine','Oesophagus'],'B','Life Processes'],
+['What is the functional unit of the kidney?',['Neuron','Nephron','Alveolus','Villus'],'B','Life Processes'],
+['Which part of a neuron receives most incoming signals?',['Dendrites','Axon','Synapse only','Myelin only'],'A','Control and Coordination'],
+['What is the fusion of gametes called?',['Pollination','Fertilisation','Germination','Budding'],'B','How Do Organisms Reproduce?'],
+['A gene is best described as:',['A type of tissue','A unit of heredity associated with a trait','A blood cell','A digestive enzyme'],'B','Heredity'],
+['Which is biodegradable?',['Glass','Plastic bottle','Vegetable peels','Aluminium can'],'C','Our Environment'],
+['The angle of incidence is equal to the angle of reflection when measured from the:',['Mirror surface','Normal','Focal point','Principal axis only'],'B','Light – Reflection and Refraction'],
+['A concave lens generally forms what type of image for a real object?',['Virtual, erect and diminished','Real and enlarged','Real and inverted only','Virtual and enlarged only'],'A','Light – Reflection and Refraction'],
+['Myopia is corrected using a:',['Convex lens','Concave lens','Plane mirror','Prism'],'B','The Human Eye and the Colourful World'],
+['Which relation represents Ohm’s law?',['V = IR','P = VI','Q = It','R = ρL/A'],'A','Electricity'],
+['Two resistors of 2 Ω and 3 Ω are connected in series. Their equivalent resistance is:',['1 Ω','5 Ω','6 Ω','2.5 Ω'],'B','Electricity'],
+['In a parallel circuit, the potential difference across each branch is:',['Always zero','The same as across the supply','Different for every branch','Always double the supply'],'B','Electricity'],
+['The direction of magnetic field around a straight current-carrying conductor is given by:',['Right-hand thumb rule','Law of reflection','Snell’s law','Newton’s third law'],'A','Magnetic Effects of Electric Current'],
+['An electric generator works on:',['Electrolysis','Electromagnetic induction','Diffusion','Refraction'],'B','Magnetic Effects of Electric Current'],
+['Which process releases energy from food in cells?',['Respiration','Transpiration','Pollination','Excretion'],'A','Life Processes'],
+['Which plant hormone is strongly associated with growth towards light?',['Auxin','Abscisic acid only','Insulin','Thyroxine'],'A','Control and Coordination'],
+['Successive members of a homologous series differ by:',['CH₃','CH₂','COOH','OH'],'B','Carbon and Its Compounds'],
+['Which metal can displace copper from copper sulphate solution?',['Silver','Gold','Iron','Platinum'],'C','Metals and Non-metals'],
+['Rusting of iron is an example of:',['Corrosion','Neutralisation','Sublimation','Distillation'],'A','Metals and Non-metals'],
+['Baking soda has the formula:',['NaCl','NaHCO₃','Na₂CO₃·10H₂O','CaSO₄·½H₂O'],'B','Acids, Bases and Salts'],
+['The image in the human eye is formed on the:',['Iris','Retina','Cornea only','Optic nerve'],'B','The Human Eye and the Colourful World'],
+['The splitting of white light into its component colours is called:',['Reflection','Dispersion','Conduction','Diffusion'],'B','The Human Eye and the Colourful World'],
+['The SI unit of electric current is:',['Volt','Ohm','Ampere','Watt'],'C','Electricity'],
+['Electrical power is measured in:',['Joule','Watt','Coulomb','Tesla'],'B','Electricity'],
+['Which trophic level generally contains the greatest available energy?',['Producers','Primary consumers','Secondary consumers','Decomposers'],'A','Our Environment'],
+['The ozone layer protects life mainly from:',['Infrared radiation','Ultraviolet radiation','Sound waves','Radio waves'],'B','Our Environment'],
+['Binary fission is commonly associated with:',['Amoeba','Rose','Mango seed','Human sperm only'],'A','How Do Organisms Reproduce?'],
+['Pollination is the transfer of pollen from:',['Stigma to ovary','Anther to stigma','Ovary to anther','Root to leaf'],'B','How Do Organisms Reproduce?'],
+['A dominant allele is expressed in a heterozygous condition when paired with:',['A contrasting recessive allele','Only another identical dominant allele','No allele','A chromosome pair only'],'A','Heredity'],
+['The basic unit of the nervous system is the:',['Nephron','Neuron','Alveolus','Platelet'],'B','Control and Coordination'],
+['Which structure controls the opening of stomata?',['Guard cells','Xylem vessels','Root hairs','Phloem fibres'],'A','Life Processes'],
+['The movement of water through a semipermeable membrane is:',['Osmosis','Combustion','Oxidation','Polymerisation'],'A','Life Processes'],
+['A convex lens is also called a:',['Diverging lens','Converging lens','Plane lens','Reflecting lens'],'B','Light – Reflection and Refraction'],
+['The focal length of a lens is related to its power by:',['P = 1/f in metres','P = f','P = f²','P = ρf'],'A','The Human Eye and the Colourful World'],
+['A 6 Ω resistor carries 2 A. Its potential difference is:',['3 V','8 V','12 V','18 V'],'C','Electricity'],
+['If voltage is constant and resistance doubles, current becomes:',['Double','Half','Four times','Unchanged'],'B','Electricity'],
+['The force on a current-carrying conductor in a magnetic field is used in a:',['Electric motor','Transformer only','Dry cell only','Fuse only'],'A','Magnetic Effects of Electric Current'],
+['The magnetic field inside a long solenoid is approximately:',['Weak and random','Strong and nearly uniform','Zero','Only gravitational'],'B','Magnetic Effects of Electric Current'],
+['Which is an example of asexual reproduction?',['Binary fission','Fusion of gametes','Fertilisation','Cross-pollination'],'A','How Do Organisms Reproduce?'],
+['DNA is mainly associated with:',['Genetic information','Digestion of starch','Blood clotting only','Gas exchange'],'A','Heredity'],
+['Decomposers mainly help ecosystems by:',['Breaking down dead organic matter','Producing sunlight','Stopping all nutrient cycles','Replacing producers'],'A','Our Environment'],
+['A mirror that can form a real inverted image is commonly a:',['Concave mirror','Plane mirror only','Convex mirror only','Glass slab'],'A','Light – Reflection and Refraction'],
+['Which colour has the shortest wavelength among visible colours?',['Red','Yellow','Green','Violet'],'D','The Human Eye and the Colourful World'],
+['The equivalent resistance of 6 Ω and 3 Ω in parallel is:',['9 Ω','3 Ω','2 Ω','18 Ω'],'C','Electricity'],
+['The commercial unit of electrical energy is:',['Watt','Kilowatt-hour','Ampere','Volt'],'B','Electricity'],
+['The rule used to find the direction of force on a current-carrying conductor is:',['Fleming’s left-hand rule','Right-hand thumb rule','Law of reflection','Archimedes’ principle'],'A','Magnetic Effects of Electric Current'],
+['Which substance is commonly used as an antioxidant to slow rancidity?',['Suitable food antioxidants','Sand','Copper wire','Distilled water'],'A','Chemical Reactions and Equations'],
+['A reaction in which heat is released to the surroundings is:',['Exothermic','Endothermic','Neutral only','Physical only'],'A','Chemical Reactions and Equations'],
+['Which compound is commonly known as Plaster of Paris?',['CaSO₄·½H₂O','NaHCO₃','NaCl','CaCO₃'],'A','Acids, Bases and Salts'],
+['Metals generally form positive ions because they tend to:',['Lose electrons','Gain neutrons','Lose protons','Gain photons'],'A','Metals and Non-metals'],
+['Soap cleans oily dirt mainly through formation of:',['Micelles','Nephrons','Stomata','Alleles'],'A','Carbon and Its Compounds'],
+['Double circulation in humans helps keep oxygenated and deoxygenated blood:',['Largely separated','Completely mixed','Outside the heart only','In the stomach'],'A','Life Processes'],
+['A reflex arc provides a pathway for a:',['Rapid automatic response','Slow digestion process','Long-term inheritance','Chemical combustion'],'A','Control and Coordination'],
+['Variation in a population can arise through:',['Genetic differences and other causes','Only identical copying','Only nutrition','Only exercise'],'A','Heredity'],
+['Energy available at higher trophic levels is generally:',['Lower','Higher','Always identical','Infinite'],'A','Our Environment'],
+['When light enters glass from air obliquely, it generally bends:',['Towards the normal','Away from the normal always','Along the surface','Into darkness'],'A','Light – Reflection and Refraction'],
+['The iris mainly controls:',['Amount of light entering the eye','Formation of red blood cells','Kidney filtration','Sound production'],'A','The Human Eye and the Colourful World'],
+['The resistance of a wire increases when its length is:',['Increased, other factors constant','Decreased only','Made zero','Unrelated always'],'A','Electricity'],
+['A device that converts electrical energy to mechanical energy is an:',['Electric motor','Electric generator only','Ammeter','Fuse'],'A','Magnetic Effects of Electric Current']
+];
+let adaptiveState={pool:[],current:null,score:0,answered:0,difficulty:2,history:[]};
+function $(id){return document.getElementById(id)}
+window.openCompetitionModal=function(id){const m=$(id);if(m){m.classList.add('open');m.style.display='flex'}};
+window.closeCompetitionModal=function(id){const m=$(id);if(m){m.classList.remove('open');m.style.display='none'}};
+window.openSmartTutor=function(){openCompetitionModal('smartTutorModal')};
+window.setTutorQuestion=function(q){if($('tutorInput'))$('tutorInput').value=q};
+window.answerSmartTutor=function(){const input=($('tutorInput')||{}).value||'';const q=input.trim().toLowerCase();const out=$('tutorOutput');if(!out)return;if(!q){out.innerHTML='<strong>Ask me a science question.</strong><br>Try a chapter name, concept, formula, or one of the suggested topics.';return}let hit=tutorDB.find(x=>q.includes(x[0])||x[0].split(' ').some(k=>k.length>3&&q.includes(k)));if(!hit){out.innerHTML='<strong>I don’t have that exact topic yet.</strong><br>Try: pH, corrosion, carbon, photosynthesis, nephron, neuron, reproduction, heredity, food chain, reflection, refraction, human eye, myopia, Ohm’s law, resistance, power, magnetic field, generator, or rainbow.';return}out.innerHTML='<div class="tutor-result-title">'+hit[2]+'</div><h3>'+hit[0].replace(/\b\w/g,c=>c.toUpperCase())+'</h3><p>'+hit[1]+'</p><div class="tutor-follow">Tip: Ask a “why”, “how”, or “numerical” question about this concept next.</div>'};
+function difficultyOf(q){return q[0].length%3===0?3:(q[0].length%2===0?2:1)}
+function shuffle(a){return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1])}
+function renderAdaptive(){const m=$('adaptiveQuizMount');if(!m)return;const q=adaptiveState.current;if(!q){m.innerHTML='<div class="competition-output"><h3>Adaptive Quiz Complete</h3><p>You scored <strong>'+adaptiveState.score+'</strong> out of <strong>'+adaptiveState.answered+'</strong>.</p><p>Accuracy: <strong>'+ (adaptiveState.answered?Math.round(adaptiveState.score/adaptiveState.answered*100):0)+'%</strong></p><button class="competition-action" onclick="openAdaptiveQuiz()">Start New Random Quiz</button></div>';return}const opts=shuffle(q[1].map((x,i)=>({label:x,key:String.fromCharCode(65+i)})));m.innerHTML='<div class="quiz-meta"><span>Question '+(adaptiveState.answered+1)+'</span><span>Level '+adaptiveState.difficulty+'</span><span>'+q[3]+'</span></div><h3>'+q[0]+'</h3><div class="adaptive-options">'+opts.map(o=>'<button onclick="answerAdaptive(\''+o.key+'\',this)" data-key="'+o.key+'">'+o.label+'</button>').join('')+'</div><div id="adaptiveFeedback" class="competition-output" style="display:none"></div>'}
+window.openAdaptiveQuiz=function(){adaptiveState={pool:shuffle(quizDB),current:null,score:0,answered:0,difficulty:2,history:[]};nextAdaptive();openCompetitionModal('adaptiveQuizModal')};
+function nextAdaptive(){if(adaptiveState.answered>=10){adaptiveState.current=null;renderAdaptive();return}let candidates=adaptiveState.pool.filter(q=>!adaptiveState.history.includes(q));if(!candidates.length){adaptiveState.history=[];candidates=adaptiveState.pool}let target=adaptiveState.difficulty;let close=candidates.filter(q=>difficultyOf(q)===target);adaptiveState.current=(close.length?shuffle(close):shuffle(candidates))[0];adaptiveState.history.push(adaptiveState.current);renderAdaptive()}
+window.answerAdaptive=function(key,btn){const q=adaptiveState.current;if(!q)return;document.querySelectorAll('.adaptive-options button').forEach(b=>b.disabled=true);const ok=key===q[2];adaptiveState.answered++;if(ok){adaptiveState.score++;adaptiveState.difficulty=Math.min(3,adaptiveState.difficulty+1)}else adaptiveState.difficulty=Math.max(1,adaptiveState.difficulty-1);const fb=$('adaptiveFeedback');fb.style.display='block';fb.innerHTML=(ok?'<strong>Correct!</strong> ':'<strong>Keep going!</strong> ')+'Correct answer: '+q[1][q[2].charCodeAt(0)-65]+'.<br><small>'+q[3]+' • Difficulty adjusts for your next question.</small><br><button class="competition-action" onclick="nextAdaptivePublic()">Next Question</button>';};window.nextAdaptivePublic=function(){nextAdaptive()};
+window.openScienceSimulator=function(){openCompetitionModal('simulatorModal');selectScienceSimulator('electricity',document.querySelector('.sim-tab'))};
+window.selectScienceSimulator=function(type,btn){document.querySelectorAll('.sim-tab').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const m=$('simulatorMount');if(!m)return;if(type==='electricity')renderElectricity(m);else if(type==='lens')renderLens(m);else renderEcosystem(m)};
+function renderElectricity(m){m.innerHTML='<div class="sim-card"><h3>⚡ Ohm’s Law Studio</h3><p>Change two variables and watch the third update. Formula: V = IR.</p><div class="sim-grid"><label>Voltage <input id="simV" type="range" min="1" max="24" value="12" oninput="updateElec()"><output id="simVout">12 V</output></label><label>Resistance <input id="simR" type="range" min="1" max="24" value="6" oninput="updateElec()"><output id="simRout">6 Ω</output></label></div><div class="sim-readout"><span>Current</span><strong id="simI">2.00 A</strong></div><div class="sim-circuit"><span class="battery">🔋</span><span class="wire"></span><span class="bulb" id="simBulb">💡</span><span class="wire"></span><span class="resistor">▥</span></div><p id="elecExplain">With 12 V and 6 Ω, current is 2 A.</p></div>'}
+window.updateElec=function(){const v=+$('simV').value,r=+$('simR').value,i=v/r;$('simVout').textContent=v+' V';$('simRout').textContent=r+' Ω';$('simI').textContent=i.toFixed(2)+' A';$('elecExplain').textContent='Current = V ÷ R = '+v+' ÷ '+r+' = '+i.toFixed(2)+' A. Lower resistance gives greater current when voltage is fixed.';$('simBulb').style.opacity=Math.min(1,0.25+i/4).toFixed(2)};
+function renderLens(m){m.innerHTML='<div class="sim-card"><h3>🔦 Lens Investigation</h3><p>Move the object and focal length. This simplified model calculates image distance with 1/f = 1/v − 1/u using magnitudes for the classroom display.</p><label>Object distance <input id="lensU" type="range" min="10" max="80" value="40" oninput="updateLens()"><output id="lensUout">40 cm</output></label><label>Focal length <input id="lensF" type="range" min="5" max="30" value="15" oninput="updateLens()"><output id="lensFout">15 cm</output></label><div class="lens-stage"><div class="lens-object" id="lensObj">▲</div><div class="lens-line"></div><div class="lens-shape">)(</div><div class="lens-image" id="lensImg">▼</div></div><div class="sim-readout"><span>Image distance</span><strong id="lensV">24.0 cm</strong></div><p id="lensExplain"></p></div>';updateLens()}
+window.updateLens=function(){const u=+$('lensU').value,f=+$('lensF').value;let v=(u*f)/(u-f);$('lensUout').textContent=u+' cm';$('lensFout').textContent=f+' cm';$('lensV').textContent= u===f?'At infinity':Math.abs(v).toFixed(1)+' cm';$('lensExplain').textContent=u>f?'For this position the convex-lens model gives a real image on the opposite side. When the object approaches the focal length, image distance increases rapidly.':'The object is at or inside the focal length, so the real-image formula no longer gives a finite real image in this simple display.';$('lensImg').style.left=Math.min(92,Math.max(55,55+Math.min(35,Math.abs(v)/2)))+'%'};
+function renderEcosystem(m){m.innerHTML='<div class="sim-card"><h3>🌱 Ecosystem Balance Lab</h3><p>Change the starting producer energy. The model applies a 10% transfer rule for a four-level chain.</p><label>Producer energy <input id="ecoE" type="range" min="100" max="10000" step="100" value="1000" oninput="updateEco()"><output id="ecoEout">1000 units</output></label><div class="eco-bars"><div><span>Producers</span><b id="eco1"></b></div><div><span>Primary consumers</span><b id="eco2"></b></div><div><span>Secondary consumers</span><b id="eco3"></b></div><div><span>Tertiary consumers</span><b id="eco4"></b></div></div><p id="ecoExplain"></p></div>';updateEco()}
+window.updateEco=function(){const e=+$('ecoE').value;const vals=[e,e*.1,e*.01,e*.001];$('ecoEout').textContent=e+' units';['eco1','eco2','eco3','eco4'].forEach((id,i)=>{const b=$(id);b.style.width=Math.max(3,vals[i]/e*100)+'%';b.textContent=vals[i].toFixed(i?i:0)+' units'});$('ecoExplain').textContent='Only about 10% of energy is represented as transferred to the next trophic level in this model, so available energy decreases sharply upward.'};
+})();
+</script>
+
+
+<script>
+/* FINAL COMPETITION FUNCTION REPAIR */
+(function(){
+  const $=id=>document.getElementById(id);
+  const safe=(s)=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const topics=[
+    ['Chemical Reactions','Explain types of chemical reactions with examples.'],['Balancing Equations','How do I balance a chemical equation?'],['Oxidation','What is oxidation?'],['Reduction','What is reduction?'],['Rancidity','Why does rancidity happen?'],['pH Scale','What does the pH scale tell us?'],['Acids','What are acids?'],['Bases','What are bases?'],['Baking Soda','What is baking soda and where is it used?'],['Plaster of Paris','What is plaster of Paris?'],['Reactivity Series','Explain the reactivity series.'],['Ionic Bond','What is an ionic bond?'],['Corrosion','How can corrosion be prevented?'],['Carbon','Why is carbon able to form so many compounds?'],['Catenation','What is catenation?'],['Homologous Series','What is a homologous series?'],['Ethanol','What are important properties of ethanol?'],['Soap','How does soap clean oily dirt?'],['Photosynthesis','How does photosynthesis occur?'],['Stomata','What are stomata and what do they do?'],['Digestion','Where does most digestion and absorption occur?'],['Respiration','What is respiration?'],['Nephron','How does a nephron help in urine formation?'],['Heart','Explain double circulation in humans.'],['Neuron','What is the function of a neuron?'],['Reflex Arc','What is a reflex action and reflex arc?'],['Auxin','How does auxin affect plant growth?'],['Reproduction','Why is reproduction important?'],['Binary Fission','Explain binary fission.'],['Pollination','What is pollination?'],['Fertilisation','What is fertilisation?'],['Menstrual Cycle','What is the role of the menstrual cycle?'],['Heredity','What is heredity?'],['Gene','What is a gene?'],['Dominant Trait','What is a dominant trait?'],['Mendel','What did Mendel study?'],['Food Chain','What is a food chain?'],['10 Percent Law','Explain the 10% law of energy transfer.'],['Ozone','Why is the ozone layer important?'],['Biodegradable','What does biodegradable mean?'],['Reflection','What is reflection of light?'],['Refraction','What is refraction of light?'],['Lens','How does a convex lens form images?'],['Mirror Formula','What is the mirror formula?'],['Magnification','What is magnification?'],['Human Eye','How does the human eye focus light?'],['Myopia','What is myopia and how is it corrected?'],['Hypermetropia','What is hypermetropia and how is it corrected?'],['Rainbow','How is a rainbow formed?'],['Ohm’s Law','Explain Ohm’s law.'],['Resistance','What factors affect resistance?'],['Electric Power','What are the formulas for electric power?'],['Series Circuit','What happens to resistance in series?'],['Parallel Circuit','What happens in a parallel circuit?'],['Magnetic Field','What is a magnetic field?'],['Right-Hand Thumb Rule','Explain the right-hand thumb rule.'],['Fleming’s Left-Hand Rule','What does Fleming’s left-hand rule tell us?'],['Electromagnetic Induction','What is electromagnetic induction?'],['Generator','How does an electric generator work?']
+  ];
+  window.openCompetitionModal=function(id){const m=$(id);if(!m)return;m.classList.add('open','show');m.style.display='flex';document.body.style.overflow='hidden'};
+  window.closeCompetitionModal=function(id){const m=$(id);if(!m)return;m.classList.remove('open','show');m.style.display='none';if(!document.querySelector('.competition-modal.open,.modal.show,.formula-modal.show,.practice-modal.show,.quiz-modal.show,.lab-modal.show,.achievement-modal.show'))document.body.style.overflow=''};
+  document.querySelectorAll('.competition-modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)window.closeCompetitionModal(m.id)}));
+
+  window.openSmartTutor=function(){
+    openCompetitionModal('smartTutorModal');
+    const out=$('tutorOutput'); if(out)out.innerHTML='<strong>Ready.</strong><br>Choose a topic or ask your own Class 10 Science question.';
+    const panel=document.querySelector('#smartTutorModal .competition-panel');
+    if(panel && !$('tutorTopics')){const d=document.createElement('div');d.id='tutorTopics';d.innerHTML='<div style="margin-top:14px;color:#a9bfd7;font-size:12px;font-weight:800">TOPIC LIBRARY — '+topics.length+' TOPICS</div><div class="tutor-topic-grid">'+topics.map(t=>'<button type="button" onclick="setTutorQuestion(\''+String(t[1]).replace(/\\/g,'\\\\').replace(/'/g,"\\'")+'\')">'+safe(t[0])+'</button>').join('')+'</div>';const actions=panel.querySelector('.competition-actions');panel.insertBefore(d,actions)}
+  };
+  window.setTutorQuestion=function(q){const i=$('tutorInput');if(i){i.value=q;i.focus()} };
+  window.answerSmartTutor=function(){
+    const q=(($('tutorInput')||{}).value||'').trim().toLowerCase(),out=$('tutorOutput');if(!out)return;
+    if(!q){out.innerHTML='<strong>Ask a question first.</strong><br>Try a topic from the library above.';return}
+    let hit=null;
+    if(typeof tutorDB!=='undefined') hit=tutorDB.find(x=>q.includes(String(x[0]).toLowerCase()) || String(x[0]).toLowerCase().split(' ').some(k=>k.length>3&&q.includes(k)));
+    const fallback={
+      'why does the sky appear blue?':['Blue sky','The sky appears blue mainly because shorter wavelengths of sunlight are scattered more strongly by molecules in Earth’s atmosphere.'],
+      'ohm’s law':['Ohm’s Law','At constant temperature, the potential difference across a conductor is proportional to the current through it: V = IR.'],
+      'photosynthesis':['Photosynthesis','Green plants use light energy to convert carbon dioxide and water into glucose, with oxygen released as a product.'],
+      'rainbow':['Rainbow','A rainbow involves refraction, dispersion and internal reflection of sunlight in water droplets.']
+    };
+    let title='',text='';
+    if(hit){title=hit[0];text=hit[1]}
+    else {const f=Object.entries(fallback).find(([k])=>q.includes(k.replace('?','')));if(f){title=f[1][0];text=f[1][1]}}
+    if(!text){const key=topics.find(t=>q.includes(t[0].toLowerCase())||t[1].toLowerCase().split(' ').some(w=>w.length>5&&q.includes(w)));if(key && typeof tutorDB!=='undefined'){const h=tutorDB.find(x=>String(x[0]).toLowerCase().includes(key[0].toLowerCase().split(' ')[0]));if(h){title=h[0];text=h[1]}}}
+    if(text)out.innerHTML='<div class="tutor-result-title">SMART EXPLANATION</div><h3>'+safe(title)+'</h3><p>'+safe(text)+'</p><div class="tutor-follow">Next: ask “why?”, “how?”, “give an example”, or “give me a numerical question” about this topic.</div>';
+    else out.innerHTML='<strong>I can answer from the Class 10 Science topic library.</strong><br>Try one of the '+topics.length+' topics above, or include a clear concept name in your question.';
+  };
+
+  // Add a larger randomized bank: 6+ questions per chapter, then the original bank remains included.
+  const more=[
+['A reaction in which two or more substances combine to form a single product is a:',['Combination reaction','Decomposition reaction','Displacement reaction','Double displacement reaction'],'A','Chemical Reactions and Equations'],
+['A reaction in which one compound breaks into simpler substances is a:',['Combination reaction','Decomposition reaction','Neutralisation only','Displacement reaction'],'B','Chemical Reactions and Equations'],
+['Which observation can indicate a chemical reaction?',['Change in colour or temperature','Only change in container shape','Only change in position','Only change in volume of a solid object'],'A','Chemical Reactions and Equations'],
+['A balanced chemical equation has equal numbers of:',['Atoms of each element on both sides','Molecules only','Compounds only','Coefficients only'],'A','Chemical Reactions and Equations'],
+['A substance that loses electrons is said to undergo:',['Oxidation','Reduction','Neutralisation','Precipitation'],'A','Chemical Reactions and Equations'],
+['A substance that gains electrons is said to undergo:',['Oxidation','Reduction','Decomposition','Combustion'],'B','Chemical Reactions and Equations'],
+['An acid turns blue litmus:',['Red','Green','Blue','Yellow'],'A','Acids, Bases and Salts'],
+['A base turns red litmus:',['Blue','Red','Yellow','Colourless'],'A','Acids, Bases and Salts'],
+['The reaction between an acid and a base is called:',['Neutralisation','Displacement','Combustion','Decomposition'],'A','Acids, Bases and Salts'],
+['A solution with pH 3 is:',['Acidic','Neutral','Basic','Always salty'],'A','Acids, Bases and Salts'],
+['Which substance is commonly used to neutralise excess stomach acid?',['Antacid','Bleaching powder','Plaster of Paris','Soap only'],'A','Acids, Bases and Salts'],
+['Washing soda is:',['Sodium carbonate decahydrate','Sodium chloride','Sodium hydrogen carbonate','Calcium sulphate hemihydrate'],'A','Acids, Bases and Salts'],
+['Metals generally form positive ions by:',['Losing electrons','Gaining neutrons','Sharing only protons','Losing nuclei'],'A','Metals and Non-metals'],
+['Which metal is among the most reactive in the given common reactivity series?',['Potassium','Copper','Silver','Gold'],'A','Metals and Non-metals'],
+['Which non-metal is essential for respiration in humans?',['Oxygen','Chlorine','Sulfur','Nitrogen gas only'],'A','Metals and Non-metals'],
+['Ionic compounds generally have:',['High melting and boiling points','Very low melting points always','No ions','Only covalent bonds'],'A','Metals and Non-metals'],
+['Which process protects iron by coating it with zinc?',['Galvanisation','Distillation','Electrolysis of water','Crystallisation'],'A','Metals and Non-metals'],
+['Metals are generally:',['Malleable and ductile','Brittle and dull','Poor conductors always','Soft gases'],'A','Metals and Non-metals'],
+['Carbon has valency:',['4','1','2','8'],'A','Carbon and Its Compounds'],
+['A covalent bond is formed by:',['Sharing of electrons','Transfer of protons','Loss of neutrons','Sharing of nuclei'],'A','Carbon and Its Compounds'],
+['Ethene contains a:',['Carbon-carbon double bond','Carbon-carbon triple bond','Carbon-carbon ionic bond','Metallic bond'],'A','Carbon and Its Compounds'],
+['The functional group –OH is called:',['Alcohol group','Aldehyde group','Carboxylic acid group','Halogen group'],'A','Carbon and Its Compounds'],
+['The functional group –COOH is called:',['Carboxylic acid group','Alcohol group','Ketone group','Ether group'],'A','Carbon and Its Compounds'],
+['Complete combustion of a hydrocarbon mainly produces:',['Carbon dioxide and water','Hydrogen and nitrogen','Oxygen and chlorine','Carbon monoxide only'],'A','Carbon and Its Compounds'],
+['The process by which organisms obtain and use food is called:',['Nutrition','Excretion','Coordination','Reproduction'],'A','Life Processes'],
+['The tiny air sacs in lungs are called:',['Alveoli','Nephrons','Villi','Stomata'],'A','Life Processes'],
+['The pigment that absorbs light for photosynthesis is:',['Chlorophyll','Haemoglobin','Insulin','Melanin'],'A','Life Processes'],
+['Xylem mainly transports:',['Water and minerals','Food only','Hormones only','Oxygen only'],'A','Life Processes'],
+['Phloem mainly transports:',['Food made by leaves','Water only','Urine','Oxygen only'],'A','Life Processes'],
+['The enzyme in saliva that begins starch digestion is:',['Salivary amylase','Pepsin','Trypsin','Lipase only'],'A','Life Processes'],
+['The brain and spinal cord together form the:',['Central nervous system','Digestive system','Endocrine gland','Excretory system'],'A','Control and Coordination'],
+['The gap between two neurons is called a:',['Synapse','Nephron','Villus','Stoma'],'A','Control and Coordination'],
+['The hormone that helps regulate blood glucose is:',['Insulin','Auxin','Thyroxine','Adrenaline only'],'A','Control and Coordination'],
+['The hormone produced by the thyroid gland is:',['Thyroxine','Insulin','Auxin','Oestrogen only'],'A','Control and Coordination'],
+['A reflex action is generally:',['Rapid and automatic','Always consciously planned','A form of digestion','A type of reproduction'],'A','Control and Coordination'],
+['Tropic movement in plants is a response to:',['A directional stimulus','Only gravity in every case','Only water loss','Only temperature'],'A','Control and Coordination'],
+['Asexual reproduction usually involves:',['One parent','Two parents only','Fusion of gametes','Meiosis in every case'],'A','How Do Organisms Reproduce?'],
+['Budding is commonly seen in:',['Hydra','Human beings','Mango trees only','Frogs only'],'A','How Do Organisms Reproduce?'],
+['Vegetative propagation can occur through:',['Roots, stems or leaves','Only seeds','Only pollen','Only flowers'],'A','How Do Organisms Reproduce?'],
+['The male reproductive part of a flower is the:',['Stamen','Carpel','Sepal','Petal'],'A','How Do Organisms Reproduce?'],
+['The female reproductive part of a flower is the:',['Carpel','Stamen','Anther only','Filament only'],'A','How Do Organisms Reproduce?'],
+['The embryo develops from the:',['Zygote','Pollen grain','Stigma','Ovule wall only'],'A','How Do Organisms Reproduce?'],
+['The hereditary material in most organisms is:',['DNA','Starch','Fat','Cellulose'],'A','Heredity'],
+['Alternative forms of a gene are called:',['Alleles','Nephrons','Hormones','Enzymes'],'A','Heredity'],
+['A trait that is masked in a heterozygote is generally called:',['Recessive','Dominant','Acquired only','Environmental only'],'A','Heredity'],
+['Mendel performed his famous experiments mainly on:',['Pea plants','Mango trees','Bacteria','Human beings'],'A','Heredity'],
+['The sex of a human child is determined by:',['The sex chromosome contributed by the father','The mother’s nutrition alone','The blood group','The child’s height'],'A','Heredity'],
+['Variation is important because it can:',['Help populations adapt to changing conditions','Prevent all evolution','Make all individuals identical','Stop reproduction'],'A','Heredity'],
+['A food web is:',['A network of interconnected food chains','A single organism','Only a producer','A type of mineral cycle'],'A','Our Environment'],
+['The first trophic level is usually occupied by:',['Producers','Primary consumers','Secondary consumers','Decomposers only'],'A','Our Environment'],
+['Biomagnification refers to increasing concentration of some substances at:',['Higher trophic levels','Only producers','Only soil','Only water vapour'],'A','Our Environment'],
+['Non-biodegradable waste:',['Is not broken down easily by natural decomposers','Always becomes soil quickly','Is always edible','Contains only water'],'A','Our Environment'],
+['Energy transfer in a food chain is:',['Unidirectional','Circular between trophic levels','Absent','Always 100% efficient'],'A','Our Environment'],
+['The principal cause of ozone depletion in the stratosphere includes:',['Chlorofluorocarbons','Oxygen alone','Water vapour only','Nitrogen gas only'],'A','Our Environment'],
+['The normal at a point of incidence is:',['A line perpendicular to the reflecting surface at that point','A line parallel to the mirror','The reflected ray','The incident ray only'],'A','Light – Reflection and Refraction'],
+['A plane mirror generally forms an image that is:',['Virtual and erect','Real and inverted','Always enlarged','Always diminished'],'A','Light – Reflection and Refraction'],
+['The focal length of a concave mirror is:',['The distance from pole to focus','The distance from focus to centre of curvature only','Always zero','Equal to aperture'],'A','Light – Reflection and Refraction'],
+['A convex mirror is commonly used as a rear-view mirror because it provides:',['A wider field of view','Only real images','A magnified field of view','No reflection'],'A','Light – Reflection and Refraction'],
+['When light travels from a rarer to a denser medium, its speed generally:',['Decreases','Increases always','Becomes zero','Remains infinite'],'A','Light – Reflection and Refraction'],
+['The refractive index of a medium is related to the speed of light by:',['n = c/v','n = v/c²','n = cv','n = c+v'],'A','Light – Reflection and Refraction'],
+['The iris controls the:',['Size of the pupil','Shape of the retina','Length of the optic nerve','Colour of the lens only'],'A','The Human Eye and the Colourful World'],
+['The eye lens is held in position by:',['Ciliary muscles and associated structures','The retina alone','The optic nerve','The pupil'],'A','The Human Eye and the Colourful World'],
+['Hypermetropia makes nearby objects:',['Difficult to see clearly','Difficult to see distant objects only','Invisible in all conditions','Always magnified'],'A','The Human Eye and the Colourful World'],
+['Presbyopia is mainly associated with:',['Age-related loss of accommodation','Damage to red blood cells','A type of corrosion','Only colour blindness'],'A','The Human Eye and the Colourful World'],
+['White light can be dispersed by a:',['Prism','Plane mirror only','Metal wire','Battery'],'A','The Human Eye and the Colourful World'],
+['The blue colour of the sky is mainly due to:',['Scattering of shorter wavelengths','Reflection from the Moon','Refraction in the ocean','Magnetic fields'],'A','The Human Eye and the Colourful World'],
+['The SI unit of potential difference is:',['Volt','Ampere','Ohm','Watt'],'A','Electricity'],
+['The SI unit of resistance is:',['Ohm','Volt','Ampere','Joule'],'A','Electricity'],
+['If a 10 Ω resistor carries 2 A, the voltage is:',['20 V','5 V','12 V','8 V'],'A','Electricity'],
+['For a conductor, resistance is directly proportional to its:',['Length','Cross-sectional area','Temperature only in every case','Current only'],'A','Electricity'],
+['The reciprocal of resistance is called:',['Conductance','Power','Charge','Energy'],'A','Electricity'],
+['A fuse is connected in a circuit to:',['Protect against excessive current','Increase voltage','Store charge','Measure resistance'],'A','Electricity'],
+['Magnetic field lines outside a bar magnet go from:',['North pole to south pole','South pole to south pole','East to west','Centre to edge only'],'A','Magnetic Effects of Electric Current'],
+['The magnetic field of a current-carrying solenoid resembles that of a:',['Bar magnet','Plane mirror','Lens','Battery only'],'A','Magnetic Effects of Electric Current'],
+['An electric motor works due to force on a:',['Current-carrying conductor in a magnetic field','Stationary resistor in vacuum','Lens in water','Mirror in air'],'A','Magnetic Effects of Electric Current'],
+['Fleming’s right-hand rule is associated with the direction of:',['Induced current','Gravitational force','Heat flow','Sound waves'],'A','Magnetic Effects of Electric Current'],
+['A split ring in a simple DC motor acts as a:',['Commutator','Fuse','Rheostat','Transformer'],'A','Magnetic Effects of Electric Current'],
+['The frequency of alternating current in India is commonly:',['50 Hz','5 Hz','500 Hz','0.5 Hz'],'A','Magnetic Effects of Electric Current']
+  ];
+  if(typeof quizDB!=='undefined'){quizDB.push(...more);}
+
+  let adaptiveState={pool:[],current:null,score:0,answered:0,difficulty:2,history:[],max:15,used:[]};
+  function qDifficulty(q){return q[0].length>115?3:(q[0].length>75?2:1)}
+  function shuffle(a){return a.slice().sort(()=>Math.random()-.5)}
+  function pickNext(){
+    if(adaptiveState.answered>=adaptiveState.max){adaptiveState.current=null;renderAdaptive();return}
+    const available=adaptiveState.pool.filter(q=>!adaptiveState.used.includes(q));
+    if(!available.length){adaptiveState.used=[];return pickNext()}
+    const target=adaptiveState.difficulty;
+    const near=available.filter(q=>Math.abs(qDifficulty(q)-target)<=0);
+    adaptiveState.current=shuffle(near.length?near:available)[0];adaptiveState.used.push(adaptiveState.current);renderAdaptive();
+  }
+  function renderAdaptive(){const m=$('adaptiveQuizMount');if(!m)return;if(!adaptiveState.current){const acc=adaptiveState.answered?Math.round(adaptiveState.score/adaptiveState.answered*100):0;m.innerHTML='<div class="competition-panel"><div class="subject">RESULT</div><h3 style="margin:5px 0 8px">Adaptive Quiz Complete</h3><div class="sim-observation"><div><span>Score</span><b>'+adaptiveState.score+'/'+adaptiveState.answered+'</b></div><div><span>Accuracy</span><b>'+acc+'%</b></div><div><span>Level</span><b>'+adaptiveState.difficulty+'</b></div></div><p style="margin-top:15px;color:var(--muted)">'+(acc>=80?'Excellent work.':'Good attempt — start another random set to strengthen weaker areas.')+'</p><button class="competition-action" onclick="openAdaptiveQuiz()">Start New Random Quiz</button></div>';return}
+    const q=adaptiveState.current,opts=shuffle(q[1].map((x,i)=>({label:x,key:String.fromCharCode(65+i)}))),pct=Math.round(adaptiveState.answered/adaptiveState.max*100);m.innerHTML='<div class="adaptive-progress"><span style="width:'+pct+'%"></span></div><div class="quiz-meta"><span>Question '+(adaptiveState.answered+1)+' / '+adaptiveState.max+'</span><span>Adaptive Level '+adaptiveState.difficulty+'</span><span>'+safe(q[3])+'</span></div><div class="competition-panel"><h3>'+safe(q[0])+'</h3><div class="adaptive-options">'+opts.map(o=>'<button onclick="answerAdaptive(this.dataset.key,this)" data-key="'+o.key+'">'+safe(o.label)+'</button>').join('')+'</div><div id="adaptiveFeedback" class="competition-output" style="display:none;margin-top:14px"></div></div>'}
+  window.openAdaptiveQuiz=function(){adaptiveState={pool:shuffle(quizDB),current:null,score:0,answered:0,difficulty:2,history:[],max:15,used:[]};openCompetitionModal('adaptiveQuizModal');pickNext()};
+  window.answerAdaptive=function(key){const q=adaptiveState.current;if(!q)return;document.querySelectorAll('.adaptive-options button').forEach(b=>b.disabled=true);const ok=key===q[2];adaptiveState.answered++;if(ok){adaptiveState.score++;adaptiveState.difficulty=Math.min(3,adaptiveState.difficulty+1)}else adaptiveState.difficulty=Math.max(1,adaptiveState.difficulty-1);const fb=$('adaptiveFeedback');fb.style.display='block';fb.innerHTML='<strong>'+(ok?'Correct!':'Not quite.')+'</strong><br>Correct answer: '+safe(q[1][q[2].charCodeAt(0)-65])+'<br><small>'+safe(q[3])+' • Next question adjusts to your performance.</small><br><button class="competition-action" style="margin-top:10px" onclick="nextAdaptivePublic()">Next Question →</button>'};
+  window.nextAdaptivePublic=function(){pickNext()};
+
+  window.openScienceSimulator=function(){openCompetitionModal('simulatorModal');window.selectScienceSimulator('electricity',document.querySelector('.sim-tab'))};
+  window.selectScienceSimulator=function(type,btn){document.querySelectorAll('#simulatorModal .sim-tab').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const m=$('simulatorMount');if(!m)return;if(type==='electricity')renderElectricity(m);else if(type==='lens')renderLens(m);else renderEcosystem(m)};
+  function renderElectricity(m){m.innerHTML='<div class="sim-card"><h3>⚡ Ohm’s Law Studio</h3><p>Explore how voltage and resistance affect current. Change the sliders and watch the circuit respond.</p><div class="sim-grid"><label>Voltage <output id="simVout">12 V</output><input id="simV" type="range" min="1" max="24" value="12" oninput="updateElec()"></label><label>Resistance <output id="simRout">6 Ω</output><input id="simR" type="range" min="1" max="24" value="6" oninput="updateElec()"></label></div><div class="sim-readout"><span>Current I = V ÷ R</span><strong id="simI">2.00 A</strong></div><div class="sim-circuit"><span>🔋</span><span class="wire"></span><span id="simBulb">💡</span><span class="wire"></span><span>▥</span></div><div class="sim-observation"><div><span>Voltage</span><b id="simObsV">12 V</b></div><div><span>Resistance</span><b id="simObsR">6 Ω</b></div><div><span>Current</span><b id="simObsI">2.00 A</b></div></div><p id="elecExplain" style="margin-top:14px"></p></div>';updateElec()}
+  window.updateElec=function(){const v=+$('simV').value,r=+$('simR').value,i=v/r;['simVout','simObsV'].forEach(id=>{if($(id))$(id).textContent=v+' V'});['simRout','simObsR'].forEach(id=>{if($(id))$(id).textContent=r+' Ω'});['simI','simObsI'].forEach(id=>{if($(id))$(id).textContent=i.toFixed(2)+' A'});if($('elecExplain'))$('elecExplain').textContent='At '+v+' V and '+r+' Ω, current is '+i.toFixed(2)+' A. With voltage fixed, increasing resistance reduces current.';if($('simBulb'))$('simBulb').style.opacity=Math.min(1,.25+i/4)};
+  function renderLens(m){m.innerHTML='<div class="sim-card"><h3>🔦 Convex Lens Investigation</h3><p>Move the object distance and focal length. The display uses the thin-lens relation with sign-safe classroom magnitudes.</p><div class="sim-grid"><label>Object distance <output id="lensUout">40 cm</output><input id="lensU" type="range" min="10" max="100" value="40" oninput="updateLens()"></label><label>Focal length <output id="lensFout">15 cm</output><input id="lensF" type="range" min="5" max="30" value="15" oninput="updateLens()"></label></div><div class="lens-stage"><div class="lens-object" id="lensObj">↑</div><div class="lens-line"></div><div class="lens-shape">)(</div><div class="lens-image" id="lensImg">↓</div></div><div class="sim-readout"><span>Image distance</span><strong id="lensV">24.0 cm</strong></div><div class="sim-observation"><div><span>Object</span><b id="lensObsU">40 cm</b></div><div><span>Focus</span><b id="lensObsF">15 cm</b></div><div><span>Type</span><b id="lensType">Real</b></div></div><p id="lensExplain" style="margin-top:14px"></p></div>';updateLens()}
+  window.updateLens=function(){const u=+$('lensU').value,f=+$('lensF').value;let v=u===f?Infinity:(u*f)/(u-f);$('lensUout').textContent=u+' cm';$('lensFout').textContent=f+' cm';$('lensObsU').textContent=u+' cm';$('lensObsF').textContent=f+' cm';$('lensV').textContent=Number.isFinite(v)?Math.abs(v).toFixed(1)+' cm':'At infinity';const real=u>f;$('lensType').textContent=real?'Real':'Virtual';$('lensExplain').textContent=real?'Object is beyond the focal length, so the simplified convex-lens model gives a real image on the opposite side.':'Object is at or inside the focal length, so this model describes a virtual image.';const img=$('lensImg'),obj=$('lensObj');if(img){img.style.left=Number.isFinite(v)?Math.min(88,Math.max(53,50+Math.min(38,Math.abs(v)/2)))+'%':'53%';img.style.transform=real?'scale(1)':'scale(1.15)'}if(obj)obj.style.left=Math.max(7,50-Math.min(40,u/2))+'%'};
+  function renderEcosystem(m){m.innerHTML='<div class="sim-card"><h3>🌱 Ecosystem Energy Lab</h3><p>Adjust producer energy and observe the 10% energy-transfer pattern through four trophic levels.</p><label>Producer energy <output id="ecoEout">1000 units</output><input id="ecoE" type="range" min="100" max="10000" step="100" value="1000" oninput="updateEco()"></label><div class="eco-bars"><div><span>Producers</span><b id="eco1"></b></div><div><span>Primary consumers</span><b id="eco2"></b></div><div><span>Secondary consumers</span><b id="eco3"></b></div><div><span>Tertiary consumers</span><b id="eco4"></b></div></div><div class="sim-readout"><span>Energy at tertiary level</span><strong id="ecoFinal">1.0</strong></div><p id="ecoExplain"></p></div>';updateEco()}
+  window.updateEco=function(){const e=+$('ecoE').value,vals=[e,e*.1,e*.01,e*.001];$('ecoEout').textContent=e+' units';vals.forEach((v,i)=>{const b=$('eco'+(i+1));if(b){b.style.width=Math.max(5,v/e*100)+'%';b.textContent=(i?v.toFixed(i):v.toFixed(0))+' units'}});$('ecoFinal').textContent=vals[3].toFixed(1)+' units';$('ecoExplain').textContent='Using the 10% rule in this model, only about one-tenth of the energy is transferred to the next trophic level.'};
+
+  // Restore all remaining competition buttons.
+  window.openLearningMap=function(){openCompetitionModal('mapModal');const m=$('learningMapMount');if(!m)return;const arr=chapters.map(c=>'<button class="map-step" onclick="closeCompetitionModal(&quot;mapModal&quot;);openChapter('+c.id+')"><b>Chapter '+safe(c.number)+'</b><span>'+safe(c.title)+'</span><small>'+safe(c.subject||'Science')+'</small></button>');m.innerHTML=arr.join('')};
+  const teachData=[['Chemical Reactions and Equations','Explain why a chemical equation must be balanced.'],['Life Processes','Explain why the human circulatory system is called double circulation.'],['Heredity','Explain the difference between a dominant and recessive trait.'],['Light – Reflection and Refraction','Explain the difference between reflection and refraction.'],['Electricity','Explain Ohm’s law and what V, I and R represent.'],['Our Environment','Explain why energy decreases at higher trophic levels.']];
+  window.openTeachMode=function(){openCompetitionModal('teachModal');const s=$('teachChapterSelect');if(s&&!s.options.length){s.innerHTML=teachData.map((x,i)=>'<option value="'+i+'">'+safe(x[0])+'</option>').join('')}loadTeachTopic()};
+  window.loadTeachTopic=function(){const s=$('teachChapterSelect'),i=s?+s.value:0,d=teachData[i]||teachData[0];if($('teachTopic'))$('teachTopic').innerHTML='<h3>'+safe(d[0])+'</h3><p>'+safe(d[1])+'</p>';if($('teachAnswer'))$('teachAnswer').value='';if($('teachOutput'))$('teachOutput').textContent='Write your explanation, then use the checker.'};
+  window.checkTeachExplanation=function(){const a=(($('teachAnswer')||{}).value||'').trim(),o=$('teachOutput');if(!o)return;if(a.length<25){o.innerHTML='<strong>Add a little more detail.</strong><br>Try to include the main concept, how or why it works, and an example.';return}let score=1;if(a.length>70)score++;if(/because|therefore|so that|why|example|for example|such as/i.test(a))score++;o.innerHTML='<strong>Self-check: '+score+'/3 criteria detected.</strong><br>Concept: '+(a.length>=25?'present':'missing')+'<br>Reason/example: '+(score>=3?'present':'add one')+'<br>Tip: compare your explanation with the chapter notes and improve one weak point.'};
+  const realLife=[['Electricity','Home wiring uses parallel connections so appliances can operate independently.'],['Acids and Bases','Antacids use neutralisation to reduce excess stomach acid.'],['Carbon and Its Compounds','Soaps and detergents help remove oily dirt through micelle formation.'],['Life Processes','The heart and blood vessels transport oxygen, nutrients and wastes around the body.'],['Light','Cameras, spectacles and optical instruments use reflection and refraction.'],['Environment','Food chains show how energy moves through ecosystems and why higher trophic levels have less available energy.']];
+  window.openRealLife=function(){openCompetitionModal('realLifeModal');const s=$('realLifeSelect');if(s&&!s.options.length)s.innerHTML=realLife.map((x,i)=>'<option value="'+i+'">'+safe(x[0])+'</option>').join('');renderRealLife()};
+  window.renderRealLife=function(){const s=$('realLifeSelect'),d=realLife[+(s?s.value:0)]||realLife[0];if($('realLifeOutput'))$('realLifeOutput').innerHTML='<h3>'+safe(d[0])+'</h3><p>'+safe(d[1])+'</p>'};
+  window.openCompetitionProgress=function(){openCompetitionModal('progressCompetitionModal');const m=$('competitionProgressMount');if(!m)return;const p=typeof getProgress==='function'?getProgress():{chapters:{},activities:{},quizzes:{}};const complete=Object.values(p.chapters||{}).filter(x=>x&&x.complete).length,read=Object.values(p.chapters||{}).filter(x=>x&&x.read).length,acts=Object.values(p.activities||{}).filter(Boolean).length,qs=Object.keys(p.quizzes||{}).length;m.innerHTML='<div class="competition-panel"><div class="sim-observation"><div><span>Chapters completed</span><b>'+complete+'/13</b></div><div><span>Chapters read</span><b>'+read+'/13</b></div><div><span>Activities</span><b>'+acts+'</b></div></div><div class="sim-readout"><span>Quiz chapters attempted</span><strong>'+qs+'</strong></div><p>Keep exploring chapters, activities, revision and quizzes. Your existing local progress is used here.</p></div>'};
+  // Keep the existing lab and achievement systems, but ensure their modals open correctly.
+  window.openScienceLab=function(){const m=$('labModal');if(m){m.classList.add('show');document.body.style.overflow='hidden'}};
+  window.openAchievements=function(){const p=typeof getProgress==='function'?getProgress():{chapters:{},activities:{},quizzes:{}};const complete=Object.values(p.chapters||{}).filter(x=>x&&x.complete).length,acts=Object.values(p.activities||{}).filter(Boolean).length,qs=Object.keys(p.quizzes||{}).length;const list=[['🚀','First Step','Visit your first chapter',Object.keys(p.chapters||{}).length>=1],['📚','Chapter Champion','Complete 3 chapters',complete>=3],['🧪','Lab Learner','Complete 5 activities',acts>=5],['📝','Quiz Starter','Finish a quiz',qs>=1],['🏆','Science Master','Complete all 13 chapters',complete>=13]];if($('achievementMount'))$('achievementMount').innerHTML='<div class="achievement-grid">'+list.map(x=>'<div class="achievement '+(x[3]?'unlocked':'')+'"><span>'+x[0]+'</span><strong>'+x[1]+' '+(x[3]?'✓':'')+'</strong><small>'+x[2]+'</small></div>').join('');if($('achievementModal')){$('achievementModal').classList.add('show');document.body.style.overflow='hidden'}};
+})();
+</script>
+<script>
+(function(){
+const el=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+window.setTutorQuestion=function(q){const i=el('tutorInput');if(i)i.value=q;setTimeout(()=>window.answerSmartTutor(),0)};
+window.answerSmartTutor=function(){const i=el('tutorInput'),o=el('tutorOutput');if(!o)return;const raw=(i?.value||'').trim(),q=raw.toLowerCase();if(!q){o.innerHTML='<strong>Choose a topic or type a question.</strong>';return}const db=(typeof tutorDB!=='undefined'&&Array.isArray(tutorDB))?tutorDB:[];let hit=db.find(x=>{const k=String(x[0]||'').toLowerCase();return q.includes(k)||k.split(/\s+/).filter(w=>w.length>3).some(w=>q.includes(w))});if(hit){o.innerHTML='<div class="tutor-result-title">'+esc(hit[2]||'Class 10 Science')+'</div><h3>'+esc(hit[0])+'</h3><p>'+esc(hit[1])+'</p><div class="tutor-follow">Ask another why, how, application, or numerical question about this topic.</div>';return}const extra=[['ohm','Ohm’s Law','Physics','Ohm’s law states that, at constant temperature, V is directly proportional to I, so V = IR.'],['photosynthesis','Photosynthesis','Life Processes','Green plants use sunlight to convert carbon dioxide and water into glucose, releasing oxygen.'],['rainbow','Rainbow','The Human Eye and the Colourful World','A rainbow forms through refraction, internal reflection and dispersion of sunlight by water droplets.'],['ph','pH Scale','Acids, Bases and Salts','The pH scale indicates acidity or basicity. At 25°C, pH 7 is neutral.'],['corrosion','Corrosion','Metals and Non-metals','Corrosion is the gradual deterioration of a metal due to environmental reactions; protective coatings can help prevent it.'],['nephron','Nephron','Life Processes','A nephron is the structural and functional unit of the kidney and helps filter blood and form urine.'],['refraction','Refraction','Light – Reflection and Refraction','Refraction is the change in direction of light when it passes obliquely between transparent media because its speed changes.'],['reflection','Reflection','Light – Reflection and Refraction','Reflection is the bouncing back of light from a surface; the angle of incidence equals the angle of reflection.']];const e=extra.find(x=>q.includes(x[0]));if(e)o.innerHTML='<div class="tutor-result-title">'+esc(e[2])+'</div><h3>'+esc(e[1])+'</h3><p>'+esc(e[3])+'</p>';else o.innerHTML='<strong>Topic not found.</strong><br>Try a Class 10 Science topic from the library.'};
+let A={pool:[],current:null,score:0,answered:0,difficulty:2,history:[],max:15};const db=()=>typeof quizDB!=='undefined'&&Array.isArray(quizDB)?quizDB:[];const sh=a=>a.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);const diff=q=>q[0].length<65?1:q[0].length<105?2:3;
+function renderA(){const m=el('adaptiveQuizMount');if(!m)return;if(!A.current){m.innerHTML='<div class="competition-output"><h3>Adaptive Quiz Complete</h3><p>You scored <strong>'+A.score+'</strong> out of <strong>'+A.answered+'</strong>.</p><p>Accuracy: <strong>'+(A.answered?Math.round(A.score/A.answered*100):0)+'%</strong></p><button class="competition-action" onclick="openAdaptiveQuiz()">Start New Random Quiz</button></div>';return}const q=A.current,opts=sh(q[1].map((x,n)=>({label:x,key:String.fromCharCode(65+n)})));m.innerHTML='<div class="adaptive-progress"><span style="width:'+Math.round(A.answered/A.max*100)+'%"></span></div><div class="quiz-meta"><span>Question '+(A.answered+1)+' / '+A.max+'</span><span>Level '+A.difficulty+'</span><span>'+esc(q[3]||'Science')+'</span></div><h3>'+esc(q[0])+'</h3><div class="adaptive-options">'+opts.map(x=>'<button type="button" data-key="'+x.key+'" onclick="answerAdaptive(\''+x.key+'\')">'+esc(x.label)+'</button>').join('')+'</div><div id="adaptiveFeedback" class="competition-output" style="display:none;margin-top:14px"></div>'}
+function nextA(){if(A.answered>=A.max){A.current=null;renderA();return}let c=A.pool.filter(q=>!A.history.includes(q));if(!c.length){A.history=[];c=A.pool.slice()}const exact=c.filter(q=>diff(q)===A.difficulty);A.current=sh(exact.length?exact:c)[0]||null;if(A.current)A.history.push(A.current);renderA()}
+window.openAdaptiveQuiz=function(){const all=db();if(!all.length){alert('Adaptive quiz questions could not be loaded.');return}A={pool:sh(all),current:null,score:0,answered:0,difficulty:2,history:[],max:15};const m=el('adaptiveQuizModal');if(m){m.classList.add('open','show');m.style.display='flex';document.body.style.overflow='hidden'}nextA()};window.answerAdaptive=function(key){if(!A.current)return;document.querySelectorAll('#adaptiveQuizMount .adaptive-options button').forEach(b=>b.disabled=true);const q=A.current,ok=key===q[2];A.answered++;if(ok)A.score++;A.difficulty=ok?Math.min(3,A.difficulty+1):Math.max(1,A.difficulty-1);const f=el('adaptiveFeedback');if(f){f.style.display='block';f.innerHTML=(ok?'<strong>Correct!</strong> ':'<strong>Keep going!</strong> ')+'Correct answer: '+esc(q[1][q[2].charCodeAt(0)-65])+'<br><button class="competition-action" onclick="nextAdaptivePublic()">Next Question</button>'}};window.nextAdaptivePublic=nextA;
+})();
+window.addEventListener('error',e=>console.error('Science10 UI error:',e.error||e.message));
+</script>
 
 </body>
 </html>
