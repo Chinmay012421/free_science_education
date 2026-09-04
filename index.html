@@ -1159,6 +1159,23 @@ body{
 @media(max-width:400px){
     .stats-grid{grid-template-columns:1fr}
 }
+
+/* SECRET CHAPTER - hidden until the access code is typed */
+.secret-chapter-modal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.78);backdrop-filter:blur(10px)}
+.secret-chapter-modal.show{display:flex}
+.secret-chapter-box{width:min(980px,96vw);max-height:88vh;overflow:auto;background:linear-gradient(145deg,#07172c,#0a203b);border:1px solid rgba(32,217,255,.35);border-radius:22px;box-shadow:0 25px 80px rgba(0,0,0,.55);padding:28px;color:var(--text)}
+.secret-chapter-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px}
+.secret-chapter-head h2{margin:0;color:#20d9ff;font-size:28px}
+.secret-chapter-head p{margin:5px 0 0;color:var(--muted)}
+.secret-close{border:1px solid var(--border);background:#0d2949;color:var(--text);border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer}
+.secret-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.secret-card{background:rgba(4,11,23,.55);border:1px solid var(--border);border-radius:16px;padding:18px}
+.secret-card h3{margin:0 0 10px;color:#50baff}
+.secret-card p,.secret-card li{color:var(--muted);line-height:1.65}
+.secret-card ul{margin:8px 0 0;padding-left:20px}
+.secret-badge{display:inline-block;margin-bottom:10px;padding:5px 10px;border-radius:999px;background:rgba(32,217,255,.1);border:1px solid rgba(32,217,255,.25);color:#20d9ff;font-size:12px;font-weight:700;letter-spacing:.7px}
+@media(max-width:700px){.secret-grid{grid-template-columns:1fr}.secret-chapter-box{padding:20px}.secret-chapter-head h2{font-size:23px}}
+
 </style>
 </head>
 
@@ -3697,7 +3714,161 @@ function resetRevisionTimer(){if(revisionTimerId){clearInterval(revisionTimerId)
 
 document.getElementById('revisionModal')?.addEventListener('click',function(e){if(e.target===this)closeRevisionTool()});
 
+
+/* SECRET CHAPTER ACCESS: type monkey#4 anywhere on the page */
+(function(){
+  const SECRET_CODE = 'monkey#4';
+  let secretBuffer = '';
+  let secretTimer = null;
+  function handleSecretKey(e){
+    if(e.ctrlKey || e.altKey || e.metaKey) return;
+    if(e.key === 'Escape'){
+      closeSecretChapter();
+      return;
+    }
+    let ch = e.key || '';
+    // On some keyboards Shift+3 reports the physical key as Digit3 instead of '#'.
+    if(e.shiftKey && e.code === 'Digit3') ch = '#';
+    if(ch.length !== 1) return;
+    secretBuffer += ch.toLowerCase();
+    if(secretBuffer.length > SECRET_CODE.length) secretBuffer = secretBuffer.slice(-SECRET_CODE.length);
+    if(secretBuffer === SECRET_CODE){
+      secretBuffer = '';
+      clearTimeout(secretTimer);
+      openSecretChapter();
+      showSecretUnlockNotice();
+      return;
+    }
+    clearTimeout(secretTimer);
+    secretTimer = setTimeout(()=>{secretBuffer='';}, 2500);
+  }
+  document.addEventListener('keydown', handleSecretKey, true);
+})();
+function showSecretUnlockNotice(){
+  let n=document.getElementById('secretUnlockNotice');
+  if(!n){
+    n=document.createElement('div');
+    n.id='secretUnlockNotice';
+    n.textContent='🔓 Secret chapter unlocked';
+    n.style.cssText='position:fixed;top:88px;left:50%;transform:translateX(-50%);z-index:4000;background:#0b2a4a;color:#20d9ff;border:1px solid rgba(32,217,255,.5);padding:10px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-weight:700;font-size:14px;';
+    document.body.appendChild(n);
+  }
+  clearTimeout(window.__secretNoticeTimer);
+  window.__secretNoticeTimer=setTimeout(()=>n.remove(),2200);
+}
+function openSecretChapter(){
+  const modal=document.getElementById('secretChapterModal');
+  if(!modal) return;
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+function closeSecretChapter(){
+  const modal=document.getElementById('secretChapterModal');
+  if(!modal) return;
+  modal.classList.remove('show');
+  modal.setAttribute('aria-hidden','true');
+  if(!document.getElementById('modal')?.classList.contains('show') && !document.getElementById('revisionModal')?.classList.contains('show')) document.body.style.overflow='';
+}
+document.getElementById('secretChapterModal')?.addEventListener('click',function(e){if(e.target===this)closeSecretChapter()});
+
 </script>
+
+
+<!-- SECRET CHAPTER: not listed in chapter cards, filters, search or revision -->
+<div class="secret-chapter-modal" id="secretChapterModal" aria-hidden="true">
+  <div class="secret-chapter-box" role="dialog" aria-modal="true" aria-labelledby="secretChapterTitle">
+    <div class="secret-chapter-head">
+      <div>
+        <span class="secret-badge">SECRET CHAPTER</span>
+        <h2 id="secretChapterTitle">🐒 Monkey & Sun Wukong</h2>
+        <p>A special hidden learning chapter about monkeys and the legendary Monkey King.</p>
+      </div>
+      <button class="secret-close" onclick="closeSecretChapter()" aria-label="Close">✕</button>
+    </div>
+
+    <div class="secret-grid">
+      <section class="secret-card">
+        <h3>🐒 What is a Monkey?</h3>
+        <p>Monkeys are primates. They are mammals with grasping hands or feet, forward-facing eyes and well-developed brains. The word “monkey” commonly refers to many primates other than apes and humans.</p>
+        <ul>
+          <li>They are found naturally in Africa, Asia and Central and South America, depending on the group.</li>
+          <li>Old World monkeys include groups such as macaques, langurs and baboons.</li>
+          <li>New World monkeys include groups such as capuchins, howler monkeys and spider monkeys.</li>
+          <li>Not every monkey has a tail; some Old World monkeys are tailless.</li>
+        </ul>
+      </section>
+
+      <section class="secret-card">
+        <h3>🧠 Monkey Body & Senses</h3>
+        <ul>
+          <li>Flexible limbs and grasping digits help many monkeys climb and handle objects.</li>
+          <li>Forward-facing eyes provide strong depth perception, useful for moving through trees.</li>
+          <li>Many species have excellent colour vision and keen hearing.</li>
+          <li>Some species have cheek pouches for temporarily carrying food.</li>
+          <li>Prehensile tails occur in some New World monkeys and can help with climbing or gripping.</li>
+        </ul>
+      </section>
+
+      <section class="secret-card">
+        <h3>🌿 Food, Habitat & Lifestyle</h3>
+        <p>Monkey diets vary by species and habitat. Common foods include fruits, leaves, seeds, flowers, insects and other small foods. Some species are mainly tree-dwelling, while others spend much of their time on the ground.</p>
+        <ul>
+          <li>Many live in forests, woodlands, grasslands or mountainous regions.</li>
+          <li>They often live in social groups and communicate through calls, facial expressions, gestures and body movements.</li>
+          <li>Group living can help with finding food, raising young and detecting danger.</li>
+        </ul>
+      </section>
+
+      <section class="secret-card">
+        <h3>🌎 Importance & Conservation</h3>
+        <p>Monkeys can help ecosystems through seed dispersal and by influencing plant communities. They are also important subjects in studies of animal behaviour, communication and cognition.</p>
+        <ul>
+          <li>Major threats for some species include habitat loss, hunting and illegal wildlife trade.</li>
+          <li>Conservation efforts include protecting habitats, supporting wildlife corridors and enforcing wildlife-protection laws.</li>
+          <li>Different monkey species have very different conservation statuses, so each species must be considered separately.</li>
+        </ul>
+      </section>
+
+      <section class="secret-card">
+        <h3>👑 Who is Sun Wukong?</h3>
+        <p>Sun Wukong, commonly called the Monkey King, is a legendary figure from the Chinese classical novel <em>Journey to the West</em>. He is a magical stone-born monkey who becomes exceptionally powerful and accompanies the monk Tang Sanzang on a pilgrimage.</p>
+        <ul>
+          <li>His name is often translated as “Monkey King” or “Great Sage Equal to Heaven” in English contexts.</li>
+          <li>He is famous for his intelligence, courage, mischievous nature and extraordinary abilities.</li>
+          <li>His story combines Chinese mythology, folklore, religious ideas and literary storytelling.</li>
+        </ul>
+      </section>
+
+      <section class="secret-card">
+        <h3>✨ Wukong's Famous Abilities</h3>
+        <ul>
+          <li><strong>72 transformations:</strong> he is traditionally described as being able to transform into many different forms.</li>
+          <li><strong>Cloud-somersault:</strong> he can travel enormous distances by riding a magical cloud.</li>
+          <li><strong>Immortality:</strong> the story gives him several supernatural forms of protection from death.</li>
+          <li><strong>Great strength and agility:</strong> he is portrayed as an exceptionally capable fighter.</li>
+          <li><strong>Ruyi Jingu Bang:</strong> his famous magical staff can change size and weight according to his will.</li>
+        </ul>
+      </section>
+
+      <section class="secret-card">
+        <h3>📖 Wukong in Journey to the West</h3>
+        <p>The story follows a pilgrimage to obtain Buddhist scriptures from the West. Wukong begins as a rebellious and powerful figure and gradually learns discipline, responsibility and cooperation while protecting Tang Sanzang.</p>
+        <ul>
+          <li>His journey includes encounters with demons, spirits, magical beings and difficult trials.</li>
+          <li>His companions include Zhu Bajie and Sha Wujing, while Tang Sanzang is the monk they protect.</li>
+          <li>The journey is both an adventure and a story about spiritual growth, self-control and perseverance.</li>
+        </ul>
+      </section>
+
+      <section class="secret-card">
+        <h3>🎭 Monkey vs. Wukong</h3>
+        <p><strong>Monkey</strong> is a real-world zoological term covering many living primate species. <strong>Sun Wukong</strong> is a fictional and mythological literary character inspired by monkey imagery and Chinese cultural traditions. They should not be treated as the same thing.</p>
+        <p>Wukong's popularity has led to many later adaptations in books, television, animation, games and other media, often interpreting his appearance and abilities in different ways.</p>
+      </section>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
