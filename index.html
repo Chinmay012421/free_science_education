@@ -1177,6 +1177,14 @@ body{
 @media(max-width:700px){.secret-grid{grid-template-columns:1fr}.secret-chapter-box{padding:20px}.secret-chapter-head h2{font-size:23px}}
 
 </style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQ889NLBFJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BQ889NLBFJ');
+</script>
 </head>
 
 <body>
@@ -1546,82 +1554,27 @@ easier sections.
    Chapter 6 has no NCERT image folder in the supplied repository.
 ========================================================= */
 
-const NCERT_REPO = "https://api.github.com/repos/Chinmay012421/scienceclass10-cbse/contents";
-
-const NCERT_CHAPTER_PATHS = {
-  "Chemical Reactions and Equations":
-    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/01_Chemical_Reactions_and_Equations",
-  "Acids, Bases and Salts":
-    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/02_Acids_Bases_and_Salts",
-  "Metals and Non-metals":
-    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/03_Metals_and_Non_metals",
-  "Carbon and Its Compounds":
-    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/04_Carbon_and_Its_Compounds",
-  "Life Processes":
-    "NCERT_Science_Diagrams_Corrected_Part_1/NCERT_Class10_Science_Diagrams/05_Life_Processes",
-  "Control and Coordination": null,
-  "How Do Organisms Reproduce?":
-    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/07_How_do_Organisms_Reproduce",
-  "Heredity":
-    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/08_Heredity",
-  "Light – Reflection and Refraction":
-    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/09_Light_Reflection_and_Refraction",
-  "The Human Eye and the Colourful World":
-    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/10_Human_Eye_and_Colourful_World",
-  "Electricity":
-    "NCERT_Science_Diagrams_Corrected_Part_2/NCERT_Class10_Science_Diagrams/11_Electricity"
-};
-
 const ncertDiagramCache = new Map();
 
-function figureNumber(filename){
-  const match = filename.match(/^Fig_(\d+)_(\d+)/i);
-  return match ? [Number(match[1]), Number(match[2])] : [999, 999];
-}
+// Use the exact local Diagrams_section1 files bundled with the website.
+// This avoids external GitHub API requests and works on GitHub Pages/Netlify.
+function getChapterDiagrams(chapter){
+  const key = chapter && chapter.title ? chapter.title : "";
+  if(ncertDiagramCache.has(key)) return Promise.resolve(ncertDiagramCache.get(key));
 
-function cleanDiagramName(filename){
-  return filename
-    .replace(/^Fig_\d+_\d+_/i, "")
-    .replace(/\.png$/i, "")
-    .replace(/_+/g, " ")
-    .trim();
-}
+  const diagrams = (typeof DIAGRAM_BANK !== "undefined" ? DIAGRAM_BANK : [])
+    .filter(item => {
+      const label = (item.chapterLabel || "").replace(/^\d+\.\s*/, "").trim();
+      return label === key;
+    })
+    .map(item => ({
+      figureNo: "NCERT Diagram",
+      caption: item.name,
+      src: item.src
+    }));
 
-async function getChapterDiagrams(chapter){
-  const folder = NCERT_CHAPTER_PATHS[chapter.title];
-  if(!folder) return [];
-  if(ncertDiagramCache.has(folder)) return ncertDiagramCache.get(folder);
-
-  try{
-    const response = await fetch(
-      `${NCERT_REPO}/${folder.split("/").map(encodeURIComponent).join("/")}?ref=main`,
-      {headers:{"Accept":"application/vnd.github+json"}}
-    );
-    if(!response.ok) throw new Error(`GitHub returned ${response.status}`);
-
-    const files = await response.json();
-    const diagrams = files
-      .filter(file => file.type === "file" && /\.png$/i.test(file.name) && /^Fig_\d+_\d+/i.test(file.name) && file.download_url)
-      .sort((a,b) => {
-        const [ac, af] = figureNumber(a.name);
-        const [bc, bf] = figureNumber(b.name);
-        return ac - bc || af - bf || a.name.localeCompare(b.name);
-      })
-      .map(file => {
-        const [chapterNo, figNo] = figureNumber(file.name);
-        return {
-          figureNo: `NCERT Fig. ${chapterNo}.${figNo}`,
-          caption: cleanDiagramName(file.name),
-          src: file.download_url
-        };
-      });
-
-    ncertDiagramCache.set(folder, diagrams);
-    return diagrams;
-  }catch(error){
-    console.error("Unable to load NCERT diagrams:", error);
-    return [];
-  }
+  ncertDiagramCache.set(key, diagrams);
+  return Promise.resolve(diagrams);
 }
 
 function renderTopicDiagram(diagram){
