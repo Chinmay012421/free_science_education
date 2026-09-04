@@ -90,7 +90,7 @@ a{
     display:flex;
     align-items:center;
     gap:10px;
-    font-size:21px;
+    font-size:19px;
     font-weight:800;
 }
 
@@ -538,7 +538,7 @@ footer{
     background:#030913;
     border-top:1px solid var(--border);
     text-align:center;
-    padding:35px 20px;
+    padding:25px 20px;
 }
 
 footer strong{
@@ -556,9 +556,9 @@ footer p{
     width:100%;
     max-width:1400px;
     margin:0 auto;
-    display:flex;
+    display:grid;
+    grid-template-columns:minmax(250px,1fr) auto minmax(250px,1fr);
     align-items:center;
-    justify-content:space-between;
     gap:30px;
 }
 .school-brand{
@@ -576,8 +576,8 @@ footer p{
     text-align:right;
 }
 .pm-brand-logo{
-    width:72px;
-    height:72px;
+    width:60px;
+    height:60px;
     object-fit:contain;
     flex-shrink:0;
 }
@@ -588,18 +588,18 @@ footer p{
 }
 .pm-brand-title{
     color:#ffffff;
-    font-size:18px;
+    font-size:16px;
     font-weight:700;
     line-height:1.2;
 }
 .pm-brand-subtitle{
     color:#8fa9c4;
-    font-size:14px;
+    font-size:13px;
     line-height:1.2;
 }
 .school-brand-logo{
-    width:72px;
-    height:72px;
+    width:60px;
+    height:60px;
     object-fit:contain;
     flex-shrink:0;
 }
@@ -610,26 +610,64 @@ footer p{
 }
 .school-brand-title{
     color:#ffffff;
-    font-size:18px;
+    font-size:16px;
     font-weight:700;
     line-height:1.2;
 }
 .school-brand-subtitle{
     color:#8fa9c4;
-    font-size:14px;
+    font-size:13px;
     line-height:1.2;
 }
 @media(max-width:700px){
     .footer-branding-row{
-        flex-direction:column;
-        align-items:stretch;
+        grid-template-columns:1fr;
         gap:24px;
     }
     .school-brand{justify-content:flex-start;}
     .pm-brand{justify-content:flex-end;}
-    .school-brand-logo,.pm-brand-logo{width:60px;height:60px;}
-    .school-brand-title,.pm-brand-title{font-size:16px;}
-    .school-brand-subtitle,.pm-brand-subtitle{font-size:13px;}
+    .school-brand-logo,.pm-brand-logo{width:52px;height:52px;}
+    .footer-center-note{font-size:13px;}
+    .footer-center-title{font-size:18px;}
+    .footer-center-subtitle{font-size:14px;}
+    .footer-center-subjects{font-size:13px;}
+
+    .school-brand-title,.pm-brand-title{font-size:15px;}
+    .school-brand-subtitle,.pm-brand-subtitle{font-size:12px;}
+}
+
+
+.footer-center-text{
+    flex:1;
+    min-width:0;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+}
+.footer-center-note{
+    color:#b9d7f3;
+    font-size:14px;
+    line-height:1.4;
+    margin-bottom:8px;
+}
+.footer-center-title{
+    color:#50baff;
+    font-size:19px;
+    font-weight:800;
+    line-height:1.2;
+}
+.footer-center-subtitle{
+    color:#8fa9c4;
+    font-size:14px;
+    line-height:1.25;
+}
+.footer-center-subjects{
+    color:#718aa5;
+    font-size:13px;
+    line-height:1.25;
 }
 
 /* NO RESULTS */
@@ -1298,7 +1336,7 @@ easier sections.
     <span class="revision-mini-stat">Questions: <b id="revisionQuestionStat">0</b></span>
     <span class="revision-mini-stat">Sessions: <b id="revisionSessionStat">0</b></span>
   </div>
-  <p class="revision-bottom-note">Use Quick Revision first, then test yourself with Questions or Flashcards.</p>
+  <p class="revision-bottom-note"></p>
 </div>
 
 <div class="revision-modal" id="revisionModal" aria-hidden="true">
@@ -1387,7 +1425,12 @@ easier sections.
     </div>
 </div>
 
-
+<div class="footer-center-text">
+    <div class="footer-center-note"></div>
+    <div class="footer-center-title">🔬 Science10</div>
+    <div class="footer-center-subtitle">CBSE Class 10 Science Learning Website</div>
+    <div class="footer-center-subjects">Chemistry • Biology • Physics</div>
+</div>
 
 <div class="pm-brand">
     <div class="pm-brand-text">
